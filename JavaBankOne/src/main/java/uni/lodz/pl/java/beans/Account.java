@@ -1,21 +1,31 @@
 package uni.lodz.pl.java.beans;
 
 public class Account {
-    private long numberOfAccount;
+    private static long numberOfAccount;
     private String nameOfAccount;
     private  double amount;
+    private  Customer customerAccount;
     private int amountOfTransfer;
     private TypeOfAccount typeOfAccount;
-    public Account(long numberOfAccount, String nameOfAccount, double amount, TypeOfAccount typeOfAccount) {
+
+    public Account(long numberOfAccount, String nameOfAccount, double amount, Customer customerAccount, int amountOfTransfer, TypeOfAccount typeOfAccount) {
         this.numberOfAccount = numberOfAccount;
         this.nameOfAccount = nameOfAccount;
         this.amount = amount;
+        this.customerAccount = customerAccount;
+        this.amountOfTransfer = amountOfTransfer;
         this.typeOfAccount = typeOfAccount;
     }
 
     public Account() {
     }
+    public Customer getCustomerAccount() {
+        return customerAccount;
+    }
 
+    public void setCustomerAccount(Customer customerAccount) {
+        this.customerAccount = customerAccount;
+    }
     public long getNumberOfAccount() {
         return numberOfAccount;
     }

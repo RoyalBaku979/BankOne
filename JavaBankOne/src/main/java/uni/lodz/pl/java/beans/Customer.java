@@ -8,7 +8,7 @@ public class Customer {
     private  String surname;
     private Date dateOfBirth;
     private Date dateOfJoinedBank;
-    private int amountOfInternationalTransfer;
+    private static int amountOfInternationalTransfer;
 
 
 
@@ -63,6 +63,9 @@ public class Customer {
     public void setListOfAccount(List<Account> listOfAccount) {
         this.listOfAccount = listOfAccount;
     }
+    public void AddListOfAccount(Account account) {
+       listOfAccount.add(account);
+    }
     public int getAmountOfInternationalTransfer() {
         return amountOfInternationalTransfer;
     }
@@ -70,4 +73,6 @@ public class Customer {
     public void setAmountOfInternationalTransfer(int amountOfInternationalTransfer) {
         this.amountOfInternationalTransfer = amountOfInternationalTransfer;
     }
+    
+
 }
