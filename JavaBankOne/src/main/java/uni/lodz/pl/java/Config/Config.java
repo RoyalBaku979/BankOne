@@ -15,8 +15,8 @@ public class Config {
         return ListOfAccount;
     }
 
-    public static void setListOfAccount(List<Account> listOfAccount) {
-        ListOfAccount = listOfAccount;
+    public static void AddListOfAccount(Account account) {
+        ListOfAccount.add(account);
     }
 
     public static List<Customer> getListofCustomer() {

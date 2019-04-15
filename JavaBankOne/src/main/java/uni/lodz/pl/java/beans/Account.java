@@ -5,20 +5,23 @@ public class Account {
     private String nameOfAccount;
     private  double amount;
     private  Customer customerAccount;
-    private int amountOfTransfer;
+    private Double amountOfMoney;
     private TypeOfAccount typeOfAccount;
+    private boolean acceptedAccount=false;
 
-    public Account(long numberOfAccount, String nameOfAccount, double amount, Customer customerAccount, int amountOfTransfer, TypeOfAccount typeOfAccount) {
-        this.numberOfAccount = numberOfAccount;
-        this.nameOfAccount = nameOfAccount;
-        this.amount = amount;
-        this.customerAccount = customerAccount;
-        this.amountOfTransfer = amountOfTransfer;
-        this.typeOfAccount = typeOfAccount;
-    }
+
 
     public Account() {
     }
+
+    public boolean isAcceptedAccount() {
+        return acceptedAccount;
+    }
+
+    public void setAcceptedAccount(boolean acceptedAccount) {
+        this.acceptedAccount = acceptedAccount;
+    }
+
     public Customer getCustomerAccount() {
         return customerAccount;
     }
@@ -58,11 +61,11 @@ public class Account {
         this.typeOfAccount = typeOfAccount;
     }
 
-    public int getAmountOfTransfer() {
-        return amountOfTransfer;
+    public Double getAmountOfMoney() {
+        return amountOfMoney;
     }
 
-    public void setAmountOfTransfer(int amountOfTransfer) {
-        this.amountOfTransfer = amountOfTransfer;
+    public void setAmountOfMoney(Double amountOfMoney) {
+        this.amountOfMoney = amountOfMoney;
     }
 }
