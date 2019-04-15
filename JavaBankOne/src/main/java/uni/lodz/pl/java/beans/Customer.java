@@ -12,7 +12,7 @@ public class Customer {
 
 
 
-    private List<Account>listOfAccount;
+
 
     public Customer(String name, String surname, Date dateOfBirth, Date dateOfJoinedBank) {
         this.name = name;
@@ -60,12 +60,7 @@ public class Customer {
         return listOfAccount;
     }
 
-    public void setListOfAccount(List<Account> listOfAccount) {
-        this.listOfAccount = listOfAccount;
-    }
-    public void AddListOfAccount(Account account) {
-       listOfAccount.add(account);
-    }
+
     public int getAmountOfInternationalTransfer() {
         return amountOfInternationalTransfer;
     }

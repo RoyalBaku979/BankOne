@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a37ffcea-08dd-4218-b488-026eddf83c6e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/EmployerUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Employeer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Config/Config.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/CustomerUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/CustomerUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Customer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -31,8 +27,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Customer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="14" column="39" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="39" />
+            <state relative-caret-position="398">
+              <caret line="62" selection-start-line="62" selection-end-line="62" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -79,8 +75,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/CustomerUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+            <state relative-caret-position="292">
+              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -139,7 +135,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Account.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
+            <state relative-caret-position="675">
               <caret line="67" column="39" selection-start-line="67" selection-start-column="39" selection-end-line="67" selection-end-column="39" />
               <folding>
                 <element signature="e#388#389#0" expanded="true" />
@@ -194,7 +190,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/TypeOfAccount.java" />
         <option value="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/TypeOfTransfer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Customer.java" />
         <option value="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Transaction.java" />
         <option value="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/TransferUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/BankUtil.java" />
@@ -202,6 +197,7 @@
         <option value="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Account.java" />
         <option value="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/EmployerUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Config/Config.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Customer.java" />
         <option value="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/CustomerUtil.java" />
       </list>
     </option>
@@ -322,12 +318,12 @@
       <workItem from="1552230565250" duration="953000" />
       <workItem from="1552231583111" duration="1789000" />
       <workItem from="1555252028939" duration="11596000" />
-      <workItem from="1555350831533" duration="1170000" />
+      <workItem from="1555350831533" duration="1483000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15508000" />
+    <option name="totallyTimeSpent" value="15821000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1246" height="777" extended-state="0" />
@@ -394,28 +390,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#310#311#0" expanded="true" />
-            <element signature="e#348#349#0" expanded="true" />
-            <element signature="e#411#412#0" expanded="true" />
-            <element signature="e#460#461#0" expanded="true" />
-            <element signature="e#501#502#0" expanded="true" />
-            <element signature="e#537#538#0" expanded="true" />
-            <element signature="e#596#597#0" expanded="true" />
-            <element signature="e#646#647#0" expanded="true" />
-            <element signature="e#695#696#0" expanded="true" />
-            <element signature="e#732#733#0" expanded="true" />
-            <element signature="e#800#801#0" expanded="true" />
-            <element signature="e#852#853#0" expanded="true" />
-            <element signature="e#894#895#0" expanded="true" />
-            <element signature="e#934#935#0" expanded="true" />
-            <element signature="e#998#999#0" expanded="true" />
-            <element signature="e#1056#1057#0" expanded="true" />
-            <element signature="e#1093#1094#0" expanded="true" />
-            <element signature="e#1129#1130#0" expanded="true" />
-            <element signature="e#1184#1185#0" expanded="true" />
-            <element signature="e#1234#1235#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -447,29 +421,6 @@
             <element signature="method#GetRegularNumberOfTransfer#0;class#TransferUtil#0" />
             <element signature="method#GetTime#0;class#TransferUtil#0" />
             <element signature="method#ShowTransferByPerson#0;class#TransferUtil#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Customer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="14" column="39" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Account.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="67" column="39" selection-start-line="67" selection-start-column="39" selection-end-line="67" selection-end-column="39" />
-          <folding>
-            <element signature="e#388#389#0" expanded="true" />
-            <element signature="e#425#426#0" expanded="true" />
-            <element signature="e#486#487#0" expanded="true" />
-            <element signature="e#538#539#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -523,10 +474,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Account.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="67" column="39" selection-start-line="67" selection-start-column="39" selection-end-line="67" selection-end-column="39" />
+          <folding>
+            <element signature="e#388#389#0" expanded="true" />
+            <element signature="e#425#426#0" expanded="true" />
+            <element signature="e#486#487#0" expanded="true" />
+            <element signature="e#538#539#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Customer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="62" selection-start-line="62" selection-end-line="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/CustomerUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+        <state relative-caret-position="292">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
