@@ -1,27 +1,29 @@
 package uni.lodz.pl.java.beans;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 public class Customer {
+    private String CustomerNumber;
     private String name;
     private  String surname;
-    private Date dateOfBirth;
+    private  String email;
+    private  String password;
+    private String dateOfBirth;
     private Date dateOfJoinedBank;
     private static int amountOfInternationalTransfer;
-
-
-
-
-
-    public Customer(String name, String surname, Date dateOfBirth, Date dateOfJoinedBank) {
-        this.name = name;
-        this.surname = surname;
-        this.dateOfBirth = dateOfBirth;
-        this.dateOfJoinedBank = dateOfJoinedBank;
+    private List<Account>listOfAccount;
+    public void setCustomerNumber(String customerNumber) {
+        CustomerNumber = customerNumber;
     }
+    public String getCustomerNumber() {
+        return CustomerNumber;
+    }
+    public void addAccountList(Account account)
+    {
+         listOfAccount.add(account);
 
-    public Customer() {
     }
 
     public String getName() {
@@ -40,11 +42,31 @@ public class Customer {
         this.surname = surname;
     }
 
-    public Date getDateOfBirth() {
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public List<Account> getListOfAccount() {
+        return listOfAccount;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -56,18 +78,11 @@ public class Customer {
         this.dateOfJoinedBank = dateOfJoinedBank;
     }
 
-    public List<Account> getListOfAccount() {
-        return listOfAccount;
-    }
-
-
-    public int getAmountOfInternationalTransfer() {
+    public static int getAmountOfInternationalTransfer() {
         return amountOfInternationalTransfer;
     }
 
-    public void setAmountOfInternationalTransfer(int amountOfInternationalTransfer) {
-        this.amountOfInternationalTransfer = amountOfInternationalTransfer;
+    public static void setAmountOfInternationalTransfer(int amountOfInternationalTransfer) {
+        Customer.amountOfInternationalTransfer = amountOfInternationalTransfer;
     }
-    
-
 }

@@ -2,12 +2,13 @@ package uni.lodz.pl.java.Util;
 
 import uni.lodz.pl.java.Config.Config;
 import uni.lodz.pl.java.beans.Account;
+import uni.lodz.pl.java.beans.Customer;
+import uni.lodz.pl.java.beans.TypeOfAccount;
 
 import java.util.List;
 
 public class EmployerUtil {
-    public static boolean AccecptNewAccount(Account account)
-    {
+    public static boolean AccecptNewAccount(Account account) {
      if(CheckAccount(account))
      {
          return true;
@@ -19,24 +20,52 @@ public class EmployerUtil {
      }
 
     }
-    public static boolean CheckAccount (Account account)
-    {
-        if(Config.getListOfAccount().size()==0)
-        {
-            return false;
-        }
+    public static boolean CheckAccount (Account account) {
 
-        for (Account a: Config.getListOfAccount()) {
-            if(a.equals(account))
-            {
-                return false;
+           if(account.getCustomerAccount()==null || account.getTypeOfAccount()==null
+            || account.getNumberOfAccount().trim().isEmpty())
+           {
 
-            }
-
-        }
-        return true;
+               return  false;
+           }
+           else {
+               return CheckInternationalAccount(account);
+           }
 
 
     }
+    public  static boolean CheckInternationalAccount(Account account) {
+        if(account.getTypeOfAccount()==TypeOfAccount.International)
+        {
+            return  CheckIbanNumber(account.getIBAN());
 
-}
+        }
+        else
+        {
+            return true;
+        }
+
+    }
+    public static boolean CheckIbanNumber(String iBan){
+      if(iBan.trim().isEmpty() || iBan.length()<10)
+      {
+          return  false;
+      }
+      else
+      {
+          return true;
+      }
+
+    }
+    public static void LookPersonelDateOfCustomer(Customer customer) {
+        System.out.println("Customer name:" + customer.getName());
+        System.out.println("Customer name:" + customer.getSurname());
+        System.out.println("Customer name:" + customer.getDateOfBirth());
+        System.out.println("Customer name:" + customer.getDateOfJoinedBank());
+        System.out.println("Account");
+        for (Account account : Config.getListOfAccount()) {
+            System.out.println("Account Information:" + account.toString());
+
+        }
+    }
+    }

@@ -8,38 +8,55 @@ import uni.lodz.pl.java.beans.TypeOfAccount;
 import java.sql.SQLOutput;
 
 public class CustomerUtil {
-    public static boolean OpenAccount(TypeOfAccount typeOfAccount, Double amountOfMoney, Customer customer,String nameOfAccount){
+    public static boolean SendRequest(TypeOfAccount typeOfAccount, Double amountOfMoney, Customer customer,String nameOfAccount){
         Account account=new Account();
         account.setAmount(0);
-        account.setNumberOfAccount(0);
+        account.setNumberOfAccount(genarateAccountNumber(customer));
         account.setTypeOfAccount(typeOfAccount);
         account.setAmountOfMoney(amountOfMoney);
         account.setCustomerAccount(customer);
-       if(EmployerUtil.AccecptNewAccount(account))
-       {
-           account.setAcceptedAccount(true);
-           Config.AddListOfAccount(account);
-           return true;
 
-       }
-       else
-       {
-
-           return false;
-       }
+       return OpenAccount(account);
 
     }
-    public static void LookPersonelDateOfCustomer(Customer customer){
-        System.out.println("Customer name:"+customer.getName());
-        System.out.println("Customer name:"+customer.getSurname());
-        System.out.println("Customer name:"+customer.getDateOfBirth());
-        System.out.println("Customer name:"+customer.getDateOfJoinedBank());
-        System.out.println("Account");
-        for (Account account:Config.getListOfAccount())
+    public static boolean OpenAccount(Account account){
+        if(EmployerUtil.AccecptNewAccount(account))
         {
-            System.out.println("Account Information:"+account.toString());
+            Config.AddListOfAccount(account);
+            account.getCustomerAccount().addAccountList(account);
+            return true;
 
+        }
+        else
+        {
+
+            return false;
         }
 
     }
+    public  static String genarateNumber(Customer customer){
+        String number=customer.getListOfAccount().size()+"";
+        int size= number.length();
+        while(size<3)
+        {
+            number="0"+number;
+            size= number.length();
+        }
+
+        return number;
+
+
+    }
+
+    public  static String genarateAccountNumber(Customer customer){
+        String banknumber="12";
+        String fullNumber=banknumber+customer.getCustomerNumber()+genarateNumber(customer);
+        return fullNumber;
+
+    }
+
+  public static String generateIbanNumber(){
+ return "IbanNumber";
+
+  }
 }

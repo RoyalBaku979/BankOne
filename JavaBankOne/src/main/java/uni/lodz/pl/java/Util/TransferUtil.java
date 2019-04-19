@@ -124,7 +124,7 @@ public class TransferUtil {
         }
         else {
             if (typeOfTransfer == TypeOfTransfer.CREDIT) {
-                senderAccount.setNumberOfAccount(GetRegularNumberOfTransfer(senderAccount));
+              //  senderAccount.setTransactiondate(GetRegularNumberOfTransfer(senderAccount));
 
 
 
@@ -146,9 +146,9 @@ public class TransferUtil {
     public static long GetRegularNumberOfTransfer(Account account) {
 
 
-           long i =account.getNumberOfAccount();
-           return i;
-
+          // long i =account.getNumberOfAccount();
+        //   return i;
+   return 12;
     }
     public static Date GetTime(){
         Calendar c=Calendar.getInstance();
