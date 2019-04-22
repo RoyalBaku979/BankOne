@@ -10,6 +10,7 @@ public class Config {
     private static List<Account>ListOfAccount=null;
     private static List<Customer>ListofCustomer=null;
     private static List<Transaction>LitsOfTransactions=null;
+    private static Customer customer=null;
 
     public static List<Account> getListOfAccount() {
         return ListOfAccount;
@@ -35,5 +36,11 @@ public class Config {
          LitsOfTransactions.add(transactions);
     }
 
+    public static Customer getCustomer() {
+        return customer;
+    }
 
+    public static void setCustomer(Customer customer) {
+        Config.customer = customer;
+    }
 }

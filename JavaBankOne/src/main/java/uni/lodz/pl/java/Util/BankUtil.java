@@ -30,8 +30,7 @@ public boolean CreateCustomer(String name,String surname,String email,String pas
        }
 
 }
-public static String genarateCustomerNumber()
-{
+public static String genarateCustomerNumber() {
    String number=Config.getListofCustomer().size()+"";
        int size= number.length();
        while(size<5)
@@ -43,5 +42,71 @@ public static String genarateCustomerNumber()
     return number;
 
 }
+    public boolean reuglarCreditTrasnfer(Account accountSender,Account accountReciever,double amountOfTransfer) {
+
+
+        if(accountSender.getAmount()<amountOfTransfer)
+        {
+            return false;
+        }
+        else
+        {
+            accountSender.setAmount(accountSender.getAmount()-amountOfTransfer);
+            accountReciever.setAmount(accountReciever.getAmount()+amountOfTransfer);
+            return true;
+        }
+
+
+
+
+
+    }
+    public boolean regularDebitTrasnfer(Account accountSender,Account accountReciever,double amountOfTransfer) {
+
+
+        if(accountSender.getAmount()<amountOfTransfer)
+        {
+            return false;
+        }
+        else
+        {
+            accountSender.setAmount(accountSender.getAmount()-amountOfTransfer);
+            accountReciever.setAmount(accountReciever.getAmount()+amountOfTransfer);
+            return true;
+        }
+
+
+
+
+
+    }
+    public TypeOfAccount checkSenderAccount(Account senderAccount) {
+        if(senderAccount==null)
+            return null;
+        TypeOfAccount typeOfAccount=senderAccount.getTypeOfAccount();
+        switch (typeOfAccount)
+        {
+
+            case International:return TypeOfAccount.International;
+            case Saving:return TypeOfAccount.Saving;
+            case Regular:return TypeOfAccount.Regular;
+        }
+        return null;
+
+    }
+    public TypeOfAccount checkRecieverAccount(Account recivierAccount) {
+        if(recivierAccount==null)
+            return null;
+        TypeOfAccount typeOfAccount=recivierAccount.getTypeOfAccount();
+        switch (typeOfAccount)
+        {
+
+            case International:return TypeOfAccount.International;
+            case Saving:return TypeOfAccount.Saving;
+            case Regular:return TypeOfAccount.Regular;
+        }
+        return null;
+
+    }
 
 }

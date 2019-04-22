@@ -6,9 +6,10 @@ public class Account {
    private static String IBAN;
     private  double amount;
     private  Customer customerAccount;
-    private Double amountOfMoney;
+    private int transferAmount;
     private TypeOfAccount typeOfAccount;
-
+    private  double interestRate=0;
+    private boolean approveByemployer=false;
 
 
     public static String getNumberOfAccount() {
@@ -35,12 +36,12 @@ public class Account {
         this.customerAccount = customerAccount;
     }
 
-    public Double getAmountOfMoney() {
-        return amountOfMoney;
+    public int getTransferAmount() {
+        return transferAmount;
     }
 
-    public void setAmountOfMoney(Double amountOfMoney) {
-        this.amountOfMoney = amountOfMoney;
+    public void setTransferAmount(int transferAmount) {
+        this.transferAmount = transferAmount;
     }
 
     public TypeOfAccount getTypeOfAccount() {
@@ -57,5 +58,21 @@ public class Account {
 
     public static void setIBAN(String IBAN) {
         Account.IBAN = IBAN;
+    }
+
+    public double getInterestRate() {
+        return interestRate;
+    }
+
+    public void setInterestRate(double interestRate) {
+        this.interestRate = interestRate;
+    }
+
+    public boolean isApproveByemployer() {
+        return approveByemployer;
+    }
+
+    public void setApproveByemployer(boolean approveByemployer) {
+        this.approveByemployer = approveByemployer;
     }
 }
