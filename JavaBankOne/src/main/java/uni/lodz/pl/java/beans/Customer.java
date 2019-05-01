@@ -14,14 +14,16 @@ public class Customer {
     private Date dateOfJoinedBank;
     private static int amountOfInternationalTransfer;
     private List<Account>listOfAccount;
+    private List<Transaction>listFfTransaction;
+    private static Customer instance;
+    private Customer(){}
     public void setCustomerNumber(String customerNumber) {
         CustomerNumber = customerNumber;
     }
     public String getCustomerNumber() {
         return CustomerNumber;
     }
-    public void addAccountList(Account account)
-    {
+    public void addAccountList(Account account) {
          listOfAccount.add(account);
 
     }
@@ -66,6 +68,14 @@ public class Customer {
         return listOfAccount;
     }
 
+    public List<Transaction> getListFfTransaction() {
+        return listFfTransaction;
+    }
+
+    public void AddTransaction(Transaction transaction) {
+       listFfTransaction.add(transaction);
+    }
+
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
@@ -84,5 +94,27 @@ public class Customer {
 
     public static void setAmountOfInternationalTransfer(int amountOfInternationalTransfer) {
         Customer.amountOfInternationalTransfer = amountOfInternationalTransfer;
+    }
+    public static Customer getInstance(){
+        if (instance == null)
+        {
+            //synchronized block to remove overhead
+            synchronized (Customer.class)
+            {
+                if(instance==null)
+                {
+                    // if instance is null, initialize
+                    instance = new Customer();
+                }
+
+            }
+        }
+        return instance;
+    }
+
+    @Override
+    public String toString() {
+        String customer="Name:"+getName()+";Surname:"+getSurname()+";Email:"+getEmail()+":DataofBirth:"+getDateOfBirth();
+        return customer;
     }
 }

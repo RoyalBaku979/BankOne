@@ -1,17 +1,17 @@
 package uni.lodz.pl.java.beans;
 
-public class Account {
+public final class Account {
 
     private static String numberOfAccount;
-   private static String IBAN;
+    private static String IBAN;
     private  double amount;
     private  Customer customerAccount;
     private int transferAmount;
     private TypeOfAccount typeOfAccount;
     private  double interestRate=0;
     private boolean approveByemployer=false;
-
-
+    private static Account instance;
+private Account(){}
     public static String getNumberOfAccount() {
         return numberOfAccount;
     }
@@ -72,7 +72,39 @@ public class Account {
         return approveByemployer;
     }
 
+    @Override
+    public String toString() {
+    String account=null;
+    if(getTypeOfAccount()==TypeOfAccount.International)
+    {
+        account="Account number"+getNumberOfAccount()+";Account Type:"+getTypeOfAccount()+";Iban:"+getIBAN()+";Customer"+getCustomerAccount();
+    }
+    else
+    {
+        account="Account number"+getNumberOfAccount()+";Account Type:"+getTypeOfAccount()+";Customer:"+getCustomerAccount();
+    }
+
+        return account;
+    }
+
     public void setApproveByemployer(boolean approveByemployer) {
         this.approveByemployer = approveByemployer;
+    }
+    public static Account getInstance()
+    {
+        if (instance == null)
+        {
+            //synchronized block to remove overhead
+            synchronized (Account.class)
+            {
+                if(instance==null)
+                {
+                    // if instance is null, initialize
+                    instance = new Account();
+                }
+
+            }
+        }
+        return instance;
     }
 }

@@ -1,12 +1,14 @@
 package uni.lodz.pl.java.beans;
 
+import java.time.ZonedDateTime;
 import java.util.Date;
 
 public class Transaction {
+    private String transactionNumber;
     private  Account RecivierAccount;
     private Account senderAccount;
     private TypeOfTransfer typeOfTransfer;
-    private Date   dateOfTransaction;
+    private ZonedDateTime dateOfTransaction;
     private double amountOfMoney;
 
 
@@ -16,6 +18,14 @@ public class Transaction {
 
     public Transaction() {
 
+    }
+
+    public String getTransactionNumber() {
+        return transactionNumber;
+    }
+
+    public void setTransactionNumber(String transactionNumber) {
+        this.transactionNumber = transactionNumber;
     }
 
     public void setRecivierAccount(Account recivierAccount) {
@@ -38,11 +48,11 @@ public class Transaction {
         this.typeOfTransfer = typeOfTransfer;
     }
 
-    public Date getDateOfTransaction() {
+    public ZonedDateTime getDateOfTransaction() {
         return dateOfTransaction;
     }
 
-    public void setDateOfTransaction(Date dateOfTransaction) {
+    public void setDateOfTransaction(ZonedDateTime dateOfTransaction) {
         this.dateOfTransaction = dateOfTransaction;
     }
 

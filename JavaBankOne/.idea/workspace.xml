@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a37ffcea-08dd-4218-b488-026eddf83c6e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Config/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/BankUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/BankUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/CustomerUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/CustomerUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/TransferUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/TransferUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Employeer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Employeer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Transaction.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -31,37 +34,18 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Customer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="52" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="52" />
+            <state relative-caret-position="450">
+              <caret line="75" column="42" selection-start-line="75" selection-start-column="42" selection-end-line="75" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1404#1405#0" expanded="true" />
-                <element signature="e#1440#1441#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/TransferUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="82" column="104" selection-start-line="82" selection-start-column="104" selection-end-line="82" selection-end-column="104" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#doTransfer#0;class#TransferUtil#0" />
-                <element signature="method#WireTransfer#0;class#TransferUtil#0" />
-                <element signature="method#CreditTrasnfer#0;class#TransferUtil#0" />
-                <element signature="method#RegularCreditTrasnfer#0;class#TransferUtil#0" />
-                <element signature="method#SavingCreditTrasnfer#0;class#TransferUtil#0" />
-                <element signature="method#checkAmounOfBalance#0;class#TransferUtil#0" />
-                <element signature="e#1720#1826#1" />
-                <element signature="method#doneTransfer#0;class#TransferUtil#0" />
-                <element signature="method#debitTransfer#0;class#TransferUtil#0" />
-                <element signature="method#increaseNumber#0;class#TransferUtil#0" />
-                <element signature="method#checkAccountBelongBank#0;class#TransferUtil#0" />
-                <element signature="method#checkSenderAccount#0;class#TransferUtil#0" />
-                <element signature="method#checkRecieverAccount#0;class#TransferUtil#0" />
+                <element signature="method#addAccountList#0;class#Customer#0" />
+                <element signature="e#1602#1603#0" expanded="true" />
+                <element signature="e#1642#1643#0" expanded="true" />
+                <element signature="e#1704#1705#0" expanded="true" />
+                <element signature="e#1735#1736#0" expanded="true" />
+                <element signature="method#setAmountOfInternationalTransfer#0;class#Customer#0" />
+                <element signature="method#getInstance#0;class#Customer#0" />
+                <element signature="method#toString#0;class#Customer#0" />
               </folding>
             </state>
           </provider>
@@ -70,15 +54,57 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/CustomerUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="60" column="24" lean-forward="true" selection-start-line="57" selection-start-column="11" selection-end-line="60" selection-end-column="24" />
+            <state relative-caret-position="615">
+              <caret line="114" selection-start-line="114" selection-end-line="114" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#addIbanNumber#0;class#CustomerUtil#0" />
                 <element signature="method#addInterestRate#0;class#CustomerUtil#0" />
-                <element signature="method#genarateAccountNumber#0;class#CustomerUtil#0" />
+                <element signature="method#OpenAccount#0;class#CustomerUtil#0" />
+                <element signature="method#genarateCustomerNumber#0;class#CustomerUtil#0" />
                 <element signature="method#generateIbanNumber#0;class#CustomerUtil#0" />
                 <element signature="method#loginCustomer#0;class#CustomerUtil#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/TransferUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="537">
+              <caret line="199" column="33" lean-forward="true" selection-start-line="199" selection-start-column="33" selection-end-line="199" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#doTransfer#0;class#TransferUtil#0" />
+                <element signature="method#WireTransfer#0;class#TransferUtil#0" />
+                <element signature="method#CreditTrasnfer#0;class#TransferUtil#0" />
+                <element signature="method#RegularCreditTrasnfer#0;class#TransferUtil#0" />
+                <element signature="method#SavingCreditTrasnfer#0;class#TransferUtil#0" />
+                <element signature="method#checkAmountOfBalance#0;class#TransferUtil#0" />
+                <element signature="method#doneTransfer#0;class#TransferUtil#0" />
+                <element signature="method#debitTransfer#0;class#TransferUtil#0" />
+                <element signature="method#getTransactionNumber#0;class#TransferUtil#0" />
+                <element signature="method#checkAccountBelongBank#0;class#TransferUtil#0" />
+                <element signature="method#checkSenderAccount#0;class#TransferUtil#0" />
+                <element signature="method#checkRecieverAccount#0;class#TransferUtil#0" />
+                <element signature="method#saveTrasction#0;class#TransferUtil#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Transaction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="25" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#508#509#0" expanded="true" />
+                <element signature="e#548#549#0" expanded="true" />
+                <element signature="e#614#615#0" expanded="true" />
+                <element signature="e#672#673#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -87,26 +113,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/BankUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="58" lean-forward="true" selection-start-line="47" selection-start-column="7" selection-end-line="58" />
+            <state relative-caret-position="165">
+              <caret line="11" column="157" selection-start-line="11" selection-start-column="157" selection-end-line="11" selection-end-column="157" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#CreateCustomer#0;class#BankUtil#0" />
-                <element signature="method#genarateCustomerNumber#0;class#BankUtil#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Account.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="549">
-              <caret line="70" column="42" selection-start-line="70" selection-start-column="42" selection-end-line="70" selection-end-column="42" />
-              <folding>
-                <element signature="e#1697#1698#0" expanded="true" />
-                <element signature="e#1764#1765#0" expanded="true" />
-                <element signature="e#1822#1823#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -115,13 +126,15 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/EmployerUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
+            <state relative-caret-position="150">
               <caret line="10" column="61" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#AccecptNewAccount#0;class#EmployerUtil#0" />
                 <element signature="method#CheckAccount#0;class#EmployerUtil#0" />
                 <element signature="method#CheckInternationalAccount#0;class#EmployerUtil#0" />
                 <element signature="method#CheckIbanNumber#0;class#EmployerUtil#0" />
+                <element signature="method#LookPersonelDateOfCustomer#0;class#EmployerUtil#0" />
               </folding>
             </state>
           </provider>
@@ -145,22 +158,21 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/TypeOfAccount.java" />
         <option value="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/TypeOfTransfer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Employeer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Customer.java" />
         <option value="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/EmployerUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Config/Config.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Transaction.java" />
         <option value="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Account.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/CustomerUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/BankUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Employeer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/CustomerUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Transaction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Customer.java" />
         <option value="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/TransferUtil.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1246" />
-    <option name="height" value="777" />
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+    <option name="width" value="1280" />
+    <option name="height" value="800" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -168,6 +180,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -175,6 +188,11 @@
             <path>
               <item name="JavaBankOne" type="b2602c69:ProjectViewProjectNode" />
               <item name="JavaBankOne" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="JavaBankOne" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JavaBankOne" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="gradle" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="JavaBankOne" type="b2602c69:ProjectViewProjectNode" />
@@ -218,22 +236,12 @@
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="JavaBankOne" type="b2602c69:ProjectViewProjectNode" />
-              <item name="JavaBankOne" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Util" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -280,24 +288,24 @@
       <workItem from="1555675609807" duration="9461000" />
       <workItem from="1555848802204" duration="695000" />
       <workItem from="1555945924255" duration="14992000" />
+      <workItem from="1556718367497" duration="8864000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41728000" />
+    <option name="totallyTimeSpent" value="50592000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1246" height="777" extended-state="0" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27491695" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27948305" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" weight="0.32930514" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -311,6 +319,7 @@
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Version Control" order="12" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32930514" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -373,13 +382,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Employeer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/src.zip!/java/util/Date.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -391,13 +393,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/AccountUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/AccountUtil.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Config/Config.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -421,46 +417,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Transaction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/CustomerUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="60" column="24" lean-forward="true" selection-start-line="57" selection-start-column="11" selection-end-line="60" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#addIbanNumber#0;class#CustomerUtil#0" />
-            <element signature="method#addInterestRate#0;class#CustomerUtil#0" />
-            <element signature="method#genarateAccountNumber#0;class#CustomerUtil#0" />
-            <element signature="method#generateIbanNumber#0;class#CustomerUtil#0" />
-            <element signature="method#loginCustomer#0;class#CustomerUtil#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/EmployerUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" column="61" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#CheckAccount#0;class#EmployerUtil#0" />
-            <element signature="method#CheckInternationalAccount#0;class#EmployerUtil#0" />
-            <element signature="method#CheckIbanNumber#0;class#EmployerUtil#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Account.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="70" column="42" selection-start-line="70" selection-start-column="42" selection-end-line="70" selection-end-column="42" />
+        <state relative-caret-position="331">
+          <caret line="83" column="101" selection-start-line="83" selection-start-column="101" selection-end-line="83" selection-end-column="101" />
           <folding>
+            <element signature="e#1657#1658#0" expanded="true" />
             <element signature="e#1697#1698#0" expanded="true" />
             <element signature="e#1764#1765#0" expanded="true" />
             <element signature="e#1822#1823#0" expanded="true" />
@@ -468,34 +430,94 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Customer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Employeer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="52" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="52" />
+        <state relative-caret-position="525">
+          <caret line="51" column="41" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1404#1405#0" expanded="true" />
-            <element signature="e#1440#1441#0" expanded="true" />
+            <element signature="method#getInstance#0;class#Employeer#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/BankUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="58" lean-forward="true" selection-start-line="47" selection-start-column="7" selection-end-line="58" />
+        <state relative-caret-position="165">
+          <caret line="11" column="157" selection-start-line="11" selection-start-column="157" selection-end-line="11" selection-end-column="157" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#CreateCustomer#0;class#BankUtil#0" />
-            <element signature="method#genarateCustomerNumber#0;class#BankUtil#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/EmployerUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="61" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#AccecptNewAccount#0;class#EmployerUtil#0" />
+            <element signature="method#CheckAccount#0;class#EmployerUtil#0" />
+            <element signature="method#CheckInternationalAccount#0;class#EmployerUtil#0" />
+            <element signature="method#CheckIbanNumber#0;class#EmployerUtil#0" />
+            <element signature="method#LookPersonelDateOfCustomer#0;class#EmployerUtil#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Customer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="75" column="42" selection-start-line="75" selection-start-column="42" selection-end-line="75" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#addAccountList#0;class#Customer#0" />
+            <element signature="e#1602#1603#0" expanded="true" />
+            <element signature="e#1642#1643#0" expanded="true" />
+            <element signature="e#1704#1705#0" expanded="true" />
+            <element signature="e#1735#1736#0" expanded="true" />
+            <element signature="method#setAmountOfInternationalTransfer#0;class#Customer#0" />
+            <element signature="method#getInstance#0;class#Customer#0" />
+            <element signature="method#toString#0;class#Customer#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/CustomerUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="114" selection-start-line="114" selection-end-line="114" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#addIbanNumber#0;class#CustomerUtil#0" />
+            <element signature="method#addInterestRate#0;class#CustomerUtil#0" />
+            <element signature="method#OpenAccount#0;class#CustomerUtil#0" />
+            <element signature="method#genarateCustomerNumber#0;class#CustomerUtil#0" />
+            <element signature="method#generateIbanNumber#0;class#CustomerUtil#0" />
+            <element signature="method#loginCustomer#0;class#CustomerUtil#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Transaction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="25" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#508#509#0" expanded="true" />
+            <element signature="e#548#549#0" expanded="true" />
+            <element signature="e#614#615#0" expanded="true" />
+            <element signature="e#672#673#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/TransferUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="82" column="104" selection-start-line="82" selection-start-column="104" selection-end-line="82" selection-end-column="104" />
+        <state relative-caret-position="537">
+          <caret line="199" column="33" lean-forward="true" selection-start-line="199" selection-start-column="33" selection-end-line="199" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#doTransfer#0;class#TransferUtil#0" />
@@ -503,14 +525,14 @@
             <element signature="method#CreditTrasnfer#0;class#TransferUtil#0" />
             <element signature="method#RegularCreditTrasnfer#0;class#TransferUtil#0" />
             <element signature="method#SavingCreditTrasnfer#0;class#TransferUtil#0" />
-            <element signature="method#checkAmounOfBalance#0;class#TransferUtil#0" />
-            <element signature="e#1720#1826#1" />
+            <element signature="method#checkAmountOfBalance#0;class#TransferUtil#0" />
             <element signature="method#doneTransfer#0;class#TransferUtil#0" />
             <element signature="method#debitTransfer#0;class#TransferUtil#0" />
-            <element signature="method#increaseNumber#0;class#TransferUtil#0" />
+            <element signature="method#getTransactionNumber#0;class#TransferUtil#0" />
             <element signature="method#checkAccountBelongBank#0;class#TransferUtil#0" />
             <element signature="method#checkSenderAccount#0;class#TransferUtil#0" />
             <element signature="method#checkRecieverAccount#0;class#TransferUtil#0" />
+            <element signature="method#saveTrasction#0;class#TransferUtil#0" />
           </folding>
         </state>
       </provider>

@@ -15,7 +15,7 @@ public class CustomerUtil {
            System.out.println("You should Login if you want to open Account");
            return false;
        }
-        Account account=new Account();
+        Account account=Account.getInstance();
         account.setTransferAmount(0);
         account.setNumberOfAccount(genarateAccountNumber(Config.getCustomer()));
         account.setTypeOfAccount(typeOfAccount);
@@ -68,28 +68,28 @@ public class CustomerUtil {
         }
 
     }
-    public  static String genarateCustomerNumber(Customer customer){
-        String number=customer.getListOfAccount().size()+"";
-        int size= number.length();
-        while(size<3)
-        {
-            number="0"+number;
-            size= number.length();
-        }
+    private  static String genarateCustomerAccountNumber(Customer customer){
 
-        return number;
+            String number = customer.getListOfAccount().size() + "";
+            int size = number.length();
+            while (size < 3) {
+
+                number = "0" + number;
+                size = number.length();
+            }
+            customer.setCustomerNumber(number);
+            return number;
+
 
 
     }
-
     public  static String genarateAccountNumber(Customer customer){
 
-        String fullNumber=banknumber+customer.getCustomerNumber()+genarateCustomerNumber(customer);
+        String fullNumber=banknumber+customer.getCustomerNumber()+genarateCustomerAccountNumber(customer);
         return fullNumber;
 
     }
-
-  public static String generateIbanNumber(){
+    private static String generateIbanNumber(){
     Customer customer=Config.getCustomer();
      String iBanNumber=null;
      String firstTwoLetterFromName=customer.getName().substring(0,2);
@@ -100,7 +100,7 @@ public class CustomerUtil {
 
 
   }
-  public static boolean loginCustomer(String email,String password){
+    public static boolean loginCustomer(String email,String password){
       for (Customer customer:Config.getListofCustomer()) {
           if(customer.getEmail().equalsIgnoreCase(email) && customer.getPassword().equals(password))
           {
@@ -112,4 +112,5 @@ public class CustomerUtil {
 
       return false;
   }
+
 }

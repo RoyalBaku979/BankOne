@@ -7,7 +7,7 @@ public class Employeer {
     private String surname;
     private Date dateOfBirth;
     private String position;
-
+    private  static Employeer instance;
     public Employeer() {
     }
 
@@ -48,5 +48,21 @@ public class Employeer {
 
     public void setPosition(String position) {
         this.position = position;
+    }
+    public static Employeer getInstance(){
+        if (instance == null)
+        {
+            //synchronized block to remove overhead
+            synchronized (Employeer.class)
+            {
+                if(instance==null)
+                {
+                    // if instance is null, initialize
+                    instance = new Employeer();
+                }
+
+            }
+        }
+        return instance;
     }
 }

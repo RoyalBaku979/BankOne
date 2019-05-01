@@ -10,7 +10,7 @@ import java.util.Random;
 
 public class BankUtil {
 public boolean CreateCustomer(String name,String surname,String email,String password,String dateOfBirht,Date dateOfJoinBank,int amountOfInternationTransfer){
-    Customer customer=new Customer();
+    Customer customer=Customer.getInstance();
     if(name.trim().isEmpty() ||surname.trim().isEmpty() || email.trim().isEmpty() || password.trim().isEmpty()
    || dateOfBirht.trim().isEmpty())
     {
