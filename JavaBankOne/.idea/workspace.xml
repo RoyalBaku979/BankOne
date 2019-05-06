@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a37ffcea-08dd-4218-b488-026eddf83c6e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/BankUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/BankUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/CustomerUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/CustomerUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/TransferUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/Util/TransferUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Employeer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Employeer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uni/lodz/pl/java/beans/Transaction.java" afterDir="false" />
-    </list>
+    <list default="true" id="a37ffcea-08dd-4218-b488-026eddf83c6e" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -170,7 +160,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1280" />
     <option name="height" value="800" />
   </component>
@@ -288,12 +278,12 @@
       <workItem from="1555675609807" duration="9461000" />
       <workItem from="1555848802204" duration="695000" />
       <workItem from="1555945924255" duration="14992000" />
-      <workItem from="1556718367497" duration="8864000" />
+      <workItem from="1556718367497" duration="8908000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50592000" />
+    <option name="totallyTimeSpent" value="50636000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
