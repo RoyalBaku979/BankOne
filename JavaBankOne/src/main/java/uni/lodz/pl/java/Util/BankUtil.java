@@ -26,6 +26,7 @@ public boolean CreateCustomer(String name,String surname,String email,String pas
         customer.setSurname(surname);
         customer.setPassword(password);
         customer.setAmountOfInternationalTransfer(0);
+        Config.AddListofCustomer(customer);
         return true;
        }
 

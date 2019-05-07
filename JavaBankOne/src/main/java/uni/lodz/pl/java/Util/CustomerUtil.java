@@ -1,9 +1,7 @@
 package uni.lodz.pl.java.Util;
 
 import uni.lodz.pl.java.Config.Config;
-import uni.lodz.pl.java.beans.Account;
-import uni.lodz.pl.java.beans.Customer;
-import uni.lodz.pl.java.beans.TypeOfAccount;
+import uni.lodz.pl.java.beans.*;
 
 import java.sql.SQLOutput;
 
@@ -30,26 +28,26 @@ public class CustomerUtil {
     public static void addIbanNumber(Account account){
         if(account.getTypeOfAccount()==TypeOfAccount.International)
         {
-            account.setIBAN(generateIbanNumber());
+            IbanClass ibanClass=new IbanClass();
+            ibanClass.setAccountNumber(account.getNumberOfAccount());
+            ibanClass.setIBAN(generateIbanNumber());
+            Config.addListofIbans(ibanClass);
 
         }
-        else{
 
-            account.setIBAN(null);
-        }
 
 
     }
     public static void addInterestRate(Account account) {
         if(account.getTypeOfAccount()==TypeOfAccount.Saving)
         {
-            account.setInterestRate(0.01);
+            Percentage percentage=new Percentage();
+            percentage.setAccountNumber(account.getNumberOfAccount());
+            percentage.setPercentage(0.01);
+            Config.setListofPercentage(percentage);
 
         }
-        else{
 
-            account.setInterestRate(0);
-        }
 
     }
     public static boolean OpenAccount(Account account){

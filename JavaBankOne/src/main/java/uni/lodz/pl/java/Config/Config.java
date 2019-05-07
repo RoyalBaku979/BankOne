@@ -1,16 +1,33 @@
 package uni.lodz.pl.java.Config;
 
-import uni.lodz.pl.java.beans.Account;
-import uni.lodz.pl.java.beans.Customer;
-import uni.lodz.pl.java.beans.Transaction;
+import uni.lodz.pl.java.beans.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Config {
     private static List<Account>ListOfAccount=null;
-    private static List<Customer>ListofCustomer=null;
+    private static List<Customer>ListofCustomer=new ArrayList<>();
     private static List<Transaction>LitsOfTransactions=null;
+    private static List<IbanClass>listofIbans=new ArrayList<>();
+    private static List<Percentage>listofPercentage=new ArrayList<>();
     private static Customer customer=null;
+
+    public static List<IbanClass> getListofIbans() {
+        return listofIbans;
+    }
+
+    public static void addListofIbans(IbanClass ibans) {
+        listofIbans.add(ibans);
+    }
+
+    public static List<Percentage> getListofPercentage() {
+        return listofPercentage;
+    }
+
+    public static void setListofPercentage(Percentage percentage) {
+        listofPercentage.add(percentage);
+    }
 
     public static List<Account> getListOfAccount() {
         return ListOfAccount;

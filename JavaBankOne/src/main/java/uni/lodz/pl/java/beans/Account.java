@@ -1,14 +1,16 @@
 package uni.lodz.pl.java.beans;
 
+import uni.lodz.pl.java.Config.Config;
+
 public final class Account {
 
     private static String numberOfAccount;
-    private static String IBAN;
+    //private static String IBAN;
     private  double amount;
     private  Customer customerAccount;
     private int transferAmount;
     private TypeOfAccount typeOfAccount;
-    private  double interestRate=0;
+   // private  double interestRate=0;
     private boolean approveByemployer=false;
     private static Account instance;
 private Account(){}
@@ -52,21 +54,21 @@ private Account(){}
         this.typeOfAccount = typeOfAccount;
     }
 
-    public static String getIBAN() {
-        return IBAN;
-    }
+//   // public static String getIBAN() {
+//        return IBAN;
+//    }
+//
+//    public static void setIBAN(String IBAN) {
+//        Account.IBAN = IBAN;
+//    }
 
-    public static void setIBAN(String IBAN) {
-        Account.IBAN = IBAN;
-    }
-
-    public double getInterestRate() {
-        return interestRate;
-    }
-
-    public void setInterestRate(double interestRate) {
-        this.interestRate = interestRate;
-    }
+//    public double getInterestRate() {
+//        return interestRate;
+//    }
+//
+//    public void setInterestRate(double interestRate) {
+//        this.interestRate = interestRate;
+//    }
 
     public boolean isApproveByemployer() {
         return approveByemployer;
@@ -75,9 +77,18 @@ private Account(){}
     @Override
     public String toString() {
     String account=null;
+    String ibannumber="";
     if(getTypeOfAccount()==TypeOfAccount.International)
     {
-        account="Account number"+getNumberOfAccount()+";Account Type:"+getTypeOfAccount()+";Iban:"+getIBAN()+";Customer"+getCustomerAccount();
+        for (IbanClass iban : Config.getListofIbans()) {
+            if(iban.getAccountNumber().equals(numberOfAccount))
+            {
+                ibannumber=iban.getIBAN();
+                break;
+
+            }
+        }
+        account="Account number"+getNumberOfAccount()+";Account Type:"+getTypeOfAccount()+";Iban:"+ibannumber+";Customer"+getCustomerAccount();
     }
     else
     {

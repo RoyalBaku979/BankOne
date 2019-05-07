@@ -102,16 +102,18 @@ public class TransferUtil
      else
          return false;
     }
-    private static void getTransactionNumber(Account account){
+    private static int getTransactionNumber(Account account){
         if(account.getTypeOfAccount()==TypeOfAccount.International)
         {
-          int i= account.getCustomerAccount().getAmountOfInternationalTransfer() ;
-          account.getCustomerAccount().setAmountOfInternationalTransfer(i+1);
+          int i= account.getCustomerAccount().getAmountOfInternationalTransfer()+1 ;
+          account.getCustomerAccount().setAmountOfInternationalTransfer(i);
+          return i;
         }
         else
         {
-            int i=account.getTransferAmount();
-            account.setTransferAmount(i+1);
+            int i=account.getTransferAmount()+1;
+            account.setTransferAmount(i);
+            return i;
 
         }
 

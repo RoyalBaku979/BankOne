@@ -3,6 +3,7 @@ package uni.lodz.pl.java.Util;
 import uni.lodz.pl.java.Config.Config;
 import uni.lodz.pl.java.beans.Account;
 import uni.lodz.pl.java.beans.Customer;
+import uni.lodz.pl.java.beans.IbanClass;
 import uni.lodz.pl.java.beans.TypeOfAccount;
 
 import java.util.List;
@@ -37,13 +38,19 @@ public class EmployerUtil {
     public  static boolean CheckInternationalAccount(Account account) {
         if(account.getTypeOfAccount()==TypeOfAccount.International)
         {
-            return  CheckIbanNumber(account.getIBAN());
+            for (IbanClass iban : Config.getListofIbans()) {
+                if(iban.getAccountNumber().equals(account.getNumberOfAccount()))
+                {
+                    return  CheckIbanNumber(iban.getIBAN());
+                }
+            }
+            return false;
+
 
         }
-        else
-        {
+
             return true;
-        }
+
 
     }
     public static boolean CheckIbanNumber(String iBan){
