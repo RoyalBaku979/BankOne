@@ -278,6 +278,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -302,6 +303,29 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="BankUtilTest.genarateCustomerNumber" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BankOneEx" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Shahin_Aliyev.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Shahin_Aliyev" />
+      <option name="MAIN_CLASS_NAME" value="Shahin_Aliyev.BankUtilTest" />
+      <option name="METHOD_NAME" value="genarateCustomerNumber" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.BankUtilTest.genarateCustomerNumber" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
