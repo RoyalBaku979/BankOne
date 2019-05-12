@@ -1,6 +1,7 @@
 package uni.lodz.pl.java.Util;
 
 import uni.lodz.pl.java.Config.Config;
+import uni.lodz.pl.java.Dao.impl.CustomerImplDao;
 import uni.lodz.pl.java.beans.*;
 
 import java.sql.SQLOutput;
@@ -25,29 +26,37 @@ public class CustomerUtil {
        return OpenAccount(account);
 
     }
-    public static void addIbanNumber(Account account){
+    public static boolean addIbanNumber(Account account){
         if(account.getTypeOfAccount()==TypeOfAccount.International)
         {
             IbanClass ibanClass=new IbanClass();
             ibanClass.setAccountNumber(account.getNumberOfAccount());
             ibanClass.setIBAN(generateIbanNumber());
             Config.addListofIbans(ibanClass);
+            return true;
 
+        }
+      else
+        {
+            return false;
         }
 
 
-
     }
-    public static void addInterestRate(Account account) {
+    public static boolean addInterestRate(Account account) {
         if(account.getTypeOfAccount()==TypeOfAccount.Saving)
         {
             Percentage percentage=new Percentage();
             percentage.setAccountNumber(account.getNumberOfAccount());
             percentage.setPercentage(0.01);
             Config.setListofPercentage(percentage);
+           return true;
+        }
+      else
+        {
+            return false;
 
         }
-
 
     }
     public static boolean OpenAccount(Account account){
@@ -99,7 +108,8 @@ public class CustomerUtil {
 
   }
     public static boolean loginCustomer(String email,String password){
-      for (Customer customer:Config.getListofCustomer()) {
+        CustomerImplDao customerImplDao=new CustomerImplDao();
+      for (Customer customer:customerImplDao.getAll()) {
           if(customer.getEmail().equalsIgnoreCase(email) && customer.getPassword().equals(password))
           {
               Config.setCustomer(customer);

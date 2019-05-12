@@ -1,6 +1,8 @@
 package uni.lodz.pl.java.Util;
 
 import uni.lodz.pl.java.Config.Config;
+import uni.lodz.pl.java.Dao.impl.AccountImplDao;
+import uni.lodz.pl.java.Dao.impl.IbanImplDao;
 import uni.lodz.pl.java.beans.Account;
 import uni.lodz.pl.java.beans.Customer;
 import uni.lodz.pl.java.beans.IbanClass;
@@ -36,16 +38,16 @@ public class EmployerUtil {
 
     }
     public  static boolean CheckInternationalAccount(Account account) {
+        IbanImplDao ibanImplDao=new IbanImplDao();
         if(account.getTypeOfAccount()==TypeOfAccount.International)
         {
-            for (IbanClass iban : Config.getListofIbans()) {
-                if(iban.getAccountNumber().equals(account.getNumberOfAccount()))
-                {
-                    return  CheckIbanNumber(iban.getIBAN());
+            if(ibanImplDao.getIbanByAccount(account)!=null) {
+                    return CheckIbanNumber(ibanImplDao.getIbanByAccount(account).getIBAN());
                 }
-            }
-            return false;
-
+            else
+                {
+                return false;
+                }
 
         }
 
@@ -65,12 +67,13 @@ public class EmployerUtil {
 
     }
     public static void LookPersonelDateOfCustomer(Customer customer) {
+        AccountImplDao accountImplDao=new AccountImplDao();
         System.out.println("Customer name:" + customer.getName());
         System.out.println("Customer name:" + customer.getSurname());
         System.out.println("Customer name:" + customer.getDateOfBirth());
         System.out.println("Customer name:" + customer.getDateOfJoinedBank());
         System.out.println("Account");
-        for (Account account : Config.getListOfAccount()) {
+        for (Account account : accountImplDao.getAllByCustomer(customer)) {
             System.out.println("Account Information:" + account.toString());
 
         }

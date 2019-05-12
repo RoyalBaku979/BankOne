@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc989574-d6f3-4eeb-8c09-56d50c46194b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/JavaBankOne/src/main/java/uni/lodz/pl/java/beans/IbanClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaBankOne/src/main/java/uni/lodz/pl/java/beans/Percentage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaBankOne/src/main/tests/uni/lodz/pl/java/Test/BankUtilTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JavaBankOne/src/main/tests/uni/lodz/pl/java/Test/CustomerUtilTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JavaBankOne/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBankOne/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBankOne/src/main/java/uni/lodz/pl/java/Config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBankOne/src/main/java/uni/lodz/pl/java/Config/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBankOne/src/main/java/uni/lodz/pl/java/Util/BankUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBankOne/src/main/java/uni/lodz/pl/java/Util/BankUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBankOne/src/main/java/uni/lodz/pl/java/Util/CustomerUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBankOne/src/main/java/uni/lodz/pl/java/Util/CustomerUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBankOne/src/main/java/uni/lodz/pl/java/Util/EmployerUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBankOne/src/main/java/uni/lodz/pl/java/Util/EmployerUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBankOne/src/main/java/uni/lodz/pl/java/Util/TransferUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBankOne/src/main/java/uni/lodz/pl/java/Util/TransferUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaBankOne/src/main/java/uni/lodz/pl/java/beans/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/JavaBankOne/src/main/java/uni/lodz/pl/java/beans/Account.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -65,6 +55,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="experimental" />
@@ -93,17 +86,17 @@
       <updated>1557106174410</updated>
       <workItem from="1557106176060" duration="20000" />
       <workItem from="1557266739400" duration="597000" />
+      <workItem from="1557412731596" duration="2000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="617000" />
+    <option name="totallyTimeSpent" value="619000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1247" height="777" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25394192" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2580913" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
