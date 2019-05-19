@@ -7,6 +7,7 @@ import Shahin_Aliyev.beans.Account;
 import Shahin_Aliyev.beans.Customer;
 import Shahin_Aliyev.beans.TypeOfAccount;
 
+import java.time.ZonedDateTime;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class BankUtil {
-public boolean CreateCustomer(String name,String surname,String email,String password,String dateOfBirht,Date dateOfJoinBank,int amountOfInternationTransfer){
+public boolean CreateCustomer(String name,String surname,String email,String password,String dateOfBirht,ZonedDateTime dateOfJoinBank,int amountOfInternationTransfer){
     Customer customer=Customer.getInstance();
     if(name.trim().isEmpty() ||surname.trim().isEmpty() || email.trim().isEmpty() || password.trim().isEmpty()
    || dateOfBirht.trim().isEmpty())
@@ -26,7 +27,7 @@ public boolean CreateCustomer(String name,String surname,String email,String pas
     else {
         customer.setCustomerNumber(genarateCustomerNumber());
         customer.setDateOfBirth(dateOfBirht);
-        customer.setDateOfJoinedBank(Calendar.getInstance().getTime());
+        customer.setDateOfJoinedBank(ZonedDateTime.now());
         customer.setEmail(email);
         customer.setName(name);
         customer.setSurname(surname);
@@ -49,7 +50,7 @@ public static String genarateCustomerNumber() {
     return number;
 
 }
-private static Runnable interestRateProcces(List<Account>listOfSavingAccount){
+public static Runnable interestRateProcces(List<Account>listOfSavingAccount){
 
     Runnable r=new Runnable() {
         @Override
@@ -62,7 +63,7 @@ private static Runnable interestRateProcces(List<Account>listOfSavingAccount){
     };
   return r;
 }
-private static double getInterestRate(Account account) {
+public static double getInterestRate(Account account) {
     PercentageImplDao percentageImplDao=new PercentageImplDao();
     return percentageImplDao.getInterestByAccount(account).getPercentage();
         

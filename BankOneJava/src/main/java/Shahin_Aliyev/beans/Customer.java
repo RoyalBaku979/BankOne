@@ -1,19 +1,18 @@
 package Shahin_Aliyev.beans;
 
+import java.time.ZonedDateTime;
 import java.util.Date;
 import java.util.List;
 
-public class Customer {
+public class Customer implements Comparable<Customer> {
     private String CustomerNumber;
     private String name;
     private  String surname;
     private  String email;
     private  String password;
     private String dateOfBirth;
-    private Date dateOfJoinedBank;
+    private ZonedDateTime dateOfJoinedBank;
     private static int amountOfInternationalTransfer;
-    private List<Account>listOfAccount;
-    private List<Transaction>listFfTransaction;
     private static Customer instance;
     private Customer(){}
     public void setCustomerNumber(String customerNumber) {
@@ -22,10 +21,7 @@ public class Customer {
     public String getCustomerNumber() {
         return CustomerNumber;
     }
-    public void addAccountList(Account account) {
-         listOfAccount.add(account);
 
-    }
 
     public String getName() {
         return name;
@@ -62,28 +58,15 @@ public class Customer {
     public String getDateOfBirth() {
         return dateOfBirth;
     }
-
-    public List<Account> getListOfAccount() {
-        return listOfAccount;
-    }
-
-    public List<Transaction> getListFfTransaction() {
-        return listFfTransaction;
-    }
-
-    public void AddTransaction(Transaction transaction) {
-       listFfTransaction.add(transaction);
-    }
-
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public Date getDateOfJoinedBank() {
+    public ZonedDateTime getDateOfJoinedBank() {
         return dateOfJoinedBank;
     }
 
-    public void setDateOfJoinedBank(Date dateOfJoinedBank) {
+    public void setDateOfJoinedBank(ZonedDateTime dateOfJoinedBank) {
         this.dateOfJoinedBank = dateOfJoinedBank;
     }
 
@@ -115,5 +98,11 @@ public class Customer {
     public String toString() {
         String customer="Name:"+getName()+";Surname:"+getSurname()+";Email:"+getEmail()+":DataofBirth:"+getDateOfBirth();
         return customer;
+    }
+
+    @Override
+    public int compareTo(Customer o) {
+        return this.getDateOfJoinedBank().compareTo(o.getDateOfJoinedBank());
+
     }
 }

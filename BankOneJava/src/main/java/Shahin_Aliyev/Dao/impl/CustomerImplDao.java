@@ -5,11 +5,25 @@ import Shahin_Aliyev.Dao.inter.CustomerInterDao;
 import Shahin_Aliyev.beans.Customer;
 
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class CustomerImplDao implements CustomerInterDao {
     @Override
-    public List<Customer> getAll() {
+    public Set<Customer> getAll() {
         return Config.getListofCustomer();
+    }
+    @Override
+    public Set<Customer> getFiveNewClient(){
+     Set<Customer> setOfFiveNewCustomer=new TreeSet<>();
+     int i=0;
+        for (Customer customer:Config.getListofCustomer()) {
+            if(i==5) break;
+            i++;
+            setOfFiveNewCustomer.add(customer);
+
+        }
+      return setOfFiveNewCustomer;
     }
 
     @Override

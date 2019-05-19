@@ -104,8 +104,8 @@ public class TransferUtil
         }
         else
         {
-            int i=account.getTransferAmount()+1;
-            account.setTransferAmount(i);
+            int i=account.getTransactionnumber()+1;
+            account.setTransactionnumber(i);
             return i;
 
         }
@@ -113,15 +113,14 @@ public class TransferUtil
     }
     private static void saveTrasction(Account senderAccount,Account recieverAccount,TypeOfTransfer typeOfTransfer,Double money){
          Transaction transaction=createTransaction(senderAccount,recieverAccount,typeOfTransfer,money);
-         senderAccount.getCustomerAccount().AddTransaction(transaction);
          saveDebitTransfer(recieverAccount,transaction);
-         Config.AddLitsOfTransactions(transaction);
+         Config.AddSetsOfTransactions(transaction);
 
     }
     private static Transaction saveDebitTransfer(Account recieverAccount,Transaction transaction) {
         transaction.setTypeOfTransfer(TypeOfTransfer.DEBIT);
-        recieverAccount.getCustomerAccount().AddTransaction(transaction);
-        Config.AddLitsOfTransactions(transaction);
+
+        Config.AddSetsOfTransactions(transaction);
         return  transaction;
     }
     private static Transaction createTransaction(Account senderAccount,Account recieverAccount,TypeOfTransfer typeOfTransfer,Double money) {
@@ -133,7 +132,7 @@ public class TransferUtil
         }
         else
         {
-            transaction.setTransactionNumber(senderAccount.getTransferAmount()+"");
+            transaction.setTransactionNumber(senderAccount.getTransactionnumber()+"");
         }
 
         transaction.setSenderAccount(senderAccount);

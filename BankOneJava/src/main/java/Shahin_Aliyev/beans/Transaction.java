@@ -2,7 +2,7 @@ package Shahin_Aliyev.beans;
 
 import java.time.ZonedDateTime;
 
-public class Transaction {
+public class Transaction implements Comparable<Transaction>{
     private String transactionNumber;
     private  Account RecivierAccount;
     private Account senderAccount;
@@ -61,5 +61,11 @@ public class Transaction {
 
     public void setAmountOfMoney(double amountOfMoney) {
         this.amountOfMoney = amountOfMoney;
+    }
+
+    @Override
+    public int compareTo(Transaction o) {
+        double s=o.amountOfMoney-this.amountOfMoney;
+       return (int)s;
     }
 }

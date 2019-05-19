@@ -6,11 +6,13 @@ import Shahin_Aliyev.beans.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class Config {
-    private static List<Account>ListOfAccount=null;
-    private static List<Customer>ListofCustomer=new ArrayList<>();
-    private static List<Transaction>LitsOfTransactions=null;
+    private static List<Account>ListOfAccount=new ArrayList<>();
+    private static Set<Customer>ListofCustomer=new TreeSet<>();
+    private static Set<Transaction> SetOfTransactions=null;
     private static List<IbanClass>listofIbans=new ArrayList<>();
     private static List<Percentage>listofPercentage=new ArrayList<>();
     private static Customer customer=null;
@@ -39,7 +41,7 @@ public class Config {
         ListOfAccount.add(account);
     }
 
-    public static List<Customer> getListofCustomer() {
+    public static Set<Customer> getListofCustomer() {
         return ListofCustomer;
     }
 
@@ -47,12 +49,12 @@ public class Config {
            ListofCustomer.add(customer);
     }
 
-    public static List<Transaction> getLitsOfTransactions() {
-        return LitsOfTransactions;
+    public static Set<Transaction> getSetsOfTransactions() {
+        return SetOfTransactions;
     }
 
-    public static void AddLitsOfTransactions(Transaction transactions) {
-         LitsOfTransactions.add(transactions);
+    public static void AddSetsOfTransactions(Transaction transactions) {
+        SetOfTransactions.add(transactions);
     }
 
     public static Customer getCustomer() {

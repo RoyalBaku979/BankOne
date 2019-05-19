@@ -9,14 +9,15 @@ import Shahin_Aliyev.beans.IbanClass;
 import Shahin_Aliyev.beans.TypeOfAccount;
 
 public class EmployerUtil {
-    public static boolean AccecptNewAccount(Account account) {
+
+    public static Account AccecptNewAccount(Account account) {
         if(CheckAccount(account)!=null)
         {
-            return true;
+            return account;
         }
         else
         {
-            return false;
+            return null;
 
         }
 
@@ -35,8 +36,7 @@ public class EmployerUtil {
 
 
     }
-    public static Account checkAccountBType(Account account)
-    {
+    public static Account checkAccountBType(Account account) {
         if(account.getTypeOfAccount()==TypeOfAccount.Regular)
         {
             return account;
@@ -46,8 +46,7 @@ public class EmployerUtil {
             return checkSavingAndInternatinolAccount(account);
         }
     }
-    public static Account checkSavingAndInternatinolAccount(Account account)
-    {
+    public static Account checkSavingAndInternatinolAccount(Account account) {
         if(account.getTypeOfAccount()==TypeOfAccount.International)
         {
             return CheckInternationalAccount(account);
@@ -84,11 +83,6 @@ public class EmployerUtil {
         }
 
     }
-
-
-
-
-
     public static Account CheckIbanNumber(Account account){
         IbanImplDao ibanImplDao=new IbanImplDao();
         String iBan=ibanImplDao.getIbanByAccount(account).getIBAN();

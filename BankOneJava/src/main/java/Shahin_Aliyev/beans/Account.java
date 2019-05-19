@@ -6,13 +6,11 @@ import Shahin_Aliyev.Config.Config;
 public final class Account {
 
     private static String numberOfAccount;
-    //private static String IBAN;
+
     private  double amount;
     private  Customer customerAccount;
-    private int transferAmount;
+    private int transactionnumber;
     private TypeOfAccount typeOfAccount;
-   // private  double interestRate=0;
-    private boolean approveByemployer=false;
     private static Account instance;
 private Account(){}
     public static String getNumberOfAccount() {
@@ -39,12 +37,12 @@ private Account(){}
         this.customerAccount = customerAccount;
     }
 
-    public int getTransferAmount() {
-        return transferAmount;
+    public int getTransactionnumber() {
+        return transactionnumber;
     }
 
-    public void setTransferAmount(int transferAmount) {
-        this.transferAmount = transferAmount;
+    public void setTransactionnumber(int transferAmount) {
+        this.transactionnumber = transferAmount;
     }
 
     public TypeOfAccount getTypeOfAccount() {
@@ -57,9 +55,7 @@ private Account(){}
 
 
 
-    public boolean isApproveByemployer() {
-        return approveByemployer;
-    }
+
 
     @Override
     public String toString() {
@@ -83,10 +79,6 @@ private Account(){}
     }
 
         return account;
-    }
-
-    public void setApproveByemployer(boolean approveByemployer) {
-        this.approveByemployer = approveByemployer;
     }
     public static Account getInstance()
     {

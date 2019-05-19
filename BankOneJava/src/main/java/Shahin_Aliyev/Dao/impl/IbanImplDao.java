@@ -1,14 +1,14 @@
 package Shahin_Aliyev.Dao.impl;
 
 import Shahin_Aliyev.Config.Config;
-import Shahin_Aliyev.Dao.inter.IbanDaoInter;
+import Shahin_Aliyev.Dao.inter.IbanInterDao;
 import Shahin_Aliyev.beans.Account;
 import Shahin_Aliyev.beans.IbanClass;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class IbanImplDao implements IbanDaoInter {
+public class IbanImplDao implements IbanInterDao {
     @Override
     public List<IbanClass> getAll() {
         return Config.getListofIbans();

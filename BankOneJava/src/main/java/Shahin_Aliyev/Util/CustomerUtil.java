@@ -1,19 +1,20 @@
 package Shahin_Aliyev.Util;
 
 import Shahin_Aliyev.Config.Config;
+import Shahin_Aliyev.Dao.impl.AccountImplDao;
 import Shahin_Aliyev.Dao.impl.CustomerImplDao;
 import Shahin_Aliyev.beans.*;
 
 public class CustomerUtil {
     private final static String banknumber="12";
-    public static boolean SendRequest(TypeOfAccount typeOfAccount, Double amountOfMoney,String nameOfAccount){
+    public static boolean SendRequest(TypeOfAccount typeOfAccount, Double amountOfMoney){
        if(Config.getCustomer()==null)
        {
            System.out.println("You should Login if you want to open Account");
            return false;
        }
         Account account=Account.getInstance();
-        account.setTransferAmount(0);
+        account.setTransactionnumber(0);
         account.setNumberOfAccount(genarateAccountNumber(Config.getCustomer()));
         account.setTypeOfAccount(typeOfAccount);
 
@@ -58,11 +59,11 @@ public class CustomerUtil {
 
     }
     public static boolean OpenAccount(Account account){
-        if(EmployerUtil.AccecptNewAccount(account))
+        if(EmployerUtil.AccecptNewAccount(account)!=null)
         {
-            account.setApproveByemployer(true);
+
             Config.AddListOfAccount(account);
-            account.getCustomerAccount().addAccountList(account);
+
             return true;
 
         }
@@ -73,9 +74,10 @@ public class CustomerUtil {
         }
 
     }
-    private  static String genarateCustomerAccountNumber(Customer customer){
+    public  static String genarateCustomerAccountNumber(Customer customer){
+        AccountImplDao accountImplDao=new AccountImplDao();
 
-            String number = customer.getListOfAccount().size() + "";
+            String number = accountImplDao.getAllByCustomer(customer).size()+"";
             int size = number.length();
             while (size < 3) {
 
@@ -94,13 +96,13 @@ public class CustomerUtil {
         return fullNumber;
 
     }
-    private static String generateIbanNumber(){
+    public static String generateIbanNumber(){
     Customer customer=Config.getCustomer();
-     String iBanNumber=null;
-     String firstTwoLetterFromName=customer.getName().substring(0,2);
-      String firstTwoLetterFromSurname=customer.getSurname().substring(0,2);
-      String dateOfBirth=customer.getDateOfBirth();
-      iBanNumber=iBanNumber+firstTwoLetterFromName+firstTwoLetterFromSurname+dateOfBirth;
+     String iBanNumber;
+     String firstTwoLetterFromName=customer.getName().substring(0,2).toLowerCase();
+      String firstTwoLetterFromSurname=customer.getSurname().substring(0,2).toLowerCase();
+      String dateOfBirth=customer.getDateOfBirth().replace(".","");
+      iBanNumber=firstTwoLetterFromName+firstTwoLetterFromSurname+dateOfBirth;
       return iBanNumber;
 
 

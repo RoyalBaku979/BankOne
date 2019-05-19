@@ -5,7 +5,7 @@ import Shahin_Aliyev.beans.IbanClass;
 
 import java.util.List;
 
-public interface IbanDaoInter {
+public interface IbanInterDao {
     public List<IbanClass> getAll();
     public IbanClass getIbanByAccount(Account account);
     public boolean update(IbanClass iban);

@@ -1,22 +1,24 @@
 package Shahin_Aliyev.beans;
 
 public class Percentage {
-    private static String AccountNumber;
-    private static double percentage=0.01;
+    private  String AccountNumber;
+    private  double percentage=0.01;
 
-    public static String getAccountNumber() {
+
+
+    public  String getAccountNumber() {
         return AccountNumber;
     }
 
-    public static void setAccountNumber(String accountNumber) {
+    public  void setAccountNumber(String accountNumber) {
         AccountNumber = accountNumber;
     }
 
-    public static double getPercentage() {
+    public  double getPercentage() {
         return percentage;
     }
 
-    public static void setPercentage(double percentage) {
-        Percentage.percentage = percentage;
+    public  void setPercentage(double percentage) {
+        this.percentage = percentage;
     }
 }

@@ -10,37 +10,65 @@ import Shahin_Aliyev.beans.TypeOfTransfer;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class TrasactioInterDao implements TransactionInterDao {
     @Override
-    public List<Transaction> getAll() {
-        return Config.getLitsOfTransactions();
+    public Set<Transaction> getAll() {
+        return Config.getSetsOfTransactions();
     }
 
     @Override
-    public List<Transaction> getAllByCustomer(Customer customer) {
+    public Set<Transaction> getAllByCustomer(Customer customer) {
+       Set<Transaction> SetOfTransaction=Config.getSetsOfTransactions();
+        Set<Transaction>listOfTransactionByCustomer=new TreeSet<>();
 
-        return customer.getListFfTransaction();
-    }
-
-    @Override
-    public List<Transaction> getAllByAccount(Account account) {
-
-        List<Transaction> listOfTransaction = new ArrayList<>();
-        for (Transaction tr : account.getCustomerAccount().getListFfTransaction()) {
-            if (tr.getSenderAccount().getNumberOfAccount().equals(account.getNumberOfAccount()) ||
-                    tr.getRecivierAccount().getNumberOfAccount().equals(account.getNumberOfAccount())) {
-                listOfTransaction.add(tr);
+        for (Transaction tr : SetOfTransaction) {
+            if (tr.getRecivierAccount().getCustomerAccount()==customer &&
+                    (tr.getTypeOfTransfer()==TypeOfTransfer.CREDIT || tr.getTypeOfTransfer()==TypeOfTransfer.WIRE)) {
+                listOfTransactionByCustomer.add(tr);
+            }
+            else
+            {
+                if (tr.getSenderAccount().getCustomerAccount()==customer&&
+                        tr.getTypeOfTransfer() == TypeOfTransfer.DEBIT)
+                {
+                    listOfTransactionByCustomer.add(tr);
+                }
             }
 
         }
+        return listOfTransactionByCustomer;
+    }
+
+    @Override
+    public Set<Transaction> getAllByAccount(Account account) {
+        Set<Transaction> listOfTransaction=getAll();
+        Set<Transaction> listOfTransactionByAccount = new TreeSet<>();
+        for (Transaction tr : listOfTransaction) {
+            if (tr.getSenderAccount().getNumberOfAccount().equals(account.getNumberOfAccount()) &&
+                    (tr.getTypeOfTransfer()==TypeOfTransfer.CREDIT || tr.getTypeOfTransfer()==TypeOfTransfer.WIRE)) {
+                listOfTransactionByAccount.add(tr);
+            }
+            else
+                {
+                   if (tr.getRecivierAccount().getNumberOfAccount().equals(account.getNumberOfAccount()) &&
+                        tr.getTypeOfTransfer() == TypeOfTransfer.DEBIT)
+                   {
+                    listOfTransactionByAccount.add(tr);
+                   }
+                }
+
+        }
+
         return listOfTransaction;
     }
 
     @Override
-    public List<Transaction> getAllByType(TypeOfTransfer typeOfTransfer) {
-        List<Transaction> listOfTransaction = new ArrayList<>();
-        for (Transaction tr : Config.getLitsOfTransactions()) {
+    public Set<Transaction> getAllByType(TypeOfTransfer typeOfTransfer) {
+        Set<Transaction> listOfTransaction = new TreeSet<>();
+        for (Transaction tr : Config.getSetsOfTransactions()) {
             if (tr.getTypeOfTransfer()==typeOfTransfer) {
                 listOfTransaction.add(tr);
             }
@@ -51,10 +79,10 @@ public class TrasactioInterDao implements TransactionInterDao {
     }
 
     @Override
-    public List<Transaction> getAllByHistory(ZonedDateTime startDate, ZonedDateTime endDate) {
+    public Set<Transaction> getAllByHistory(ZonedDateTime startDate, ZonedDateTime endDate) {
 
-        List<Transaction> listOfTransaction = new ArrayList<>();
-        for (Transaction transaction :Config.getLitsOfTransactions()) {
+        Set<Transaction> listOfTransaction = new TreeSet<>();
+        for (Transaction transaction :Config.getSetsOfTransactions()) {
             if(transaction.getDateOfTransaction().isAfter(startDate) && transaction.getDateOfTransaction().isBefore(endDate))
             {
                 listOfTransaction.add(transaction);
@@ -64,10 +92,10 @@ public class TrasactioInterDao implements TransactionInterDao {
         return listOfTransaction;
     }
     @Override
-    public List<Transaction> getAllByHistory(ZonedDateTime startDate, ZonedDateTime endDate,Customer customer) {
+    public Set<Transaction> getAllByHistory(ZonedDateTime startDate, ZonedDateTime endDate,Customer customer) {
 
-        List<Transaction> listOfTransaction = new ArrayList<>();
-        for (Transaction transaction :customer.getListFfTransaction()) {
+        Set<Transaction> listOfTransaction = new TreeSet<>();
+        for (Transaction transaction :getAllByCustomer(customer)) {
             if(transaction.getDateOfTransaction().isAfter(startDate) && transaction.getDateOfTransaction().isBefore(endDate))
             {
                 listOfTransaction.add(transaction);
@@ -78,9 +106,9 @@ public class TrasactioInterDao implements TransactionInterDao {
     }
 
     @Override
-    public List<Transaction> getAllByDay(ZonedDateTime day) {
-        List<Transaction> listOfTransaction = new ArrayList<>();
-        for (Transaction transaction :Config.getLitsOfTransactions()) {
+    public Set<Transaction> getAllByDay(ZonedDateTime day) {
+        Set<Transaction> listOfTransaction = new TreeSet<>();
+        for (Transaction transaction :Config.getSetsOfTransactions()) {
             if(transaction.getDateOfTransaction().equals(day))
             {
                 listOfTransaction.add(transaction);
@@ -89,10 +117,26 @@ public class TrasactioInterDao implements TransactionInterDao {
         }
         return listOfTransaction;
     }
+
     @Override
-    public List<Transaction> getAllByDay(ZonedDateTime day,Customer customer) {
+    public Set<Transaction> getFiveHigestTransactionByAmount(double amount) {
+        int i=0;
         List<Transaction> listOfTransaction = new ArrayList<>();
-        for (Transaction transaction :customer.getListFfTransaction()) {
+        for (Transaction transaction :Config.getSetsOfTransactions()) {
+
+            { if(i==5) break;
+               i++;
+                listOfTransaction.add(transaction);
+            }
+
+        }
+        return null;
+    }
+
+    @Override
+    public Set<Transaction> getAllByDay(ZonedDateTime day,Customer customer) {
+        Set<Transaction> listOfTransaction = new TreeSet<>();
+        for (Transaction transaction :getAllByCustomer(customer)) {
             if(transaction.getDateOfTransaction().equals(day))
             {
                 listOfTransaction.add(transaction);
