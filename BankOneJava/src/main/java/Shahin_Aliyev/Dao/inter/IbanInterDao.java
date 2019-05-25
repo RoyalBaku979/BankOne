@@ -8,7 +8,5 @@ import java.util.List;
 public interface IbanInterDao {
     public List<IbanClass> getAll();
     public IbanClass getIbanByAccount(Account account);
-    public boolean update(IbanClass iban);
-    public boolean add(IbanClass iban);
-    public boolean remove(IbanClass iban);
+
 }

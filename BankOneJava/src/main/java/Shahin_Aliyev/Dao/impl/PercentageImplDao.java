@@ -29,18 +29,5 @@ public class PercentageImplDao implements PercentageDao {
         return null;
     }
 
-    @Override
-    public boolean update(Percentage percentage) {
-        return false;
-    }
 
-    @Override
-    public boolean add(Percentage percentage) {
-        return false;
-    }
-
-    @Override
-    public boolean remove(Percentage percentage) {
-        return false;
-    }
 }

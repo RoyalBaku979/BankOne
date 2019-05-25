@@ -27,10 +27,10 @@ public class TransferUtil
 
       return false;
     }
-    private boolean WireTransfer(Account senderAccount,Account recieverAccount,double amountOfTransfer){
+    public boolean WireTransfer(Account senderAccount,Account recieverAccount,double amountOfTransfer){
          if(senderAccount.getTypeOfAccount()==TypeOfAccount.International)
          {
-           return checkAmountOfBalance(senderAccount,recieverAccount,amountOfTransfer,TypeOfTransfer.CREDIT);
+           return checkAmountOfBalance(senderAccount,recieverAccount,amountOfTransfer,TypeOfTransfer.WIRE);
 
          }
          else {
@@ -38,7 +38,7 @@ public class TransferUtil
              return false;
          }
     }
-    private boolean CreditTrasnfer(Account senderAccount,Account recieverAccount,double amountOfTransfer) {
+    public boolean CreditTrasnfer(Account senderAccount,Account recieverAccount,double amountOfTransfer) {
       if(senderAccount.getTypeOfAccount()==TypeOfAccount.Regular)
       {
           return RegularCreditTrasnfer(senderAccount,recieverAccount,amountOfTransfer);
@@ -55,11 +55,11 @@ public class TransferUtil
 
       return  false;
     }
-    private boolean RegularCreditTrasnfer(Account senderAccount,Account recieverAccount,double amountOfTransfer){
+    public boolean RegularCreditTrasnfer(Account senderAccount,Account recieverAccount,double amountOfTransfer){
 
       return  checkAmountOfBalance(senderAccount,recieverAccount,amountOfTransfer,TypeOfTransfer.CREDIT);
     }
-    private boolean SavingCreditTrasnfer(Account senderAccount,Account recieverAccount,double amountOfTransfer){
+    public boolean SavingCreditTrasnfer(Account senderAccount,Account recieverAccount,double amountOfTransfer){
 
         if(recieverAccount.getTypeOfAccount()==TypeOfAccount.Regular)
         {
@@ -67,7 +67,7 @@ public class TransferUtil
         }
         return false;
     }
-    private boolean checkAmountOfBalance(Account senderAccount,Account recieverAccount,double amountOfTransfer,TypeOfTransfer typeOfTransfer) {
+    public boolean checkAmountOfBalance(Account senderAccount,Account recieverAccount,double amountOfTransfer,TypeOfTransfer typeOfTransfer) {
        if(senderAccount.getAmount()>=amountOfTransfer)
        {
            return doneTransfer( senderAccount, recieverAccount, amountOfTransfer,typeOfTransfer);
@@ -76,7 +76,7 @@ public class TransferUtil
 
        return false;
    }
-    private boolean doneTransfer(Account senderAccount,Account recieverAccount,double amountOfTransfer,TypeOfTransfer typeOfTransfer) {
+    public boolean doneTransfer(Account senderAccount,Account recieverAccount,double amountOfTransfer,TypeOfTransfer typeOfTransfer) {
         if(debitTransfer(recieverAccount,amountOfTransfer))
         {
             senderAccount.setAmount(senderAccount.getAmount()-amountOfTransfer);
@@ -86,7 +86,7 @@ public class TransferUtil
         }
         return false;
     }
-    private static boolean debitTransfer(Account recieverAccount,Double amountOfMoney){
+    public  boolean debitTransfer(Account recieverAccount,Double amountOfMoney){
       if(recieverAccount.getTypeOfAccount()==TypeOfAccount.Regular) {
           recieverAccount.setAmount(recieverAccount.getAmount() + amountOfMoney);
 
@@ -95,7 +95,7 @@ public class TransferUtil
      else
          return false;
     }
-    private static int getTransactionNumber(Account account){
+    public  int getTransactionNumber(Account account){
         if(account.getTypeOfAccount()==TypeOfAccount.International)
         {
           int i= account.getCustomerAccount().getAmountOfInternationalTransfer()+1 ;
@@ -111,19 +111,19 @@ public class TransferUtil
         }
 
     }
-    private static void saveTrasction(Account senderAccount,Account recieverAccount,TypeOfTransfer typeOfTransfer,Double money){
+    public  void saveTrasction(Account senderAccount,Account recieverAccount,TypeOfTransfer typeOfTransfer,Double money){
          Transaction transaction=createTransaction(senderAccount,recieverAccount,typeOfTransfer,money);
          saveDebitTransfer(recieverAccount,transaction);
          Config.AddSetsOfTransactions(transaction);
 
     }
-    private static Transaction saveDebitTransfer(Account recieverAccount,Transaction transaction) {
+    public  Transaction saveDebitTransfer(Account recieverAccount,Transaction transaction) {
         transaction.setTypeOfTransfer(TypeOfTransfer.DEBIT);
 
         Config.AddSetsOfTransactions(transaction);
         return  transaction;
     }
-    private static Transaction createTransaction(Account senderAccount,Account recieverAccount,TypeOfTransfer typeOfTransfer,Double money) {
+    public  Transaction createTransaction(Account senderAccount,Account recieverAccount,TypeOfTransfer typeOfTransfer,Double money) {
         Transaction transaction=new Transaction();
         if(typeOfTransfer==TypeOfTransfer.WIRE)
         {

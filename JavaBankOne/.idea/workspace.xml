@@ -1,25 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="62798a34-21f5-4ca4-ac67-69f12404a709" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../BankOneJava/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BankOneJava/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BankOneJava/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BankOneJava/src/main/java/Shahin_Aliyev/Dao/impl/IbanImplDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BankOneJava/src/main/java/Shahin_Aliyev/Dao/impl/IbanImplDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BankOneJava/src/main/java/Shahin_Aliyev/Dao/impl/TrasactioInterDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BankOneJava/src/main/java/Shahin_Aliyev/Dao/impl/TrasactioInterDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BankOneJava/src/main/java/Shahin_Aliyev/Dao/inter/IbanDaoInter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BankOneJava/src/main/java/Shahin_Aliyev/Dao/inter/IbanInterDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BankOneJava/src/main/java/Shahin_Aliyev/Util/CustomerUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BankOneJava/src/main/java/Shahin_Aliyev/Util/CustomerUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BankOneJava/src/main/java/Shahin_Aliyev/Util/TransferUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BankOneJava/src/main/java/Shahin_Aliyev/Util/TransferUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BankOneJava/src/main/java/Shahin_Aliyev/beans/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BankOneJava/src/main/java/Shahin_Aliyev/beans/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BankOneJava/src/main/java/Shahin_Aliyev/beans/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BankOneJava/src/main/java/Shahin_Aliyev/beans/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BankOneJava/target/classes/Shahin_Aliyev/Dao/impl/IbanImplDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../BankOneJava/target/classes/Shahin_Aliyev/Dao/impl/IbanImplDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BankOneJava/target/classes/Shahin_Aliyev/Dao/impl/TrasactioInterDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../BankOneJava/target/classes/Shahin_Aliyev/Dao/impl/TrasactioInterDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BankOneJava/target/classes/Shahin_Aliyev/Dao/inter/IbanDaoInter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BankOneJava/target/classes/Shahin_Aliyev/Util/CustomerUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/../BankOneJava/target/classes/Shahin_Aliyev/Util/CustomerUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BankOneJava/target/classes/Shahin_Aliyev/Util/EmployerUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/../BankOneJava/target/classes/Shahin_Aliyev/Util/EmployerUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BankOneJava/target/classes/Shahin_Aliyev/Util/TransferUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/../BankOneJava/target/classes/Shahin_Aliyev/Util/TransferUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BankOneJava/target/classes/Shahin_Aliyev/beans/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/../BankOneJava/target/classes/Shahin_Aliyev/beans/Account.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BankOneJava/target/classes/Shahin_Aliyev/beans/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../BankOneJava/target/classes/Shahin_Aliyev/beans/Customer.class" afterDir="false" />
-    </list>
+    <list default="true" id="62798a34-21f5-4ca4-ac67-69f12404a709" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -86,7 +68,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
     <option name="width" value="1280" />
     <option name="height" value="777" />
@@ -97,7 +79,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -114,6 +95,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -244,23 +226,23 @@
       <workItem from="1557697066638" duration="582000" />
       <workItem from="1557697740245" duration="2489000" />
       <workItem from="1558268820158" duration="20000" />
+      <workItem from="1558815335251" duration="17000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3091000" />
+    <option name="totallyTimeSpent" value="3108000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="777" extended-state="0" />
+    <frame x="0" y="23" width="1250" height="777" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25767368" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2615894" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Statistic" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32956153" />
@@ -271,9 +253,10 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32930514" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32930514" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32956153" />
+      <window_info anchor="bottom" id="Statistic" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />

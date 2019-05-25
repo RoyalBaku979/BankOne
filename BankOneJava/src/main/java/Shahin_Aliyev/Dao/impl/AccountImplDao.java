@@ -48,18 +48,5 @@ public class AccountImplDao implements AccountInterDao {
         return listOfAccountByType;
     }
 
-    @Override
-    public boolean update(Account account) {
-        return false;
-    }
 
-    @Override
-    public boolean add(Account account) {
-        return false;
-    }
-
-    @Override
-    public boolean remove(Account account) {
-        return false;
-    }
 }

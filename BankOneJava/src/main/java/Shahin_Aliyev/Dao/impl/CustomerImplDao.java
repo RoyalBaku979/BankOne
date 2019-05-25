@@ -26,18 +26,5 @@ public class CustomerImplDao implements CustomerInterDao {
       return setOfFiveNewCustomer;
     }
 
-    @Override
-    public boolean update(Customer customer) {
-        return false;
-    }
 
-    @Override
-    public boolean add(Customer customer) {
-        return false;
-    }
-
-    @Override
-    public boolean remove(Customer customer) {
-        return false;
-    }
 }

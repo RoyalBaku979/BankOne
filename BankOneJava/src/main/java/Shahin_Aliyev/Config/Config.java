@@ -12,7 +12,7 @@ import java.util.TreeSet;
 public class Config {
     private static List<Account>ListOfAccount=new ArrayList<>();
     private static Set<Customer>ListofCustomer=new TreeSet<>();
-    private static Set<Transaction> SetOfTransactions=null;
+    private static Set<Transaction> SetOfTransactions=new TreeSet<>();
     private static List<IbanClass>listofIbans=new ArrayList<>();
     private static List<Percentage>listofPercentage=new ArrayList<>();
     private static Customer customer=null;

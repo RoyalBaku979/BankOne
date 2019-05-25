@@ -16,7 +16,5 @@ public interface TransactionInterDao {
     public Set<Transaction> getFiveHigestTransactionByAmount(double amount);
     public Set<Transaction> getAllByDay(ZonedDateTime day, Customer customer);
     public Set<Transaction> getAllByHistory(ZonedDateTime startDate, ZonedDateTime endDate, Customer customer);
-    public boolean update(Transaction transaction);
-    public boolean add(Transaction transaction);
-    public boolean remove(Transaction transaction);
+
 }

@@ -10,7 +10,5 @@ public interface AccountInterDao {
     public  List<Account> getAll();
     public  List<Account> getAllByCustomer(Customer customer);
     public List<Account> getAllByType(TypeOfAccount typeOfAccount);
-    public boolean update(Account account);
-    public boolean add(Account account);
-    public boolean remove(Account account);
+
 }

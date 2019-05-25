@@ -28,18 +28,5 @@ public class IbanImplDao implements IbanInterDao {
         return null;
     }
 
-    @Override
-    public boolean update(IbanClass iban) {
-        return false;
-    }
 
-    @Override
-    public boolean add(IbanClass iban) {
-        return false;
-    }
-
-    @Override
-    public boolean remove(IbanClass iban) {
-        return false;
-    }
 }

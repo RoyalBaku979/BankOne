@@ -3,7 +3,7 @@ package Shahin_Aliyev.beans;
 
 import Shahin_Aliyev.Config.Config;
 
-public final class Account {
+public  class Account {
 
     private static String numberOfAccount;
 
@@ -11,7 +11,7 @@ public final class Account {
     private  Customer customerAccount;
     private int transactionnumber;
     private TypeOfAccount typeOfAccount;
-    private static Account instance;
+
 private Account(){}
     public static String getNumberOfAccount() {
         return numberOfAccount;
@@ -82,19 +82,7 @@ private Account(){}
     }
     public static Account getInstance()
     {
-        if (instance == null)
-        {
-            //synchronized block to remove overhead
-            synchronized (Account.class)
-            {
-                if(instance==null)
-                {
-                    // if instance is null, initialize
-                    instance = new Account();
-                }
 
-            }
-        }
-        return instance;
+        return new Account();
     }
 }

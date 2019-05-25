@@ -25,13 +25,13 @@ public class TrasactioInterDao implements TransactionInterDao {
         Set<Transaction>listOfTransactionByCustomer=new TreeSet<>();
 
         for (Transaction tr : SetOfTransaction) {
-            if (tr.getRecivierAccount().getCustomerAccount()==customer &&
+            if (tr.getSenderAccount().getCustomerAccount()==customer &&
                     (tr.getTypeOfTransfer()==TypeOfTransfer.CREDIT || tr.getTypeOfTransfer()==TypeOfTransfer.WIRE)) {
                 listOfTransactionByCustomer.add(tr);
             }
             else
             {
-                if (tr.getSenderAccount().getCustomerAccount()==customer&&
+                if (tr.getRecivierAccount().getCustomerAccount()==customer&&
                         tr.getTypeOfTransfer() == TypeOfTransfer.DEBIT)
                 {
                     listOfTransactionByCustomer.add(tr);
@@ -146,18 +146,5 @@ public class TrasactioInterDao implements TransactionInterDao {
         return listOfTransaction;
     }
 
-    @Override
-    public boolean update(Transaction transaction) {
-        return false;
-    }
 
-    @Override
-    public boolean add(Transaction transaction) {
-        return false;
-    }
-
-    @Override
-    public boolean remove(Transaction transaction) {
-        return false;
-    }
 }
