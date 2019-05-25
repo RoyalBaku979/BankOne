@@ -8,15 +8,13 @@ import Shahin_Aliyev.beans.Customer;
 import Shahin_Aliyev.beans.TypeOfAccount;
 
 import java.time.ZonedDateTime;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class BankUtil {
-public boolean CreateCustomer(String name,String surname,String email,String password,String dateOfBirht,ZonedDateTime dateOfJoinBank,int amountOfInternationTransfer){
+public boolean createCustomer(String name, String surname, String email, String password, String dateOfBirht, ZonedDateTime dateOfJoinBank, int amountOfInternationTransfer){
     Customer customer=Customer.getInstance();
     if(name.trim().isEmpty() ||surname.trim().isEmpty() || email.trim().isEmpty() || password.trim().isEmpty()
    || dateOfBirht.trim().isEmpty())
@@ -33,7 +31,7 @@ public boolean CreateCustomer(String name,String surname,String email,String pas
         customer.setSurname(surname);
         customer.setPassword(password);
         customer.setAmountOfInternationalTransfer(0);
-        Config.AddListofCustomer(customer);
+        Config.addListofCustomer(customer);
         return true;
        }
 

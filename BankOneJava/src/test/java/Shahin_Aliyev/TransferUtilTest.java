@@ -17,7 +17,7 @@ public class TransferUtilTest {
          account.setNumberOfAccount("123456");
         account.setCustomerAccount(customer);
         account.setTransactionnumber(1);
-        Config.AddListOfAccount(account);
+        Config.addListOfAccount(account);
         return account;
 
     }
@@ -159,7 +159,7 @@ public class TransferUtilTest {
         Account senderAccount=createSenderAccountforTest(TypeOfAccount.Saving);
         Account reciverAccount=createSenderAccountforTest(TypeOfAccount.Regular);
 
-        boolean result=transferUtil.SavingCreditTrasnfer(senderAccount,reciverAccount,100);
+        boolean result=transferUtil.savingCreditTrasnfer(senderAccount,reciverAccount,100);
         assertEquals(result,true);
     }
     @Test
@@ -168,7 +168,7 @@ public class TransferUtilTest {
         Account senderAccount=createSenderAccountforTest(TypeOfAccount.Saving);
         Account reciverAccount=createSenderAccountforTest(TypeOfAccount.Saving);
 
-        boolean result=transferUtil.SavingCreditTrasnfer(senderAccount,reciverAccount,100);
+        boolean result=transferUtil.savingCreditTrasnfer(senderAccount,reciverAccount,100);
         assertEquals(result,false);
     }
     @Test
@@ -177,7 +177,7 @@ public class TransferUtilTest {
         Account senderAccount=createSenderAccountforTest(TypeOfAccount.Saving);
         Account reciverAccount=createSenderAccountforTest(TypeOfAccount.International);
 
-        boolean result=transferUtil.SavingCreditTrasnfer(senderAccount,reciverAccount,100);
+        boolean result=transferUtil.savingCreditTrasnfer(senderAccount,reciverAccount,100);
         assertEquals(result,false);
     }
 
@@ -187,7 +187,7 @@ public class TransferUtilTest {
         TransferUtil transferUtil=new TransferUtil();
         Account senderAccount=createSenderAccountforTest(TypeOfAccount.International);
         Account reciverAccount=createSenderAccountforTest(TypeOfAccount.Regular);
-        boolean result=transferUtil.RegularCreditTrasnfer(senderAccount,reciverAccount,100);
+        boolean result=transferUtil.regularCreditTrasnfer(senderAccount,reciverAccount,100);
         assertEquals(result,true);
     }
     @Test
@@ -195,7 +195,7 @@ public class TransferUtilTest {
         TransferUtil transferUtil=new TransferUtil();
         Account reciverAccount=createSenderAccountforTest(TypeOfAccount.Regular);
         Account senderAccount=createSenderAccountforTest(TypeOfAccount.International);
-        boolean result=transferUtil.CreditTrasnfer(senderAccount,reciverAccount,100);
+        boolean result=transferUtil.creditTrasnfer(senderAccount,reciverAccount,100);
         assertEquals(result,false);
     }
     @Test
@@ -203,7 +203,7 @@ public class TransferUtilTest {
         TransferUtil transferUtil=new TransferUtil();
         Account senderAccount=createSenderAccountforTest(TypeOfAccount.Saving);
         Account reciverAccount=createSenderAccountforTest(TypeOfAccount.Regular);
-        boolean result=transferUtil.CreditTrasnfer(senderAccount,reciverAccount,100);
+        boolean result=transferUtil.creditTrasnfer(senderAccount,reciverAccount,100);
         assertEquals(result,true);
     }
     @Test
@@ -211,7 +211,7 @@ public class TransferUtilTest {
         TransferUtil transferUtil=new TransferUtil();
         Account senderAccount=createSenderAccountforTest(TypeOfAccount.Regular);
         Account reciverAccount=createSenderAccountforTest(TypeOfAccount.Regular);
-        boolean result=transferUtil.CreditTrasnfer(senderAccount,reciverAccount,100);
+        boolean result=transferUtil.creditTrasnfer(senderAccount,reciverAccount,100);
         assertEquals(result,true);
     }
     @Test
@@ -221,7 +221,7 @@ public class TransferUtilTest {
         Account reciverAccount=createSenderAccountforTest(TypeOfAccount.Regular);
 
 
-       boolean result=transferUtil.WireTransfer(senderAccount,reciverAccount,100);
+       boolean result=transferUtil.wireTransfer(senderAccount,reciverAccount,100);
         assertEquals(result,true);
     }
     @Test
@@ -229,7 +229,7 @@ public class TransferUtilTest {
         TransferUtil transferUtil=new TransferUtil();
         Account senderAccount=createSenderAccountforTest(TypeOfAccount.Regular);
         Account reciverAccount=createSenderAccountforTest(TypeOfAccount.Regular);
-        boolean result=transferUtil.WireTransfer(senderAccount,reciverAccount,100);
+        boolean result=transferUtil.wireTransfer(senderAccount,reciverAccount,100);
         assertEquals(result,false);
     }
     @Test
@@ -237,7 +237,7 @@ public class TransferUtilTest {
         TransferUtil transferUtil=new TransferUtil();
         Account senderAccount=createSenderAccountforTest(TypeOfAccount.Saving);
         Account reciverAccount=createSenderAccountforTest(TypeOfAccount.Regular);
-        boolean result=transferUtil.WireTransfer(senderAccount,reciverAccount,100);
+        boolean result=transferUtil.wireTransfer(senderAccount,reciverAccount,100);
         assertEquals(result,false);
     }
     @Test

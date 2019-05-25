@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class TrasactioInterDao implements TransactionInterDao {
+public class TrasactionImplDao implements TransactionInterDao {
     @Override
     public Set<Transaction> getAll() {
         return Config.getSetsOfTransactions();

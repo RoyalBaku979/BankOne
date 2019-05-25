@@ -7,7 +7,7 @@ import Shahin_Aliyev.beans.*;
 
 public class CustomerUtil {
     private final static String banknumber="12";
-    public static boolean SendRequest(TypeOfAccount typeOfAccount, Double amountOfMoney){
+    public static boolean sendRequest(TypeOfAccount typeOfAccount, Double amountOfMoney){
        if(Config.getCustomer()==null)
        {
            System.out.println("You should Login if you want to open Account");
@@ -22,7 +22,7 @@ public class CustomerUtil {
         account.setCustomerAccount(Config.getCustomer());
         addIbanNumber(account);
         addInterestRate(account);
-       return OpenAccount(account);
+       return openAccount(account);
 
     }
     public static boolean addIbanNumber(Account account){
@@ -58,11 +58,11 @@ public class CustomerUtil {
         }
 
     }
-    public static boolean OpenAccount(Account account){
-        if(EmployerUtil.AccecptNewAccount(account)!=null)
+    public static boolean openAccount(Account account){
+        if(EmployerUtil.accecptNewAccount(account)!=null)
         {
 
-            Config.AddListOfAccount(account);
+            Config.addListOfAccount(account);
 
             return true;
 

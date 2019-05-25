@@ -25,6 +25,7 @@ public class AccountImplDao implements AccountInterDao {
        List<Account>listOfAccount=Config.getListOfAccount();
         List<Account>listOfAccountByCustomer=new ArrayList<>();
         for (Account account:listOfAccount) {
+
             if(account.getCustomerAccount().equals(customer))
             {
                 listOfAccountByCustomer.add(account);

@@ -24,7 +24,7 @@ public class BankUtilTest {
         ZonedDateTime dateOfJoinBank=ZonedDateTime.now();
         int amountOfInternationTransfer=0;
         BankUtil bankUtil=new BankUtil();
-       boolean result=bankUtil.CreateCustomer(name,surname,email,password,dateOfBirht,dateOfJoinBank,amountOfInternationTransfer);
+       boolean result=bankUtil.createCustomer(name,surname,email,password,dateOfBirht,dateOfJoinBank,amountOfInternationTransfer);
         assertEquals(result,true);
     }
     @Test
@@ -37,7 +37,7 @@ public class BankUtilTest {
         ZonedDateTime dateOfJoinBank=ZonedDateTime.now();
         int amountOfInternationTransfer=0;
         BankUtil bankUtil=new BankUtil();
-        boolean result=bankUtil.CreateCustomer(name,surname,email,password,dateOfBirht,dateOfJoinBank,amountOfInternationTransfer);
+        boolean result=bankUtil.createCustomer(name,surname,email,password,dateOfBirht,dateOfJoinBank,amountOfInternationTransfer);
         assertEquals(result,false);
     }
     @Test
@@ -50,7 +50,7 @@ public class BankUtilTest {
         ZonedDateTime dateOfJoinBank=ZonedDateTime.now();
         int amountOfInternationTransfer=0;
         BankUtil bankUtil=new BankUtil();
-        boolean result=bankUtil.CreateCustomer(name,surname,email,password,dateOfBirht,dateOfJoinBank,amountOfInternationTransfer);
+        boolean result=bankUtil.createCustomer(name,surname,email,password,dateOfBirht,dateOfJoinBank,amountOfInternationTransfer);
         assertEquals(result,false);
     }
     @Test
@@ -63,7 +63,7 @@ public class BankUtilTest {
         ZonedDateTime dateOfJoinBank=ZonedDateTime.now();
         int amountOfInternationTransfer=0;
         BankUtil bankUtil=new BankUtil();
-        boolean result=bankUtil.CreateCustomer(name,surname,email,password,dateOfBirht,dateOfJoinBank,amountOfInternationTransfer);
+        boolean result=bankUtil.createCustomer(name,surname,email,password,dateOfBirht,dateOfJoinBank,amountOfInternationTransfer);
         assertEquals(result,false);
     }
     @Test
@@ -76,7 +76,7 @@ public class BankUtilTest {
         ZonedDateTime dateOfJoinBank=ZonedDateTime.now();
         int amountOfInternationTransfer=0;
         BankUtil bankUtil=new BankUtil();
-        boolean result=bankUtil.CreateCustomer(name,surname,email,password,dateOfBirht,dateOfJoinBank,amountOfInternationTransfer);
+        boolean result=bankUtil.createCustomer(name,surname,email,password,dateOfBirht,dateOfJoinBank,amountOfInternationTransfer);
         assertEquals(result,false);
     }
     @Test
@@ -89,7 +89,7 @@ public class BankUtilTest {
         ZonedDateTime dateOfJoinBank=ZonedDateTime.now();
         int amountOfInternationTransfer=0;
         BankUtil bankUtil=new BankUtil();
-        boolean result=bankUtil.CreateCustomer(name,surname,email,password,dateOfBirht,dateOfJoinBank,amountOfInternationTransfer);
+        boolean result=bankUtil.createCustomer(name,surname,email,password,dateOfBirht,dateOfJoinBank,amountOfInternationTransfer);
         assertEquals(result,false);
     }
     @Test
@@ -113,7 +113,7 @@ public class BankUtilTest {
         Account account=Account.getInstance();
         account.setNumberOfAccount("12345");
         account.setTypeOfAccount(TypeOfAccount.Saving);
-        Config.AddListOfAccount(account);
+        Config.addListOfAccount(account);
         Percentage percentage=new Percentage();
         percentage.setAccountNumber(account.getNumberOfAccount());
         percentage.setPercentage(0.01);

@@ -2,7 +2,6 @@ package Shahin_Aliyev;
 
 import Shahin_Aliyev.Config.Config;
 import Shahin_Aliyev.Dao.impl.AccountImplDao;
-import Shahin_Aliyev.Util.BankUtil;
 import Shahin_Aliyev.Util.CustomerUtil;
 import Shahin_Aliyev.Util.EmployerUtil;
 import Shahin_Aliyev.beans.*;
@@ -13,12 +12,14 @@ import java.time.ZonedDateTime;
 import static org.junit.Assert.*;
 
 public class CustomerUtilTest {
+
     public Customer createCustomer(String email,String password) {
         Customer customer=Customer.getInstance();
         customer.setEmail(email);
+        customer.setCustomerNumber("001");
         customer.setPassword(password);
         customer.setDateOfJoinedBank(ZonedDateTime.now());
-        Config.AddListofCustomer(customer);
+        Config.addListofCustomer(customer);
         Config.setCustomer(customer);
         return  customer;
     }
@@ -27,13 +28,17 @@ public class CustomerUtilTest {
       Customer customer=Customer.getInstance();
       customer.setDateOfBirth("12.06.1993");
       customer.setName("Sahin");
+        customer.setCustomerNumber("001");
       customer.setSurname("Aliyev");
       Config.setCustomer(customer);
   }
     public String createCustomerAccountNumberForTest(){
       Customer customer =createCustomer("sahin.aliyev979@gmail.com","123456");
-      AccountImplDao accountImplDao=new AccountImplDao();
 
+      AccountImplDao accountImplDao=new AccountImplDao();
+        Account account=Account.getInstance();
+        account.setCustomerAccount(customer);
+        Config.addListOfAccount(account);
       String number = accountImplDao.getAllByCustomer(customer).size()+"";
       int size = number.length();
       while (size < 3) {
@@ -63,7 +68,7 @@ public class CustomerUtilTest {
         account.setCustomerAccount(createCustomer("Shahin","Aliyev"));
         account.setNumberOfAccount(customerUtil.genarateAccountNumber(Config.getCustomer()));
         account.setTransactionnumber(0);
-
+           Config.addListOfAccount(account);
         return account;
 
   }
@@ -110,7 +115,7 @@ public class CustomerUtilTest {
         Account account=createAccount();
         account.setTypeOfAccount(TypeOfAccount.Saving);
         customerUtil.addInterestRate(account);
-        boolean result=customerUtil.SendRequest(TypeOfAccount.Saving,1000.00);
+        boolean result=customerUtil.sendRequest(TypeOfAccount.Saving,1000.00);
         assertEquals(result,true);
 
     }
@@ -118,7 +123,7 @@ public class CustomerUtilTest {
     public void sendRequest2() {
         Config.setCustomer(null);
         CustomerUtil customerUtil=new CustomerUtil();
-        boolean result=customerUtil.SendRequest(TypeOfAccount.Saving,1000.00);
+        boolean result=customerUtil.sendRequest(TypeOfAccount.Saving,1000.00);
         assertEquals(result,false);
 
     }
@@ -171,9 +176,9 @@ public class CustomerUtilTest {
         account.setTypeOfAccount(TypeOfAccount.International);
         account.setCustomerAccount(Customer.getInstance());
         account.setNumberOfAccount("12345");
-        Config.AddListOfAccount(account);
+        Config.addListOfAccount(account);
         createIban(account,"0123456789");
-        Boolean result=customerUtil.OpenAccount(account);
+        Boolean result=customerUtil.openAccount(account);
         assertEquals(result,true);
 
     }
@@ -185,9 +190,9 @@ public class CustomerUtilTest {
         account.setTypeOfAccount(TypeOfAccount.Saving);
         account.setCustomerAccount(Customer.getInstance());
         account.setNumberOfAccount("12345");
-        Config.AddListOfAccount(account);
+        Config.addListOfAccount(account);
         createPercentage(account,0.01);
-        Boolean result=customerUtil.OpenAccount(account);
+        Boolean result=customerUtil.openAccount(account);
         assertEquals(result,true);
 
     }
@@ -205,17 +210,18 @@ public class CustomerUtilTest {
     @Test
     public void genarateCustomerAccountNumber() {
         CustomerUtil customerUtil=new CustomerUtil();
-      Customer customer =createCustomer("sahin.aliyev979@gmail.com","123456");
+     // Customer customer =createCustomer("sahin.aliyev979@gmail.com","123456");
         AccountImplDao accountImplDao=new AccountImplDao();
+      Account account=createAccount();
+        String number = accountImplDao.getAllByCustomer(account.getCustomerAccount()).size()+"";
 
-        String number = accountImplDao.getAllByCustomer(customer).size()+"";
         int size = number.length();
         while (size < 3) {
 
             number = "0" + number;
             size = number.length();
         }
-      String result= customerUtil.genarateCustomerAccountNumber(customer);
+      String result= customerUtil.genarateCustomerAccountNumber(account.getCustomerAccount());
         assertEquals(result,number);
 
 

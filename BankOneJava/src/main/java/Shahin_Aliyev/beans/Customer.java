@@ -105,4 +105,17 @@ public class Customer implements Comparable<Customer> {
         return this.getDateOfJoinedBank().compareTo(o.getDateOfJoinedBank());
 
     }
+
+    @Override
+    public boolean equals(Object obj) {
+          if(obj instanceof Customer)
+          {
+              Customer customer=(Customer)obj;
+              if(customer.getCustomerNumber().equals(this.CustomerNumber))
+              {
+                  return true;
+              }
+          }
+          return false;
+    }
 }

@@ -11,7 +11,7 @@ public class TransferUtil
 
         if(typeOfTransfer==TypeOfTransfer.CREDIT)
         {
-        return CreditTrasnfer(accountSender,recieverAccount,amountOfTransfer);
+        return creditTrasnfer(accountSender,recieverAccount,amountOfTransfer);
 
 
         }
@@ -20,14 +20,14 @@ public class TransferUtil
           if(typeOfTransfer==TypeOfTransfer.WIRE)
           {
 
-         return  WireTransfer(accountSender,recieverAccount,amountOfTransfer);
+         return  wireTransfer(accountSender,recieverAccount,amountOfTransfer);
           }
 
         }
 
       return false;
     }
-    public boolean WireTransfer(Account senderAccount,Account recieverAccount,double amountOfTransfer){
+    public boolean wireTransfer(Account senderAccount, Account recieverAccount, double amountOfTransfer){
          if(senderAccount.getTypeOfAccount()==TypeOfAccount.International)
          {
            return checkAmountOfBalance(senderAccount,recieverAccount,amountOfTransfer,TypeOfTransfer.WIRE);
@@ -38,16 +38,16 @@ public class TransferUtil
              return false;
          }
     }
-    public boolean CreditTrasnfer(Account senderAccount,Account recieverAccount,double amountOfTransfer) {
+    public boolean creditTrasnfer(Account senderAccount, Account recieverAccount, double amountOfTransfer) {
       if(senderAccount.getTypeOfAccount()==TypeOfAccount.Regular)
       {
-          return RegularCreditTrasnfer(senderAccount,recieverAccount,amountOfTransfer);
+          return regularCreditTrasnfer(senderAccount,recieverAccount,amountOfTransfer);
       }
       else
       {
           if(senderAccount.getTypeOfAccount()==TypeOfAccount.Saving)
           {
-             return SavingCreditTrasnfer(senderAccount,recieverAccount,amountOfTransfer);
+             return savingCreditTrasnfer(senderAccount,recieverAccount,amountOfTransfer);
           }
 
       }
@@ -55,11 +55,11 @@ public class TransferUtil
 
       return  false;
     }
-    public boolean RegularCreditTrasnfer(Account senderAccount,Account recieverAccount,double amountOfTransfer){
+    public boolean regularCreditTrasnfer(Account senderAccount, Account recieverAccount, double amountOfTransfer){
 
       return  checkAmountOfBalance(senderAccount,recieverAccount,amountOfTransfer,TypeOfTransfer.CREDIT);
     }
-    public boolean SavingCreditTrasnfer(Account senderAccount,Account recieverAccount,double amountOfTransfer){
+    public boolean savingCreditTrasnfer(Account senderAccount, Account recieverAccount, double amountOfTransfer){
 
         if(recieverAccount.getTypeOfAccount()==TypeOfAccount.Regular)
         {
@@ -114,13 +114,13 @@ public class TransferUtil
     public  void saveTrasction(Account senderAccount,Account recieverAccount,TypeOfTransfer typeOfTransfer,Double money){
          Transaction transaction=createTransaction(senderAccount,recieverAccount,typeOfTransfer,money);
          saveDebitTransfer(recieverAccount,transaction);
-         Config.AddSetsOfTransactions(transaction);
+         Config.addSetsOfTransactions(transaction);
 
     }
     public  Transaction saveDebitTransfer(Account recieverAccount,Transaction transaction) {
         transaction.setTypeOfTransfer(TypeOfTransfer.DEBIT);
 
-        Config.AddSetsOfTransactions(transaction);
+        Config.addSetsOfTransactions(transaction);
         return  transaction;
     }
     public  Transaction createTransaction(Account senderAccount,Account recieverAccount,TypeOfTransfer typeOfTransfer,Double money) {

@@ -30,13 +30,13 @@ public class EmployerUtilTest {
         Account account=Account.getInstance();
         account.setNumberOfAccount("1234567");
         account.setTypeOfAccount(TypeOfAccount.International);
-        Config.AddListOfAccount(account);
+        Config.addListOfAccount(account);
         IbanClass ibanClass=new IbanClass();
         ibanClass.setIBAN(iban);
         ibanClass.setAccountNumber(account.getNumberOfAccount());
         Config.addListofIbans(ibanClass);
 
-     Account result= employerUtil.CheckIbanNumber(account);
+     Account result= employerUtil.checkIbanNumber(account);
         assertEquals(result,null);
 
     }
@@ -50,8 +50,8 @@ public class EmployerUtilTest {
         ibanClass.setIBAN(iban);
         ibanClass.setAccountNumber(account.getNumberOfAccount());
         Config.addListofIbans(ibanClass);
-        Config.AddListOfAccount(account);
-        Account result= employerUtil.CheckIbanNumber(account);
+        Config.addListOfAccount(account);
+        Account result= employerUtil.checkIbanNumber(account);
         assertEquals(result,account);
 
     }
@@ -65,8 +65,8 @@ public class EmployerUtilTest {
         ibanClass.setIBAN(iban);
         ibanClass.setAccountNumber(account.getNumberOfAccount());
         Config.addListofIbans(ibanClass);
-        Config.AddListOfAccount(account);
-        Account result= employerUtil.CheckInternationalAccount(account);
+        Config.addListOfAccount(account);
+        Account result= employerUtil.checkInternationalAccount(account);
         assertEquals(result,account);
 
     }
@@ -75,8 +75,8 @@ public class EmployerUtilTest {
         EmployerUtil employerUtil=new EmployerUtil();
         Account account=Account.getInstance();
         account.setNumberOfAccount("1234");
-        Config.AddListOfAccount(account);
-        Account result= employerUtil.CheckInternationalAccount(account);
+        Config.addListOfAccount(account);
+        Account result= employerUtil.checkInternationalAccount(account);
         assertEquals(result,null);
 
     }
@@ -87,13 +87,13 @@ public class EmployerUtilTest {
         Account account=Account.getInstance();
         account.setNumberOfAccount("123456");
         account.setTypeOfAccount(TypeOfAccount.Saving);
-        Config.AddListOfAccount(account);
+        Config.addListOfAccount(account);
         Percentage percentage=new Percentage();
         percentage.setPercentage(0.03);
         percentage.setAccountNumber(account.getNumberOfAccount());
        Config.setListofPercentage(percentage);
 
-        Account result= employerUtil.CheckSavingAccount(account);
+        Account result= employerUtil.checkSavingAccount(account);
         assertEquals(result,null);
 
     }
@@ -107,7 +107,7 @@ public class EmployerUtilTest {
         account.setNumberOfAccount("12345");
 
         createPercentage(account,0.01);
-        Config.AddListOfAccount(account);
+        Config.addListOfAccount(account);
         Account result= employerUtil.checkSavingAndInternatinolAccount(account);
         assertEquals(result,account);
 
@@ -119,7 +119,7 @@ public class EmployerUtilTest {
         Account account=Account.getInstance();
         account.setTypeOfAccount(TypeOfAccount.International);
         account.setNumberOfAccount("12345");
-        Config.AddListOfAccount(account);
+        Config.addListOfAccount(account);
         createIban(account,"0123456789");
         Account result= employerUtil.checkSavingAndInternatinolAccount(account);
         assertEquals(result,account);
@@ -132,7 +132,7 @@ public class EmployerUtilTest {
         Account account=Account.getInstance();
         account.setTypeOfAccount(TypeOfAccount.Regular);
         account.setNumberOfAccount("12345");
-        Config.AddListOfAccount(account);
+        Config.addListOfAccount(account);
         createIban(account,"0123456789");
         Account result= employerUtil.checkAccountBType(account);
         assertEquals(result,account);
@@ -145,7 +145,7 @@ public class EmployerUtilTest {
         Account account=Account.getInstance();
         account.setTypeOfAccount(TypeOfAccount.International);
         account.setNumberOfAccount("12345");
-        Config.AddListOfAccount(account);
+        Config.addListOfAccount(account);
         createIban(account,"0123456789");
         Account result= employerUtil.checkAccountBType(account);
         assertEquals(result,account);
@@ -158,7 +158,7 @@ public class EmployerUtilTest {
         Account account=Account.getInstance();
         account.setTypeOfAccount(TypeOfAccount.Saving);
         account.setNumberOfAccount("12345");
-        Config.AddListOfAccount(account);
+        Config.addListOfAccount(account);
         createPercentage(account,0.01);
         Account result= employerUtil.checkAccountBType(account);
         assertEquals(result,account);
@@ -172,9 +172,9 @@ public class EmployerUtilTest {
         account.setTypeOfAccount(TypeOfAccount.Saving);
         account.setCustomerAccount(Customer.getInstance());
         account.setNumberOfAccount("12345");
-        Config.AddListOfAccount(account);
+        Config.addListOfAccount(account);
         createPercentage(account,0.01);
-        Account result= employerUtil.CheckAccount(account);
+        Account result= employerUtil.checkAccount(account);
         assertEquals(result,account);
 
     }
@@ -186,9 +186,9 @@ public class EmployerUtilTest {
         account.setTypeOfAccount(TypeOfAccount.Saving);
         account.setCustomerAccount(Customer.getInstance());
         account.setNumberOfAccount("");
-        Config.AddListOfAccount(account);
+        Config.addListOfAccount(account);
         createPercentage(account,0.01);
-        Account result= employerUtil.CheckAccount(account);
+        Account result= employerUtil.checkAccount(account);
         assertEquals(result,null);
 
     }
@@ -200,9 +200,9 @@ public class EmployerUtilTest {
         account.setTypeOfAccount(null);
         account.setCustomerAccount(Customer.getInstance());
         account.setNumberOfAccount("12345");
-        Config.AddListOfAccount(account);
+        Config.addListOfAccount(account);
         createPercentage(account,0.01);
-        Account result= employerUtil.CheckAccount(account);
+        Account result= employerUtil.checkAccount(account);
         assertEquals(result,null);
 
     }
@@ -214,9 +214,9 @@ public class EmployerUtilTest {
         account.setTypeOfAccount(TypeOfAccount.International);
         account.setCustomerAccount(null);
         account.setNumberOfAccount("12345");
-        Config.AddListOfAccount(account);
+        Config.addListOfAccount(account);
         createPercentage(account,0.01);
-        Account result= employerUtil.CheckAccount(account);
+        Account result= employerUtil.checkAccount(account);
         assertEquals(result,null);
 
     }
@@ -227,9 +227,9 @@ public class EmployerUtilTest {
         account.setTypeOfAccount(TypeOfAccount.International);
         account.setCustomerAccount(null);
         account.setNumberOfAccount("12345");
-        Config.AddListOfAccount(account);
+        Config.addListOfAccount(account);
         createPercentage(account,0.01);
-        Account result= employerUtil.CheckAccount(account);
+        Account result= employerUtil.checkAccount(account);
         assertEquals(result,null);
 
     }
@@ -240,9 +240,9 @@ public class EmployerUtilTest {
         account.setTypeOfAccount(TypeOfAccount.International);
         account.setCustomerAccount(Customer.getInstance());
         account.setNumberOfAccount("12345");
-        Config.AddListOfAccount(account);
+        Config.addListOfAccount(account);
         createIban(account,"0123456789");
-        Account result= employerUtil.CheckAccount(account);
+        Account result= employerUtil.checkAccount(account);
         assertEquals(result,account);
 
     }

@@ -37,7 +37,7 @@ public class Config {
         return ListOfAccount;
     }
 
-    public static void AddListOfAccount(Account account) {
+    public static void addListOfAccount(Account account) {
         ListOfAccount.add(account);
     }
 
@@ -45,7 +45,7 @@ public class Config {
         return ListofCustomer;
     }
 
-    public static void AddListofCustomer(Customer customer) {
+    public static void addListofCustomer(Customer customer) {
            ListofCustomer.add(customer);
     }
 
@@ -53,7 +53,7 @@ public class Config {
         return SetOfTransactions;
     }
 
-    public static void AddSetsOfTransactions(Transaction transactions) {
+    public static void addSetsOfTransactions(Transaction transactions) {
         SetOfTransactions.add(transactions);
     }
 
