@@ -4,7 +4,7 @@ package Shahin_Aliyev.beans;
 import Shahin_Aliyev.Config.Config;
 
 public  class Account {
-
+    Config config;
     private static String numberOfAccount;
 
     private  double amount;
@@ -57,29 +57,7 @@ private Account(){}
 
 
 
-    @Override
-    public String toString() {
-    String account=null;
-    String ibannumber="";
-    if(getTypeOfAccount()==TypeOfAccount.International)
-    {
-        for (IbanClass iban : Config.getListofIbans()) {
-            if(iban.getAccountNumber().equals(numberOfAccount))
-            {
-                ibannumber=iban.getIBAN();
-                break;
 
-            }
-        }
-        account="Account number"+getNumberOfAccount()+";Account Type:"+getTypeOfAccount()+";Iban:"+ibannumber+";Customer"+getCustomerAccount();
-    }
-    else
-    {
-        account="Account number"+getNumberOfAccount()+";Account Type:"+getTypeOfAccount()+";Customer:"+getCustomerAccount();
-    }
-
-        return account;
-    }
     public static Account getInstance()
     {
 

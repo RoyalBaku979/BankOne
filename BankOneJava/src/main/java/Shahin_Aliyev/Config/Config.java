@@ -10,36 +10,16 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class Config {
-    private static List<Account>ListOfAccount=new ArrayList<>();
+    private Set<Customer>listofCustomer1;
+    private List<IbanClass>listOfIbans1;
+    private   List<Account>listOfAccount1;
+    private static List<Percentage>listofPercentage1;
     private static Set<Customer>ListofCustomer=new TreeSet<>();
-    private static Set<Transaction> SetOfTransactions=new TreeSet<>();
-    private static List<IbanClass>listofIbans=new ArrayList<>();
-    private static List<Percentage>listofPercentage=new ArrayList<>();
+    private  static Set<Transaction> SetOfTransactions=new TreeSet<>();
+
     private static Customer customer=null;
 
-    public static List<IbanClass> getListofIbans() {
-        return listofIbans;
-    }
 
-    public static void addListofIbans(IbanClass ibans) {
-        listofIbans.add(ibans);
-    }
-
-    public static List<Percentage> getListofPercentage() {
-        return listofPercentage;
-    }
-
-    public static void setListofPercentage(Percentage percentage) {
-        listofPercentage.add(percentage);
-    }
-
-    public static List<Account> getListOfAccount() {
-        return ListOfAccount;
-    }
-
-    public static void addListOfAccount(Account account) {
-        ListOfAccount.add(account);
-    }
 
     public static Set<Customer> getListofCustomer() {
         return ListofCustomer;
@@ -49,7 +29,7 @@ public class Config {
            ListofCustomer.add(customer);
     }
 
-    public static Set<Transaction> getSetsOfTransactions() {
+    public  static Set<Transaction> getSetsOfTransactions() {
         return SetOfTransactions;
     }
 
@@ -63,5 +43,37 @@ public class Config {
 
     public static void setCustomer(Customer customer) {
         Config.customer = customer;
+    }
+
+    public  Set<Customer> getListofCustomer1() {
+        return listofCustomer1;
+    }
+
+    public void setListofCustomer1(Customer customer) {
+        listofCustomer1.add(customer);
+    }
+
+    public List<IbanClass> getListOfIbans1() {
+        return listOfIbans1;
+    }
+
+    public void setListOfIbans1(IbanClass ibanClass) {
+        listOfIbans1.add(ibanClass);
+    }
+
+    public List<Account> getListOfAccount1() {
+        return listOfAccount1;
+    }
+
+    public void setListOfAccount1(Account account) {
+       listOfAccount1.add(account);
+    }
+
+    public  List<Percentage> getListofPercentage1() {
+        return listofPercentage1;
+    }
+
+    public  void setListofPercentage1(Percentage percentage1) {
+        listofPercentage1.add(percentage1);
     }
 }

@@ -5,11 +5,17 @@ import Shahin_Aliyev.Dao.impl.IbanImplDao;
 import Shahin_Aliyev.Dao.impl.PercentageImplDao;
 import Shahin_Aliyev.beans.Account;
 import Shahin_Aliyev.beans.Customer;
+import Shahin_Aliyev.beans.Percentage;
 import Shahin_Aliyev.beans.TypeOfAccount;
 
-public class EmployerUtil {
+import java.sql.SQLOutput;
 
-    public static Account accecptNewAccount(Account account) {
+public class EmployerUtil {
+      IbanImplDao ibanImplDao;
+      PercentageImplDao percentageImplDao;
+      AccountImplDao accountImplDao;
+    public   Account accecptNewAccount(Account account) {
+        System.out.println("Test Called");
         if(checkAccount(account)!=null)
         {
             return account;
@@ -21,7 +27,7 @@ public class EmployerUtil {
         }
 
     }
-    public static Account checkAccount(Account account) {
+    public  Account checkAccount(Account account) {
 
         if(account.getCustomerAccount()==null || account.getTypeOfAccount()==null
                 || account.getNumberOfAccount().trim().isEmpty())
@@ -35,7 +41,7 @@ public class EmployerUtil {
 
 
     }
-    public static Account checkAccountBType(Account account) {
+    public   Account checkAccountBType(Account account) {
         if(account.getTypeOfAccount()==TypeOfAccount.Regular)
         {
             return account;
@@ -45,7 +51,7 @@ public class EmployerUtil {
             return checkSavingAndInternatinolAccount(account);
         }
     }
-    public static Account checkSavingAndInternatinolAccount(Account account) {
+    public   Account checkSavingAndInternatinolAccount(Account account) {
         if(account.getTypeOfAccount()==TypeOfAccount.International)
         {
             return checkInternationalAccount(account);
@@ -55,10 +61,10 @@ public class EmployerUtil {
             return checkSavingAccount(account);
         }
     }
-    public  static Account checkSavingAccount(Account account) {
-        PercentageImplDao ibanImplDao=new PercentageImplDao();
+    public    Account checkSavingAccount(Account account) {
 
-        if(ibanImplDao.getInterestByAccount(account).getPercentage()==0.01) {
+
+        if(percentageImplDao.getInterestByAccount(account)==0.01) {
             return account;
         }
         else
@@ -70,11 +76,12 @@ public class EmployerUtil {
 
 
     }
-    public  static Account checkInternationalAccount(Account account) {
-        IbanImplDao ibanImplDao=new IbanImplDao();
+    public   Account checkInternationalAccount(Account account) {
+
 
         if(ibanImplDao.getIbanByAccount(account)!=null) {
-            return checkIbanNumber(account);
+            Account account1=checkIbanNumber(account);
+            return account1;
         }
         else
         {
@@ -82,8 +89,8 @@ public class EmployerUtil {
         }
 
     }
-    public static Account checkIbanNumber(Account account){
-        IbanImplDao ibanImplDao=new IbanImplDao();
+    public  Account checkIbanNumber(Account account){
+
         String iBan=ibanImplDao.getIbanByAccount(account).getIBAN();
         if(iBan.trim().isEmpty() || iBan.length()<10)
         {
@@ -95,8 +102,8 @@ public class EmployerUtil {
         }
 
     }
-    public static void lookPersonelDateOfCustomer(Customer customer) {
-        AccountImplDao accountImplDao=new AccountImplDao();
+    public  void lookPersonelDateOfCustomer(Customer customer) {
+
         System.out.println("Customer name:" + customer.getName());
         System.out.println("Customer name:" + customer.getSurname());
         System.out.println("Customer name:" + customer.getDateOfBirth());

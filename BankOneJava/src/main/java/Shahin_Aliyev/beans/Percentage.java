@@ -14,7 +14,7 @@ public class Percentage {
         AccountNumber = accountNumber;
     }
 
-    public  double getPercentage() {
+    public  Double getPercentage() {
         return percentage;
     }
 

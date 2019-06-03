@@ -3,10 +3,12 @@ package Shahin_Aliyev.Util;
 import Shahin_Aliyev.Config.Config;
 import Shahin_Aliyev.beans.*;
 
+import java.lang.reflect.Type;
 import java.time.ZonedDateTime;
 
 public class TransferUtil
 {
+    Config config;
     public boolean doTransfer(Account accountSender,Account recieverAccount,double amountOfTransfer,TypeOfTransfer typeOfTransfer){
 
         if(typeOfTransfer==TypeOfTransfer.CREDIT)
@@ -114,34 +116,43 @@ public class TransferUtil
     public  void saveTrasction(Account senderAccount,Account recieverAccount,TypeOfTransfer typeOfTransfer,Double money){
          Transaction transaction=createTransaction(senderAccount,recieverAccount,typeOfTransfer,money);
          saveDebitTransfer(recieverAccount,transaction);
-         Config.addSetsOfTransactions(transaction);
+        config.addSetsOfTransactions(transaction);
 
     }
     public  Transaction saveDebitTransfer(Account recieverAccount,Transaction transaction) {
+
         transaction.setTypeOfTransfer(TypeOfTransfer.DEBIT);
-
-        Config.addSetsOfTransactions(transaction);
-        return  transaction;
-    }
-    public  Transaction createTransaction(Account senderAccount,Account recieverAccount,TypeOfTransfer typeOfTransfer,Double money) {
-        Transaction transaction=new Transaction();
-        if(typeOfTransfer==TypeOfTransfer.WIRE)
-        {
-            transaction.setTransactionNumber(senderAccount.getCustomerAccount().getAmountOfInternationalTransfer()+"");
-
+        if(transaction.getTypeOfTransfer()==TypeOfTransfer.DEBIT) {
+            config.addSetsOfTransactions(transaction);
+            return transaction;
         }
         else
         {
-            transaction.setTransactionNumber(senderAccount.getTransactionnumber()+"");
+            return  null;
         }
+    }
+    public  Transaction createTransaction(Account senderAccount,Account recieverAccount,TypeOfTransfer typeOfTransfer,Double money) {
+        Transaction transaction=new Transaction();
+        if(recieverAccount.getTypeOfAccount()==TypeOfAccount.Regular) {
+            if (typeOfTransfer == TypeOfTransfer.WIRE) {
+                transaction.setTransactionNumber(senderAccount.getCustomerAccount().getAmountOfInternationalTransfer() + "");
 
-        transaction.setSenderAccount(senderAccount);
-        transaction.setRecivierAccount(recieverAccount);
-        transaction.setDateOfTransaction(ZonedDateTime.now());
-        transaction.setAmountOfMoney(money);
+            } else {
+                transaction.setTransactionNumber(senderAccount.getTransactionnumber() + "");
+            }
 
-        transaction.setTypeOfTransfer(typeOfTransfer);
-        return transaction;
+            transaction.setSenderAccount(senderAccount);
+            transaction.setRecivierAccount(recieverAccount);
+            transaction.setDateOfTransaction(ZonedDateTime.now());
+            transaction.setAmountOfMoney(money);
+
+            transaction.setTypeOfTransfer(typeOfTransfer);
+            return transaction;
+        }
+        else
+        {
+            return null;
+        }
     }
 
 

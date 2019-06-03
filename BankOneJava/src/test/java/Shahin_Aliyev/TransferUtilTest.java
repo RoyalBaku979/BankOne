@@ -1,286 +1,321 @@
 package Shahin_Aliyev;
 
 import Shahin_Aliyev.Config.Config;
+import Shahin_Aliyev.Util.CustomerUtil;
 import Shahin_Aliyev.Util.TransferUtil;
 import Shahin_Aliyev.beans.*;
+import org.junit.Before;
 import org.junit.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
+
+import java.time.ZonedDateTime;
 
 import static org.junit.Assert.assertEquals;
 
 public class TransferUtilTest {
-    public Account createSenderAccountforTest(TypeOfAccount typeOfAccount){
-        Account account=Account.getInstance();
-        account.setTypeOfAccount(typeOfAccount);
-        account.setAmount(1000);
-        Customer customer=Customer.getInstance();
-        customer.setAmountOfInternationalTransfer(2);
-         account.setNumberOfAccount("123456");
-        account.setCustomerAccount(customer);
-        account.setTransactionnumber(1);
-        Config.addListOfAccount(account);
-        return account;
+    private  static CustomerUtil customerUtil;
+    private static Customer customer;
+    private static Account SavingAccount;
+    private static IbanClass ibanClass;
+    private static Account RegularAccount;
+    private static Account InternationalAccount;
+    @InjectMocks
+        TransferUtil transferUtil;
+    @Before
+    public void setUp(){
+        MockitoAnnotations.initMocks(this);
+
+    customerUtil=new CustomerUtil();
+
+        customer=Customer.getInstance();
+        customer.setCustomerNumber("00001");
+        customer.setEmail("sahin.aliyeb979@gmail.com");
+        customer.setDateOfBirth("12.06.1993");
+        customer.setName("Sahin");
+        customer.setSurname("Aliyev");
+        customer.setPassword("123456");
+        customer.setAmountOfInternationalTransfer(0);
+        customer.setDateOfJoinedBank(ZonedDateTime.now());
+        SavingAccount=Account.getInstance();
+        SavingAccount.setCustomerAccount(customer);
+        SavingAccount.setTypeOfAccount(TypeOfAccount.Saving);
+        SavingAccount.setAmount(100);
+        SavingAccount.setNumberOfAccount("1200001001");
+        Percentage percentage=new Percentage();
+        percentage.setPercentage(0.01);
+        percentage.setAccountNumber(SavingAccount.getNumberOfAccount());
+
+        SavingAccount.setTransactionnumber(0);
+
+
+
+        RegularAccount=Account.getInstance();
+        RegularAccount.setTypeOfAccount(TypeOfAccount.Regular);
+        RegularAccount.setCustomerAccount(customer);
+         RegularAccount.setAmount(100);
+        RegularAccount.setNumberOfAccount("1200001002");
+        RegularAccount.setTransactionnumber(0);
+
+
+        InternationalAccount=Account.getInstance();
+        InternationalAccount.setCustomerAccount(customer);
+        InternationalAccount.setTypeOfAccount(TypeOfAccount.International);
+        InternationalAccount.setTransactionnumber(0);
+        InternationalAccount.setAmount(100);
+        InternationalAccount.setNumberOfAccount("1200001003");
+        ibanClass=new IbanClass();
+        ibanClass.setIBAN("0123456789");
+        ibanClass.setAccountNumber(InternationalAccount.getNumberOfAccount());
+
+
+        customerUtil.addInterestRate(SavingAccount);
 
     }
     @Test
-    public void createTransaction(){
-         Account senderAccount=createSenderAccountforTest(TypeOfAccount.International);
-         Account recivierAccou=createSenderAccountforTest(TypeOfAccount.International);
-        TransferUtil transferUtil=new TransferUtil();
-      Transaction transaction=transferUtil.createTransaction(senderAccount,recivierAccou, TypeOfTransfer.WIRE,100.0);
-       String result=transaction.getTransactionNumber();
-        assertEquals(result,senderAccount.getCustomerAccount().getAmountOfInternationalTransfer()+"");
+    public void createTransactionIfNotValid1(){
+
+
+
+       Transaction result=transferUtil.createTransaction(InternationalAccount,InternationalAccount, TypeOfTransfer.WIRE,100.0);
+        assertEquals(result,null);
 
     }
     @Test
-    public void saveDebitTransfer(){
-        TransferUtil transferUtil=new TransferUtil();
-        Account senderAccount=createSenderAccountforTest(TypeOfAccount.International);
-        Account recivierAccount=createSenderAccountforTest(TypeOfAccount.International);
+    public void createTransactionIfNotValid2(){
+
+
+
+        Transaction result=transferUtil.createTransaction(InternationalAccount,SavingAccount, TypeOfTransfer.WIRE,100.0);
+        assertEquals(result,null);
+
+    }
+    @Test
+    public void createTransactionIfWire(){
+
+
+
+        Transaction transaction=transferUtil.createTransaction(InternationalAccount,RegularAccount, TypeOfTransfer.WIRE,100.0);
+        String result=transaction.getTransactionNumber();
+        assertEquals(result,customer.getAmountOfInternationalTransfer()+"");
+
+    }
+    @Test
+    public void createTransactionIfDebit(){
+
+
+
+        Transaction transaction=transferUtil.createTransaction(InternationalAccount,RegularAccount, TypeOfTransfer.WIRE,100.0);
+        String result=transaction.getTransactionNumber();
+        System.out.println("result:"+result);
+        assertEquals(result,InternationalAccount.getTransactionnumber()+"");
+
+    }
+    @Test
+    public void saveDebitTransferIfDebit(){
+
         Transaction transaction=new Transaction();
-        Transaction t=transferUtil.saveDebitTransfer(recivierAccount,transaction);
+        Transaction t=transferUtil.saveDebitTransfer(RegularAccount,transaction);
         TypeOfTransfer  type=t.getTypeOfTransfer();
         assertEquals(type,TypeOfTransfer.DEBIT);
 
 
     }
-    @Test
-    public void getTransactionNumber1(){
-        TransferUtil transferUtil=new TransferUtil();
-        Account account=createSenderAccountforTest(TypeOfAccount.International);
 
-        int result=transferUtil.getTransactionNumber(account);
-        assertEquals(result,account.getCustomerAccount().getAmountOfInternationalTransfer());
+    @Test
+    public void getTransactionNumberForWireTransfer(){
+
+
+
+        int result=transferUtil.getTransactionNumber(InternationalAccount);
+        assertEquals(result,InternationalAccount.getCustomerAccount().getAmountOfInternationalTransfer());
 
 
     }
     @Test
-    public void getTransactionNumber2(){
-        TransferUtil transferUtil=new TransferUtil();
-        Account account=createSenderAccountforTest(TypeOfAccount.Regular);
+    public void getTransactionNumberIfCreditTransfer(){
 
-        int result=transferUtil.getTransactionNumber(account);
-        assertEquals(result,account.getTransactionnumber());
+
+        int result=transferUtil.getTransactionNumber(RegularAccount);
+        assertEquals(result,RegularAccount.getTransactionnumber());
 
 
     }
     @Test
-    public void debitTransfer1(){
-        TransferUtil transferUtil=new TransferUtil();
-        Account accountrevier=createSenderAccountforTest(TypeOfAccount.Regular);
+    public void debitTransferIfAccountRegular(){
 
-        boolean result=transferUtil.debitTransfer(accountrevier,100.0);
+
+        boolean result=transferUtil.debitTransfer(RegularAccount,100.0);
         assertEquals(result,true);
 
 
     }
     @Test
-    public void debitTransfer2(){
-        TransferUtil transferUtil=new TransferUtil();
-        Account accountrevier=createSenderAccountforTest(TypeOfAccount.Saving);
+    public void debitTransferIfSaving(){
 
-        boolean result=transferUtil.debitTransfer(accountrevier,100.0);
+
+        boolean result=transferUtil.debitTransfer(SavingAccount,100.0);
         assertEquals(result,false);
 
 
     }
     @Test
-    public void debitTransfer3(){
-        TransferUtil transferUtil=new TransferUtil();
-        Account accountrevier=createSenderAccountforTest(TypeOfAccount.International);
+    public void debitTransferIfInternational(){
 
-        boolean result=transferUtil.debitTransfer(accountrevier,100.0);
+        boolean result=transferUtil.debitTransfer(InternationalAccount,100.0);
         assertEquals(result,false);
 
 
     }
     @Test
-    public void doneTransfer1(){
-        TransferUtil transferUtil=new TransferUtil();
-        Account senderAccount=createSenderAccountforTest(TypeOfAccount.International);
-        Account reciverAccount=createSenderAccountforTest(TypeOfAccount.Regular);
+    public void doneTransferForWire(){
 
-        boolean result=transferUtil.doneTransfer(senderAccount,reciverAccount,100.0,TypeOfTransfer.WIRE);
+
+
+        boolean result=transferUtil.doneTransfer(InternationalAccount,RegularAccount,100.0,TypeOfTransfer.WIRE);
         assertEquals(result,true);
 
 
     }
     @Test
-    public void doneTransfer2(){
-        TransferUtil transferUtil=new TransferUtil();
-        Account senderAccount=createSenderAccountforTest(TypeOfAccount.International);
-        Account reciverAccount=createSenderAccountforTest(TypeOfAccount.Saving);
+    public void doneTransferNotCorrectForWire(){
 
-        boolean result=transferUtil.doneTransfer(senderAccount,reciverAccount,100.0,TypeOfTransfer.WIRE);
+
+        boolean result=transferUtil.doneTransfer(InternationalAccount,SavingAccount,100.0,TypeOfTransfer.WIRE);
         assertEquals(result,false);
 
 
     }
     @Test
-    public void doneTransfer3(){
-        TransferUtil transferUtil=new TransferUtil();
-        Account senderAccount=createSenderAccountforTest(TypeOfAccount.International);
-        Account reciverAccount=createSenderAccountforTest(TypeOfAccount.International);
+    public void doneTransferForWireTransfer(){
 
-        boolean result=transferUtil.doneTransfer(senderAccount,reciverAccount,100.0,TypeOfTransfer.WIRE);
+
+        boolean result=transferUtil.doneTransfer(InternationalAccount,InternationalAccount,100.0,TypeOfTransfer.WIRE);
         assertEquals(result,false);
 
 
     }
     @Test
-    public void checkAmountOfBalance1(){
-        TransferUtil transferUtil=new TransferUtil();
-        Account senderAccount=createSenderAccountforTest(TypeOfAccount.International);
-        Account reciverAccount=createSenderAccountforTest(TypeOfAccount.Regular);
-        double amount=senderAccount.getAmount();
-        boolean result=transferUtil.checkAmountOfBalance(senderAccount,reciverAccount,amount,TypeOfTransfer.WIRE);
+    public void checkAmountOfBalance(){
+
+        double amount=InternationalAccount.getAmount();
+        boolean result=transferUtil.checkAmountOfBalance(InternationalAccount,RegularAccount,amount,TypeOfTransfer.WIRE);
         assertEquals(result,true);
     }
     @Test
-    public void checkAmountOfBalance2(){
-        TransferUtil transferUtil=new TransferUtil();
-        Account senderAccount=createSenderAccountforTest(TypeOfAccount.International);
-        Account reciverAccount=createSenderAccountforTest(TypeOfAccount.Regular);
-        double amount=senderAccount.getAmount()-0.001;
-        boolean result=transferUtil.checkAmountOfBalance(senderAccount,reciverAccount,amount,TypeOfTransfer.WIRE);
+    public void checkAmountOfBalanceIfTransferAmountLess(){
+
+
+        double amount=InternationalAccount.getAmount()-0.001;
+        boolean result=transferUtil.checkAmountOfBalance(InternationalAccount,RegularAccount,amount,TypeOfTransfer.WIRE);
         assertEquals(result,true);
     }
     @Test
-    public void checkAmountOfBalance3(){
-        TransferUtil transferUtil=new TransferUtil();
-        Account senderAccount=createSenderAccountforTest(TypeOfAccount.International);
-        Account reciverAccount=createSenderAccountforTest(TypeOfAccount.Regular);
-        double amount=senderAccount.getAmount()+0.001;
-        boolean result=transferUtil.checkAmountOfBalance(senderAccount,reciverAccount,amount,TypeOfTransfer.WIRE);
+    public void checkAmountOfBalanceTransferAmountMore(){
+
+        double amount=InternationalAccount.getAmount()+0.001;
+        boolean result=transferUtil.checkAmountOfBalance(InternationalAccount,RegularAccount,amount,TypeOfTransfer.WIRE);
         assertEquals(result,false);
     }
     @Test
-    public void SavingCreditTrasnfer1(){
-        TransferUtil transferUtil=new TransferUtil();
-        Account senderAccount=createSenderAccountforTest(TypeOfAccount.Saving);
-        Account reciverAccount=createSenderAccountforTest(TypeOfAccount.Regular);
+    public void SavingCreditTrasnferIfCorrect(){
 
-        boolean result=transferUtil.savingCreditTrasnfer(senderAccount,reciverAccount,100);
+
+        boolean result=transferUtil.savingCreditTrasnfer(InternationalAccount,RegularAccount,100);
         assertEquals(result,true);
     }
     @Test
-    public void SavingCreditTrasnfer2(){
-        TransferUtil transferUtil=new TransferUtil();
-        Account senderAccount=createSenderAccountforTest(TypeOfAccount.Saving);
-        Account reciverAccount=createSenderAccountforTest(TypeOfAccount.Saving);
+    public void SavingCreditTrasnferIfAccountSaving(){
 
-        boolean result=transferUtil.savingCreditTrasnfer(senderAccount,reciverAccount,100);
+        boolean result=transferUtil.savingCreditTrasnfer(SavingAccount,SavingAccount,100);
         assertEquals(result,false);
     }
     @Test
-    public void SavingCreditTrasnfer3(){
-        TransferUtil transferUtil=new TransferUtil();
-        Account senderAccount=createSenderAccountforTest(TypeOfAccount.Saving);
-        Account reciverAccount=createSenderAccountforTest(TypeOfAccount.International);
+    public void SavingCreditTrasnferifInternationalAccount(){
 
-        boolean result=transferUtil.savingCreditTrasnfer(senderAccount,reciverAccount,100);
+
+        boolean result=transferUtil.savingCreditTrasnfer(RegularAccount,InternationalAccount,100);
         assertEquals(result,false);
     }
 
 
     @Test
     public void RegularCreditTrasnfer(){
-        TransferUtil transferUtil=new TransferUtil();
-        Account senderAccount=createSenderAccountforTest(TypeOfAccount.International);
-        Account reciverAccount=createSenderAccountforTest(TypeOfAccount.Regular);
-        boolean result=transferUtil.regularCreditTrasnfer(senderAccount,reciverAccount,100);
+
+        boolean result=transferUtil.regularCreditTrasnfer(RegularAccount,RegularAccount,100);
         assertEquals(result,true);
     }
     @Test
     public void CreditTrasnfer1(){
-        TransferUtil transferUtil=new TransferUtil();
-        Account reciverAccount=createSenderAccountforTest(TypeOfAccount.Regular);
-        Account senderAccount=createSenderAccountforTest(TypeOfAccount.International);
-        boolean result=transferUtil.creditTrasnfer(senderAccount,reciverAccount,100);
+
+        boolean result=transferUtil.creditTrasnfer(RegularAccount,InternationalAccount,100);
         assertEquals(result,false);
     }
     @Test
     public void CreditTrasnfer2(){
-        TransferUtil transferUtil=new TransferUtil();
-        Account senderAccount=createSenderAccountforTest(TypeOfAccount.Saving);
-        Account reciverAccount=createSenderAccountforTest(TypeOfAccount.Regular);
-        boolean result=transferUtil.creditTrasnfer(senderAccount,reciverAccount,100);
+
+        boolean result=transferUtil.creditTrasnfer(SavingAccount,RegularAccount,100);
         assertEquals(result,true);
     }
     @Test
     public void CreditTrasnfer3(){
-        TransferUtil transferUtil=new TransferUtil();
-        Account senderAccount=createSenderAccountforTest(TypeOfAccount.Regular);
-        Account reciverAccount=createSenderAccountforTest(TypeOfAccount.Regular);
-        boolean result=transferUtil.creditTrasnfer(senderAccount,reciverAccount,100);
+
+        boolean result=transferUtil.creditTrasnfer(RegularAccount,RegularAccount,100);
         assertEquals(result,true);
     }
     @Test
     public void WireTrasnfer1(){
-        TransferUtil transferUtil=new TransferUtil();
-        Account senderAccount=createSenderAccountforTest(TypeOfAccount.International);
-        Account reciverAccount=createSenderAccountforTest(TypeOfAccount.Regular);
 
 
-       boolean result=transferUtil.wireTransfer(senderAccount,reciverAccount,100);
+
+       boolean result=transferUtil.wireTransfer(InternationalAccount,RegularAccount,100);
         assertEquals(result,true);
     }
     @Test
     public void WireTrasnfer2(){
-        TransferUtil transferUtil=new TransferUtil();
-        Account senderAccount=createSenderAccountforTest(TypeOfAccount.Regular);
-        Account reciverAccount=createSenderAccountforTest(TypeOfAccount.Regular);
-        boolean result=transferUtil.wireTransfer(senderAccount,reciverAccount,100);
+
+        boolean result=transferUtil.wireTransfer(RegularAccount,RegularAccount,100);
         assertEquals(result,false);
     }
     @Test
     public void WireTrasnfer3(){
-        TransferUtil transferUtil=new TransferUtil();
-        Account senderAccount=createSenderAccountforTest(TypeOfAccount.Saving);
-        Account reciverAccount=createSenderAccountforTest(TypeOfAccount.Regular);
-        boolean result=transferUtil.wireTransfer(senderAccount,reciverAccount,100);
+
+        boolean result=transferUtil.wireTransfer(SavingAccount,RegularAccount,100);
         assertEquals(result,false);
     }
     @Test
     public void doTransfer1(){
-        TransferUtil transferUtil=new TransferUtil();
-        Account senderAccount=createSenderAccountforTest(TypeOfAccount.Saving);
-        Account reciverAccount=createSenderAccountforTest(TypeOfAccount.Regular);
-        boolean result=transferUtil.doTransfer(senderAccount,reciverAccount,100,TypeOfTransfer.CREDIT);
+
+        boolean result=transferUtil.doTransfer(SavingAccount,RegularAccount,100,TypeOfTransfer.CREDIT);
         assertEquals(result,true);
     }
     @Test
     public void doTransfer2(){
-        TransferUtil transferUtil=new TransferUtil();
-        Account senderAccount=createSenderAccountforTest(TypeOfAccount.International);
-        Account reciverAccount=createSenderAccountforTest(TypeOfAccount.Regular);
-        boolean result=transferUtil.doTransfer(senderAccount,reciverAccount,100,TypeOfTransfer.WIRE);
+
+        boolean result=transferUtil.doTransfer(InternationalAccount,RegularAccount,100,TypeOfTransfer.WIRE);
         assertEquals(result,true);
     }
     @Test
     public void doTransfer3(){
-        TransferUtil transferUtil=new TransferUtil();
-        Account senderAccount=createSenderAccountforTest(TypeOfAccount.International);
-        Account reciverAccount=createSenderAccountforTest(TypeOfAccount.Regular);
 
-        boolean result=transferUtil.doTransfer(senderAccount,reciverAccount,100,TypeOfTransfer.CREDIT);
+
+        boolean result=transferUtil.doTransfer(InternationalAccount,RegularAccount,100,TypeOfTransfer.CREDIT);
         assertEquals(result,false);
     }
     @Test
     public void doTransfer4(){
-        TransferUtil transferUtil=new TransferUtil();
-        Account senderAccount=createSenderAccountforTest(TypeOfAccount.Regular);
-        Account reciverAccount=createSenderAccountforTest(TypeOfAccount.Regular);
 
-        boolean result=transferUtil.doTransfer(senderAccount,reciverAccount,100,TypeOfTransfer.WIRE);
+
+        boolean result=transferUtil.doTransfer(RegularAccount,RegularAccount,100,TypeOfTransfer.WIRE);
         assertEquals(result,false);
     }
     @Test
     public void doTransfer5(){
-        TransferUtil transferUtil=new TransferUtil();
-        Account senderAccount=createSenderAccountforTest(TypeOfAccount.International);
-        Account reciverAccount=createSenderAccountforTest(TypeOfAccount.Regular);
 
-        boolean result=transferUtil.doTransfer(senderAccount,reciverAccount,100,TypeOfTransfer.DEBIT);
+
+        boolean result=transferUtil.doTransfer(InternationalAccount,RegularAccount,100,TypeOfTransfer.DEBIT);
         assertEquals(result,false);
     }
 

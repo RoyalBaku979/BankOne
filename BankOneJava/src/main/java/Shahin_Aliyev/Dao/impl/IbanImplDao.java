@@ -9,15 +9,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class IbanImplDao implements IbanInterDao {
+    Config config;
     @Override
     public List<IbanClass> getAll() {
-        return Config.getListofIbans();
+        return config.getListOfIbans1();
     }
 
     @Override
     public IbanClass getIbanByAccount(Account account) {
-        List<IbanClass>listOfIbans=Config.getListofIbans();
-        List<IbanClass>listOfIbansByTAccount=new ArrayList<>();
+        List<IbanClass>listOfIbans=config.getListOfIbans1();
         for (IbanClass iBan:listOfIbans) {
             if(iBan.getAccountNumber().equals(account.getNumberOfAccount()))
             {

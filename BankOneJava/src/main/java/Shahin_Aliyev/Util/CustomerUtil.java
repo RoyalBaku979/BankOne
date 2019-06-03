@@ -6,32 +6,36 @@ import Shahin_Aliyev.Dao.impl.CustomerImplDao;
 import Shahin_Aliyev.beans.*;
 
 public class CustomerUtil {
-    private final static String banknumber="12";
-    public static boolean sendRequest(TypeOfAccount typeOfAccount, Double amountOfMoney){
-       if(Config.getCustomer()==null)
+    EmployerUtil employerUtil;
+    AccountImplDao accountImplDao;
+    CustomerImplDao customerImplDao;
+    Config config;
+    public final static String banknumber="12";
+    public  Account sendRequest(TypeOfAccount typeOfAccount, Double amountOfMoney,Customer customer){
+       if(customer==null)
        {
            System.out.println("You should Login if you want to open Account");
-           return false;
+           return null;
        }
         Account account=Account.getInstance();
         account.setTransactionnumber(0);
-        account.setNumberOfAccount(genarateAccountNumber(Config.getCustomer()));
+        account.setNumberOfAccount(genarateAccountNumber(customer));
         account.setTypeOfAccount(typeOfAccount);
 
         account.setAmount(amountOfMoney);
-        account.setCustomerAccount(Config.getCustomer());
-        addIbanNumber(account);
+        account.setCustomerAccount(customer);
+        addIbanNumber(account,customer);
         addInterestRate(account);
        return openAccount(account);
 
     }
-    public static boolean addIbanNumber(Account account){
+    public  boolean addIbanNumber(Account account,Customer customer){
         if(account.getTypeOfAccount()==TypeOfAccount.International)
         {
             IbanClass ibanClass=new IbanClass();
             ibanClass.setAccountNumber(account.getNumberOfAccount());
-            ibanClass.setIBAN(generateIbanNumber());
-            Config.addListofIbans(ibanClass);
+            ibanClass.setIBAN(generateIbanNumber(customer));
+
             return true;
 
         }
@@ -42,13 +46,13 @@ public class CustomerUtil {
 
 
     }
-    public static boolean addInterestRate(Account account) {
+    public  boolean addInterestRate(Account account) {
         if(account.getTypeOfAccount()==TypeOfAccount.Saving)
         {
             Percentage percentage=new Percentage();
             percentage.setAccountNumber(account.getNumberOfAccount());
             percentage.setPercentage(0.01);
-            Config.setListofPercentage(percentage);
+
            return true;
         }
       else
@@ -58,46 +62,47 @@ public class CustomerUtil {
         }
 
     }
-    public static boolean openAccount(Account account){
-        if(EmployerUtil.accecptNewAccount(account)!=null)
+    public  Account openAccount(Account account){
+        if(employerUtil.accecptNewAccount(account)!=null)
         {
 
-            Config.addListOfAccount(account);
 
-            return true;
+
+            return employerUtil.accecptNewAccount(account);
 
         }
         else
         {
 
-            return false;
+            return null;
         }
 
     }
-    public  static String genarateCustomerAccountNumber(Customer customer){
-        AccountImplDao accountImplDao=new AccountImplDao();
+    public   String genarateCustomerAccountNumber(Customer customer){
+
 
             String number = accountImplDao.getAllByCustomer(customer).size()+"";
+
             int size = number.length();
             while (size < 3) {
 
                 number = "0" + number;
                 size = number.length();
             }
-            customer.setCustomerNumber(number);
+
             return number;
 
 
 
     }
-    public  static String genarateAccountNumber(Customer customer){
-
+    public   String genarateAccountNumber(Customer customer){
+        Customer customer1=customer;
         String fullNumber=banknumber+customer.getCustomerNumber()+genarateCustomerAccountNumber(customer);
         return fullNumber;
 
     }
-    public static String generateIbanNumber(){
-    Customer customer=Config.getCustomer();
+    public  String generateIbanNumber(Customer customer){
+
      String iBanNumber;
      String firstTwoLetterFromName=customer.getName().substring(0,2).toLowerCase();
       String firstTwoLetterFromSurname=customer.getSurname().substring(0,2).toLowerCase();
@@ -107,12 +112,12 @@ public class CustomerUtil {
 
 
   }
-    public static boolean loginCustomer(String email,String password){
-        CustomerImplDao customerImplDao=new CustomerImplDao();
+    public  boolean loginCustomer(String email,String password){
+
       for (Customer customer:customerImplDao.getAll()) {
           if(customer.getEmail().equalsIgnoreCase(email) && customer.getPassword().equals(password))
           {
-              Config.setCustomer(customer);
+              config.setCustomer(customer);
               return true;
 
           }

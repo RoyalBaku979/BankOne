@@ -78,20 +78,7 @@ public class Customer implements Comparable<Customer> {
         Customer.amountOfInternationalTransfer = amountOfInternationalTransfer;
     }
     public static Customer getInstance(){
-        if (instance == null)
-        {
-            //synchronized block to remove overhead
-            synchronized (Customer.class)
-            {
-                if(instance==null)
-                {
-                    // if instance is null, initialize
-                    instance = new Customer();
-                }
-
-            }
-        }
-        return instance;
+       return new Customer();
     }
 
     @Override

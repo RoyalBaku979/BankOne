@@ -1,251 +1,263 @@
 package Shahin_Aliyev;
 
 import Shahin_Aliyev.Config.Config;
+import Shahin_Aliyev.Dao.impl.AccountImplDao;
+import Shahin_Aliyev.Dao.impl.IbanImplDao;
+import Shahin_Aliyev.Dao.impl.PercentageImplDao;
+import Shahin_Aliyev.Util.CustomerUtil;
 import Shahin_Aliyev.Util.EmployerUtil;
 import Shahin_Aliyev.beans.*;
+import org.junit.Before;
 import org.junit.Test;
+import org.mockito.*;
+
+import java.time.ZonedDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
 public class EmployerUtilTest {
 
+    private static Customer customer;
+    private CustomerUtil customerUtil;
+    private static Account SavingAccount;
+    private static IbanClass ibanClass;
+    private static Account RegularAccount;
+    private static Account InternationalAccount;
+    @Mock
+    IbanImplDao ibanImplDaoMock;
+    @Mock
+    PercentageImplDao percentageImplDaoMock;
+    @Mock
+    AccountImplDao accountImplDaoMock;
 
-    public void createIban(Account account,String iban){
 
-        IbanClass ibanClass=new IbanClass();
-        ibanClass.setIBAN(iban);
-        ibanClass.setAccountNumber(account.getNumberOfAccount());
-        Config.addListofIbans(ibanClass);
-    }
-    public void createPercentage(Account account,Double percent){
+
+
+    @InjectMocks
+      EmployerUtil employerUtil;
+
+    @Before
+     public void setUp()
+    {
+        MockitoAnnotations.initMocks(this);
+
+       customerUtil=new CustomerUtil();
+        SavingAccount=Account.getInstance();
+        customer=Customer.getInstance();
+        customer.setCustomerNumber("00001");
+        customer.setEmail("sahin.aliyeb979@gmail.com");
+        customer.setDateOfBirth("12.06.1993");
+        customer.setName("Sahin");
+        customer.setSurname("Aliyev");
+      customer.setPassword("123456");
+        customer.setDateOfJoinedBank(ZonedDateTime.now());
+
+        SavingAccount.setCustomerAccount(customer);
+        SavingAccount.setTypeOfAccount(TypeOfAccount.Saving);
+
+        SavingAccount.setNumberOfAccount("1200001001");
         Percentage percentage=new Percentage();
-        percentage.setPercentage(percent);
-        percentage.setAccountNumber(account.getNumberOfAccount());
-        Config.setListofPercentage(percentage);
+        percentage.setPercentage(0.01);
+        percentage.setAccountNumber(SavingAccount.getNumberOfAccount());
+
+        SavingAccount.setTransactionnumber(0);
+
+
+
+        RegularAccount=Account.getInstance();
+        RegularAccount.setTypeOfAccount(TypeOfAccount.Regular);
+        RegularAccount.setCustomerAccount(customer);
+
+        RegularAccount.setNumberOfAccount("1200001002");
+        RegularAccount.setTransactionnumber(0);
+
+
+        InternationalAccount=Account.getInstance();
+        InternationalAccount.setCustomerAccount(customer);
+        InternationalAccount.setTypeOfAccount(TypeOfAccount.International);
+        InternationalAccount.setTransactionnumber(0);
+
+        InternationalAccount.setNumberOfAccount("1200001003");
+         ibanClass=new IbanClass();
+        ibanClass.setIBAN("0123456789");
+        ibanClass.setAccountNumber(InternationalAccount.getNumberOfAccount());
+
+
+        customerUtil.addInterestRate(SavingAccount);
+
+
+        Mockito.when(ibanImplDaoMock.getIbanByAccount(InternationalAccount)).thenReturn(ibanClass);
+        Mockito.when(percentageImplDaoMock.getInterestByAccount(SavingAccount)).thenReturn(0.01);
+        Mockito.when(ibanImplDaoMock.getIbanByAccount(null)).thenReturn(null);
+
+
+
+    }
+
+
+    @Test
+    public void CheckIbanNumberCorrect(){
+
+
+        Account result= employerUtil.checkIbanNumber(InternationalAccount);
+        assertEquals(result,InternationalAccount);
+        Mockito.verify(ibanImplDaoMock,Mockito.atLeastOnce()).getIbanByAccount(InternationalAccount);
+
     }
     @Test
-    public void CheckIbanNumber1(){
-        String iban="012345678";
-        EmployerUtil employerUtil=new EmployerUtil();
-        Account account=Account.getInstance();
-        account.setNumberOfAccount("1234567");
-        account.setTypeOfAccount(TypeOfAccount.International);
-        Config.addListOfAccount(account);
-        IbanClass ibanClass=new IbanClass();
-        ibanClass.setIBAN(iban);
-        ibanClass.setAccountNumber(account.getNumberOfAccount());
-        Config.addListofIbans(ibanClass);
+    public void CheckIbanNumberNotCorrect(){
+         ibanClass.setIBAN("123456");
+        Account result= employerUtil.checkIbanNumber(InternationalAccount);
+        assertEquals(result,null);
+        Mockito.verify(ibanImplDaoMock,Mockito.atLeastOnce()).getIbanByAccount(InternationalAccount);
 
-     Account result= employerUtil.checkIbanNumber(account);
+    }
+    @Test
+    public void CheckInternationalAccount(){
+
+
+
+        Account result= employerUtil.checkInternationalAccount(InternationalAccount);
+        assertEquals(result,InternationalAccount);
+        Mockito.verify(ibanImplDaoMock,Mockito.atLeastOnce()).getIbanByAccount(InternationalAccount);
+
+
+    }
+    @Test
+    public void CheckInternationalAccountIfNull(){
+
+        Account result= employerUtil.checkInternationalAccount(null);
+        assertEquals(result,null);
+        Mockito.verify(ibanImplDaoMock,Mockito.atLeastOnce()).getIbanByAccount(null);
+
+    }
+    @Test
+    public void CheckInternationalAccountIfIbanNumberNotValid(){
+      ibanClass.setIBAN("12345");
+        Account result= employerUtil.checkInternationalAccount(InternationalAccount);
+        assertEquals(result,null);
+        Mockito.verify(ibanImplDaoMock,Mockito.atLeastOnce()).getIbanByAccount(InternationalAccount);
+
+    }
+    @Test
+    public void CheckSavingAccountIfValid(){
+
+
+
+        Account result= employerUtil.checkSavingAccount(SavingAccount);
+        assertEquals(result,SavingAccount);
+        Mockito.verify(percentageImplDaoMock,Mockito.atLeastOnce()).getInterestByAccount(SavingAccount);
+
+    }
+    @Test
+    public void CheckSavingAccountIfNotValid(){
+
+
+        Mockito.when(percentageImplDaoMock.getInterestByAccount(SavingAccount)).thenReturn(0.03);
+        Account result= employerUtil.checkSavingAccount(SavingAccount);
+        assertEquals(result,null);
+        Mockito.verify(percentageImplDaoMock,Mockito.atLeastOnce()).getInterestByAccount(SavingAccount);
+    }
+
+   @Test
+    public void checkSavingAndInternatinolAccountIfSaving(){
+
+
+        Account result= employerUtil.checkSavingAndInternatinolAccount(SavingAccount);
+        assertEquals(result,SavingAccount);
+       Mockito.verify(percentageImplDaoMock,Mockito.atLeastOnce()).getInterestByAccount(SavingAccount);
+
+    }
+    @Test
+    public void checkSavingAndInternatinolAccountIfInternational(){
+
+
+        Account result= employerUtil.checkSavingAndInternatinolAccount(InternationalAccount);
+        assertEquals(result,InternationalAccount);
+        Mockito.verify(ibanImplDaoMock,Mockito.atLeastOnce()).getIbanByAccount(InternationalAccount);
+
+    }
+    @Test
+    public void checkSavingAndInternatinolAccountIfRegular(){
+
+
+        Account result= employerUtil.checkSavingAndInternatinolAccount(RegularAccount);
+        assertEquals(result,null);
+
+
+    }
+    @Test
+    public void checkAccountByTypeIfRegular(){
+
+
+        Account result= employerUtil.checkAccountBType(RegularAccount);
+        assertEquals(result,RegularAccount);
+
+    }
+    @Test
+    public void checkAccountByTypeIfInternational(){
+
+
+        Account result= employerUtil.checkAccountBType(InternationalAccount);
+        assertEquals(result,InternationalAccount);
+        Mockito.verify(ibanImplDaoMock,Mockito.atLeastOnce()).getIbanByAccount(InternationalAccount);
+
+    }
+    @Test
+    public void checkAccountByIfSaving(){
+
+
+        Account result= employerUtil.checkAccountBType(SavingAccount);
+        assertEquals(result,SavingAccount);
+        Mockito.verify(percentageImplDaoMock,Mockito.atLeastOnce()).getInterestByAccount(SavingAccount);
+
+    }
+    @Test
+    public void CheckAccountIfSaving(){
+
+        Account result= employerUtil.checkAccount(SavingAccount);
+        assertEquals(result,SavingAccount);
+        Mockito.verify(percentageImplDaoMock,Mockito.atLeastOnce()).getInterestByAccount(SavingAccount);
+    }
+    @Test
+    public void CheckAccountIfInternational(){
+
+        Account result= employerUtil.checkAccount(InternationalAccount);
+        assertEquals(result,InternationalAccount);
+        Mockito.verify(ibanImplDaoMock,Mockito.atLeastOnce()).getIbanByAccount(InternationalAccount);
+
+    }
+    @Test
+    public void CheckAccountIfRegular(){
+
+        Account result= employerUtil.checkAccount(RegularAccount);
+        assertEquals(result,RegularAccount);
+
+    }
+    @Test
+    public void CheckAccountIfRegularAccountnotCorrect(){
+         RegularAccount.setCustomerAccount(null);
+        Account result= employerUtil.checkAccount(RegularAccount);
         assertEquals(result,null);
 
     }
+
     @Test
-    public void CheckIbanNumber2(){
-        String iban="0123456789";
-        EmployerUtil employerUtil=new EmployerUtil();
-        Account account=Account.getInstance();
-        account.setNumberOfAccount("12345");
-        IbanClass ibanClass=new IbanClass();
-        ibanClass.setIBAN(iban);
-        ibanClass.setAccountNumber(account.getNumberOfAccount());
-        Config.addListofIbans(ibanClass);
-        Config.addListOfAccount(account);
-        Account result= employerUtil.checkIbanNumber(account);
-        assertEquals(result,account);
+    public void AccecptNewAccountIfInternational(){
+
+        Account result= employerUtil.checkAccount(InternationalAccount);
+        assertEquals(result,InternationalAccount);
+        Mockito.verify(ibanImplDaoMock,Mockito.atLeastOnce()).getIbanByAccount(InternationalAccount);
 
     }
     @Test
-    public void CheckInternationalAccount1(){
-        String iban="0123456789";
-        EmployerUtil employerUtil=new EmployerUtil();
-        Account account=Account.getInstance();
-        account.setNumberOfAccount("12345");
-        IbanClass ibanClass=new IbanClass();
-        ibanClass.setIBAN(iban);
-        ibanClass.setAccountNumber(account.getNumberOfAccount());
-        Config.addListofIbans(ibanClass);
-        Config.addListOfAccount(account);
-        Account result= employerUtil.checkInternationalAccount(account);
-        assertEquals(result,account);
-
-    }
-    @Test
-    public void CheckInternationalAccount2(){
-        EmployerUtil employerUtil=new EmployerUtil();
-        Account account=Account.getInstance();
-        account.setNumberOfAccount("1234");
-        Config.addListOfAccount(account);
-        Account result= employerUtil.checkInternationalAccount(account);
+    public void AccecptNewAccountifNotCorrect(){
+        RegularAccount.setNumberOfAccount(" ");
+        Account result= employerUtil.checkAccount(RegularAccount);
         assertEquals(result,null);
 
     }
-    @Test
-    public void CheckSavingAccount1(){
-
-        EmployerUtil employerUtil=new EmployerUtil();
-        Account account=Account.getInstance();
-        account.setNumberOfAccount("123456");
-        account.setTypeOfAccount(TypeOfAccount.Saving);
-        Config.addListOfAccount(account);
-        Percentage percentage=new Percentage();
-        percentage.setPercentage(0.03);
-        percentage.setAccountNumber(account.getNumberOfAccount());
-       Config.setListofPercentage(percentage);
-
-        Account result= employerUtil.checkSavingAccount(account);
-        assertEquals(result,null);
-
-    }
-
-    @Test
-    public void checkSavingAndInternatinolAccount1(){
-
-        EmployerUtil employerUtil=new EmployerUtil();
-        Account account=Account.getInstance();
-        account.setTypeOfAccount(TypeOfAccount.Saving);
-        account.setNumberOfAccount("12345");
-
-        createPercentage(account,0.01);
-        Config.addListOfAccount(account);
-        Account result= employerUtil.checkSavingAndInternatinolAccount(account);
-        assertEquals(result,account);
-
-    }
-    @Test
-    public void checkSavingAndInternatinolAccount2(){
-
-        EmployerUtil employerUtil=new EmployerUtil();
-        Account account=Account.getInstance();
-        account.setTypeOfAccount(TypeOfAccount.International);
-        account.setNumberOfAccount("12345");
-        Config.addListOfAccount(account);
-        createIban(account,"0123456789");
-        Account result= employerUtil.checkSavingAndInternatinolAccount(account);
-        assertEquals(result,account);
-
-    }
-    @Test
-    public void checkAccountBType1(){
-
-        EmployerUtil employerUtil=new EmployerUtil();
-        Account account=Account.getInstance();
-        account.setTypeOfAccount(TypeOfAccount.Regular);
-        account.setNumberOfAccount("12345");
-        Config.addListOfAccount(account);
-        createIban(account,"0123456789");
-        Account result= employerUtil.checkAccountBType(account);
-        assertEquals(result,account);
-
-    }
-    @Test
-    public void checkAccountBType2(){
-
-        EmployerUtil employerUtil=new EmployerUtil();
-        Account account=Account.getInstance();
-        account.setTypeOfAccount(TypeOfAccount.International);
-        account.setNumberOfAccount("12345");
-        Config.addListOfAccount(account);
-        createIban(account,"0123456789");
-        Account result= employerUtil.checkAccountBType(account);
-        assertEquals(result,account);
-
-    }
-    @Test
-    public void checkAccountBType3(){
-
-        EmployerUtil employerUtil=new EmployerUtil();
-        Account account=Account.getInstance();
-        account.setTypeOfAccount(TypeOfAccount.Saving);
-        account.setNumberOfAccount("12345");
-        Config.addListOfAccount(account);
-        createPercentage(account,0.01);
-        Account result= employerUtil.checkAccountBType(account);
-        assertEquals(result,account);
-
-    }
-    @Test
-    public void CheckAccount1(){
-
-        EmployerUtil employerUtil=new EmployerUtil();
-        Account account=Account.getInstance();
-        account.setTypeOfAccount(TypeOfAccount.Saving);
-        account.setCustomerAccount(Customer.getInstance());
-        account.setNumberOfAccount("12345");
-        Config.addListOfAccount(account);
-        createPercentage(account,0.01);
-        Account result= employerUtil.checkAccount(account);
-        assertEquals(result,account);
-
-    }
-    @Test
-    public void CheckAccount2(){
-
-        EmployerUtil employerUtil=new EmployerUtil();
-        Account account=Account.getInstance();
-        account.setTypeOfAccount(TypeOfAccount.Saving);
-        account.setCustomerAccount(Customer.getInstance());
-        account.setNumberOfAccount("");
-        Config.addListOfAccount(account);
-        createPercentage(account,0.01);
-        Account result= employerUtil.checkAccount(account);
-        assertEquals(result,null);
-
-    }
-    @Test
-    public void CheckAccount3(){
-
-        EmployerUtil employerUtil=new EmployerUtil();
-        Account account=Account.getInstance();
-        account.setTypeOfAccount(null);
-        account.setCustomerAccount(Customer.getInstance());
-        account.setNumberOfAccount("12345");
-        Config.addListOfAccount(account);
-        createPercentage(account,0.01);
-        Account result= employerUtil.checkAccount(account);
-        assertEquals(result,null);
-
-    }
-    @Test
-    public void CheckAccount4(){
-
-        EmployerUtil employerUtil=new EmployerUtil();
-        Account account=Account.getInstance();
-        account.setTypeOfAccount(TypeOfAccount.International);
-        account.setCustomerAccount(null);
-        account.setNumberOfAccount("12345");
-        Config.addListOfAccount(account);
-        createPercentage(account,0.01);
-        Account result= employerUtil.checkAccount(account);
-        assertEquals(result,null);
-
-    }
-    @Test
-    public void AccecptNewAccount1(){
-        EmployerUtil employerUtil=new EmployerUtil();
-        Account account=Account.getInstance();
-        account.setTypeOfAccount(TypeOfAccount.International);
-        account.setCustomerAccount(null);
-        account.setNumberOfAccount("12345");
-        Config.addListOfAccount(account);
-        createPercentage(account,0.01);
-        Account result= employerUtil.checkAccount(account);
-        assertEquals(result,null);
-
-    }
-    @Test
-    public void AccecptNewAccount2(){
-        EmployerUtil employerUtil=new EmployerUtil();
-        Account account=Account.getInstance();
-        account.setTypeOfAccount(TypeOfAccount.International);
-        account.setCustomerAccount(Customer.getInstance());
-        account.setNumberOfAccount("12345");
-        Config.addListOfAccount(account);
-        createIban(account,"0123456789");
-        Account result= employerUtil.checkAccount(account);
-        assertEquals(result,account);
-
-    }
-
 
 }

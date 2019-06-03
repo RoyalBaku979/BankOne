@@ -14,14 +14,15 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class TrasactionImplDao implements TransactionInterDao {
+    Config config;
     @Override
     public Set<Transaction> getAll() {
-        return Config.getSetsOfTransactions();
+        return config.getSetsOfTransactions();
     }
 
     @Override
     public Set<Transaction> getAllByCustomer(Customer customer) {
-       Set<Transaction> SetOfTransaction=Config.getSetsOfTransactions();
+       Set<Transaction> SetOfTransaction=config.getSetsOfTransactions();
         Set<Transaction>listOfTransactionByCustomer=new TreeSet<>();
 
         for (Transaction tr : SetOfTransaction) {
@@ -68,7 +69,7 @@ public class TrasactionImplDao implements TransactionInterDao {
     @Override
     public Set<Transaction> getAllByType(TypeOfTransfer typeOfTransfer) {
         Set<Transaction> listOfTransaction = new TreeSet<>();
-        for (Transaction tr : Config.getSetsOfTransactions()) {
+        for (Transaction tr : config.getSetsOfTransactions()) {
             if (tr.getTypeOfTransfer()==typeOfTransfer) {
                 listOfTransaction.add(tr);
             }
@@ -82,7 +83,7 @@ public class TrasactionImplDao implements TransactionInterDao {
     public Set<Transaction> getAllByHistory(ZonedDateTime startDate, ZonedDateTime endDate) {
 
         Set<Transaction> listOfTransaction = new TreeSet<>();
-        for (Transaction transaction :Config.getSetsOfTransactions()) {
+        for (Transaction transaction :config.getSetsOfTransactions()) {
             if(transaction.getDateOfTransaction().isAfter(startDate) && transaction.getDateOfTransaction().isBefore(endDate))
             {
                 listOfTransaction.add(transaction);
@@ -108,7 +109,7 @@ public class TrasactionImplDao implements TransactionInterDao {
     @Override
     public Set<Transaction> getAllByDay(ZonedDateTime day) {
         Set<Transaction> listOfTransaction = new TreeSet<>();
-        for (Transaction transaction :Config.getSetsOfTransactions()) {
+        for (Transaction transaction :config.getSetsOfTransactions()) {
             if(transaction.getDateOfTransaction().equals(day))
             {
                 listOfTransaction.add(transaction);
@@ -122,7 +123,7 @@ public class TrasactionImplDao implements TransactionInterDao {
     public Set<Transaction> getFiveHigestTransactionByAmount(double amount) {
         int i=0;
         List<Transaction> listOfTransaction = new ArrayList<>();
-        for (Transaction transaction :Config.getSetsOfTransactions()) {
+        for (Transaction transaction :config.getSetsOfTransactions()) {
 
             { if(i==5) break;
                i++;

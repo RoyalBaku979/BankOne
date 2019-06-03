@@ -10,19 +10,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PercentageImplDao implements PercentageDao {
+    Config config;
     @Override
     public List<Percentage> getAll() {
-        return Config.getListofPercentage();
+        return config.getListofPercentage1();
     }
 
     @Override
-    public Percentage getInterestByAccount(Account account) {
-        List<Percentage>listofPercentage=Config.getListofPercentage();
+    public  Double getInterestByAccount(Account account) {
+        List<Percentage>listofPercentage=config.getListofPercentage1();
         List<IbanClass>listofPercentageByTAccount=new ArrayList<>();
         for (Percentage percentage:listofPercentage) {
             if(percentage.getAccountNumber().equals(account.getNumberOfAccount()))
             {
-                return  percentage;
+                return  percentage.getPercentage();
             }
 
         }

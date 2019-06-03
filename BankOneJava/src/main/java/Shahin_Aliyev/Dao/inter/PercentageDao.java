@@ -5,8 +5,8 @@ import Shahin_Aliyev.beans.Percentage;
 
 import java.util.List;
 
-public interface PercentageDao {
+public  interface PercentageDao {
     public List<Percentage>getAll();
-    public Percentage getInterestByAccount(Account account);
+    public  Double getInterestByAccount(Account account);
 
 }

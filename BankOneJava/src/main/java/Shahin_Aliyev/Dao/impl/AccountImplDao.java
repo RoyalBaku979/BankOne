@@ -13,16 +13,20 @@ import Shahin_Aliyev.beans.TypeOfAccount;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class AccountImplDao implements AccountInterDao {
+  Config config;
     @Override
     public  List<Account> getAll() {
-       return Config.getListOfAccount();
+       return config.getListOfAccount1();
     }
 
     @Override
     public List<Account> getAllByCustomer(Customer customer) {
-       List<Account>listOfAccount=Config.getListOfAccount();
+       List<Account>listOfAccount=config.getListOfAccount1();
+
         List<Account>listOfAccountByCustomer=new ArrayList<>();
         for (Account account:listOfAccount) {
 
@@ -37,7 +41,7 @@ public class AccountImplDao implements AccountInterDao {
 
     @Override
     public List<Account> getAllByType(TypeOfAccount typeOfAccount) {
-        List<Account>listOfAccount=Config.getListOfAccount();
+        List<Account>listOfAccount=config.getListOfAccount1();
         List<Account>listOfAccountByType=new ArrayList<>();
         for (Account account:listOfAccount) {
             if(account.getTypeOfAccount().equals(typeOfAccount))
