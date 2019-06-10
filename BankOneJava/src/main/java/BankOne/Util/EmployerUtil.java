@@ -67,7 +67,7 @@ public class EmployerUtil {
     public    Account checkSavingAccount(Account account) {
 
 
-        if(percentageImplDao.getInterestByAccount(account)==0.01) {
+        if(percentageImplDao.getInterestByAccount(account).getPercentage()==0.01) {
             return account;
         }
         else

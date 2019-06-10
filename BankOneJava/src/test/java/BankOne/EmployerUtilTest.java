@@ -23,6 +23,7 @@ public class EmployerUtilTest {
     private static Account RegularAccount;
     private static Account InternationalAccount;
     private static EmployerUtil employerUtilMock;
+    private static Percentage percentage;
     @Mock
     IbanImplDao ibanImplDaoMock;
     @Mock
@@ -56,7 +57,7 @@ public class EmployerUtilTest {
         SavingAccount.setTypeOfAccount(TypeOfAccount.Saving);
 
         SavingAccount.setNumberOfAccount("1200001001");
-        Percentage percentage=new Percentage();
+         percentage=new Percentage();
         percentage.setPercentage(0.01);
         percentage.setAccountNumber(SavingAccount.getNumberOfAccount());
 
@@ -87,7 +88,7 @@ public class EmployerUtilTest {
 
 
         Mockito.when(ibanImplDaoMock.getIbanByAccount(InternationalAccount)).thenReturn(ibanClass);
-        Mockito.when(percentageImplDaoMock.getInterestByAccount(SavingAccount)).thenReturn(0.01);
+        Mockito.when(percentageImplDaoMock.getInterestByAccount(SavingAccount)).thenReturn(percentage);
         Mockito.when(ibanImplDaoMock.getIbanByAccount(null)).thenReturn(null);
 
        employerUtilMock=Mockito.spy(employerUtil);
@@ -152,8 +153,8 @@ public class EmployerUtilTest {
     @Test
     public void CheckSavingAccountIfNotValid(){
 
-
-        Mockito.when(percentageImplDaoMock.getInterestByAccount(SavingAccount)).thenReturn(0.03);
+       percentage.setPercentage(0.03);
+        Mockito.when(percentageImplDaoMock.getInterestByAccount(SavingAccount)).thenReturn(percentage);
         Account result= employerUtil.checkSavingAccount(SavingAccount);
         assertEquals(result,null);
         Mockito.verify(percentageImplDaoMock,Mockito.atLeastOnce()).getInterestByAccount(SavingAccount);

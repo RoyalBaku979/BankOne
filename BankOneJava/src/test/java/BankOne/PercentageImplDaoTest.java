@@ -58,14 +58,14 @@ public class PercentageImplDaoTest {
     @Test
     public void getPercenateByAccount(){
 
-        Double result=percentageImplDao.getInterestByAccount(account);
+        Double result=percentageImplDao.getInterestByAccount(account).getPercentage();
         Assert.assertEquals(result,percentage.getPercentage());
         Mockito.verify(config,Mockito.atLeastOnce()).getListofPercentage1();
     }
     @Test
     public void getPercenateByAccountIfNull(){
         account.setNumberOfAccount("122213123");
-        Double result=percentageImplDao.getInterestByAccount(account);
+        Percentage result=percentageImplDao.getInterestByAccount(account);
         Assert.assertEquals(result,null);
         Mockito.verify(config,Mockito.atLeastOnce()).getListofPercentage1();
     }

@@ -17,13 +17,13 @@ public class PercentageImplDao implements PercentageDao {
     }
 
     @Override
-    public  Double getInterestByAccount(Account account) {
+    public  Percentage getInterestByAccount(Account account) {
         List<Percentage>listofPercentage=getAll();
         List<IbanClass>listofPercentageByTAccount=new ArrayList<>();
         for (Percentage percentage:listofPercentage) {
             if(percentage.getAccountNumber().equals(account.getNumberOfAccount()))
             {
-                return  percentage.getPercentage();
+                return  percentage;
             }
 
         }

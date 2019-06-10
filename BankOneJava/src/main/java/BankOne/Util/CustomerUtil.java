@@ -6,6 +6,8 @@ import BankOne.Dao.impl.AccountImplDao;
 import BankOne.Dao.impl.CustomerImplDao;
 import BankOne.beans.*;
 
+import java.time.ZonedDateTime;
+
 public class CustomerUtil {
     EmployerUtil employerUtil;
     AccountImplDao accountImplDao;
@@ -22,7 +24,7 @@ public class CustomerUtil {
         account.setTransactionnumber(0);
         account.setNumberOfAccount(genarateAccountNumber(customer));
         account.setTypeOfAccount(typeOfAccount);
-
+        account.setCreateTimeAccount(ZonedDateTime.now());
         account.setAmount(amountOfMoney);
         account.setCustomerAccount(customer);
         addIbanNumber(account,customer);
@@ -54,6 +56,7 @@ public class CustomerUtil {
             Percentage percentage=new Percentage();
             percentage.setAccountNumber(account.getNumberOfAccount());
             percentage.setPercentage(0.01);
+            percentage.setInterestRateTime(ZonedDateTime.now());
 
            return true;
         }

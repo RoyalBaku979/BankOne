@@ -7,6 +7,7 @@ import java.util.List;
 
 public  interface PercentageDao {
     public List<Percentage>getAll();
-    public  Double getInterestByAccount(Account account);
+    public  Percentage getInterestByAccount(Account account);
+
 
 }

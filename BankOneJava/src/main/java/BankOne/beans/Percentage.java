@@ -1,8 +1,11 @@
 package BankOne.beans;
 
+import java.time.ZonedDateTime;
+
 public class Percentage {
     private  String AccountNumber;
     private  double percentage=0.01;
+    private ZonedDateTime InterestRateTime;
 
 
 
@@ -20,5 +23,13 @@ public class Percentage {
 
     public  void setPercentage(double percentage) {
         this.percentage = percentage;
+    }
+
+    public ZonedDateTime getInterestRateTime() {
+        return InterestRateTime;
+    }
+
+    public void setInterestRateTime(ZonedDateTime interestRateTime) {
+        InterestRateTime = interestRateTime;
     }
 }

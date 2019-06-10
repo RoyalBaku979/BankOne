@@ -5,6 +5,7 @@ import BankOne.Dao.impl.PercentageImplDao;
 import BankOne.Util.BankUtil;
 import BankOne.beans.Account;
 import BankOne.beans.Customer;
+import BankOne.beans.Percentage;
 import BankOne.beans.TypeOfAccount;
 import org.junit.Assert;
 import org.junit.Before;
@@ -51,10 +52,13 @@ private static BankUtil bankUtilMock;
           customer.setName("Sahin");
           customer.setSurname("Aliyev");
           customer.setPassword("123456");
-
+        Percentage percentage=new Percentage();
+        percentage.setInterestRateTime(ZonedDateTime.now());
+        percentage.setAccountNumber(account.getNumberOfAccount());
+        percentage.setPercentage(0.01);
          setOfCustomer.add(customer);
 
-        Mockito.when(percentageImplDao.getInterestByAccount(account)).thenReturn(0.01);
+        Mockito.when(percentageImplDao.getInterestByAccount(account)).thenReturn(percentage);
         Mockito.when(customerImplDao.getAll()).thenReturn(setOfCustomer);
            bankUtilMock = Mockito.spy(bankUtil);
     }
@@ -174,7 +178,7 @@ private static BankUtil bankUtilMock;
         account.setTypeOfAccount(TypeOfAccount.Saving);
 
 
-        double result=bankUtil.getInterestRate(account);
+        double result=bankUtil.getInterestRate(account).getPercentage();
         Assert.assertEquals(result, 0.01, 0.001);
       Mockito.verify(percentageImplDao,Mockito.atLeastOnce()).getInterestByAccount(account);
 
