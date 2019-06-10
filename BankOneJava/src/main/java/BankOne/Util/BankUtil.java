@@ -15,8 +15,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class BankUtil {
-
-     CustomerImplDao customerImplDao;
+    CustomerImplDao customerImplDao;
 public boolean createCustomer(String name, String surname, String email, String password, String dateOfBirht, ZonedDateTime dateOfJoinBank, int amountOfInternationTransfer){
     Customer customer=Customer.getInstance();
     if(name.trim().isEmpty() ||surname.trim().isEmpty() || email.trim().isEmpty() || password.trim().isEmpty()
@@ -65,14 +64,12 @@ public  Runnable interestRateProcces(List<Account>listOfSavingAccount, Percentag
     };
   return r;
 }
-
-    public  double getInterestRate(Account account,PercentageImplDao percentageImplDao) {
+public  double getInterestRate(Account account,PercentageImplDao percentageImplDao) {
 
         return percentageImplDao.getInterestByAccount(account);
 
 
     }
-
 private  boolean AddInterestRate(PercentageImplDao percentageImplDao){
 
 

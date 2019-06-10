@@ -119,9 +119,21 @@ public class TransferUtilTest {
     public void saveDebitTransferIfDebit(){
 
         Transaction transaction=new Transaction();
-        Transaction t=transferUtil.saveDebitTransfer(RegularAccount,transaction);
-        TypeOfTransfer  type=t.getTypeOfTransfer();
-        assertEquals(type,TypeOfTransfer.DEBIT);
+        transaction.setTypeOfTransfer(TypeOfTransfer.DEBIT);
+        Transaction result=transferUtil.saveDebitTransfer(RegularAccount,transaction);
+
+        assertEquals(result,transaction);
+
+
+    }
+    @Test
+    public void saveDebitTransferIfNotDebit(){
+
+        Transaction transaction=new Transaction();
+        transaction.setTypeOfTransfer(TypeOfTransfer.WIRE);
+        Transaction result=transferUtil.saveDebitTransfer(RegularAccount,transaction);
+
+        assertEquals(result,null);
 
 
     }

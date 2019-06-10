@@ -117,13 +117,14 @@ public class TransferUtil
     }
     public  void saveTrasction(Account senderAccount,Account recieverAccount,TypeOfTransfer typeOfTransfer,Double money){
          Transaction transaction=createTransaction(senderAccount,recieverAccount,typeOfTransfer,money);
+         transaction.setTypeOfTransfer(TypeOfTransfer.DEBIT);
          saveDebitTransfer(recieverAccount,transaction);
 
 
     }
     public  Transaction saveDebitTransfer(Account recieverAccount,Transaction transaction) {
 
-        transaction.setTypeOfTransfer(TypeOfTransfer.DEBIT);
+
         if(transaction.getTypeOfTransfer()==TypeOfTransfer.DEBIT) {
 
             return transaction;
@@ -147,7 +148,6 @@ public class TransferUtil
             transaction.setRecivierAccount(recieverAccount);
             transaction.setDateOfTransaction(ZonedDateTime.now());
             transaction.setAmountOfMoney(money);
-
             transaction.setTypeOfTransfer(typeOfTransfer);
             return transaction;
         }

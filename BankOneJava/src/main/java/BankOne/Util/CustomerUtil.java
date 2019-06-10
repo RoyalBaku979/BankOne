@@ -13,7 +13,7 @@ public class CustomerUtil {
     Config config;
     public final static String banknumber="12";
     public Account sendRequest(TypeOfAccount typeOfAccount, Double amountOfMoney, Customer customer){
-       if(customer==(null))
+       if(customer==null)
        {
            System.out.println("You should Login if you want to open Account");
            return null;
