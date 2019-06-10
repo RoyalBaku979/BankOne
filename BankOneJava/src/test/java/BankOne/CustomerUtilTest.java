@@ -216,7 +216,7 @@ public class CustomerUtilTest {
     }
 
     @Test
-    public void loginValidCustomer1() {
+    public void loginCustomerIfValid() {
 
 
         String email="sahin.aliyev979@gmail.com";
@@ -226,7 +226,7 @@ public class CustomerUtilTest {
         Mockito.verify(customerImplDaoMock,Mockito.atLeastOnce()).getAll();
     }
     @Test
-    public void loginCustomer2() {
+    public void loginCustomerIfPasswordNotValid() {
 
 
         String email="sahin.aliyev979@gmail.com";
@@ -236,23 +236,23 @@ public class CustomerUtilTest {
         Mockito.verify(customerImplDaoMock,Mockito.atLeastOnce()).getAll();
     }
     @Test
-    public void loginCustomer3() {
+    public void loginCustomerIfValidAndEmailUpperCase() {
 
 
-        String email="sahin.aliyev979@gmail.com";
-        String password="12345678";
-        boolean result=customerUtil.loginCustomer(email,password);
-        assertEquals(result,false);
-        Mockito.verify(customerImplDaoMock,Mockito.atLeastOnce()).getAll();
-    }
-    @Test
-    public void loginCustomer4() {
-
-
-        String email="sahin.aliyev979@gmail.com";
+        String email="Sahin.Aliyev979@gmail.com";
         String password="123456";
         boolean result=customerUtil.loginCustomer(email,password);
         assertEquals(result,true);
+        Mockito.verify(customerImplDaoMock,Mockito.atLeastOnce()).getAll();
+    }
+    @Test
+    public void loginCustomerifEmailNotValid() {
+
+
+        String email="sahin1.aliyev979@gmail.com";
+        String password="123456";
+        boolean result=customerUtil.loginCustomer(email,password);
+        assertEquals(result,false);
         Mockito.verify(customerImplDaoMock,Mockito.atLeastOnce()).getAll();
     }
 }

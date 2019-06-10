@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="62798a34-21f5-4ca4-ac67-69f12404a709" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/BankOne/Util/BankUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BankOne/Util/BankUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BankOne/Util/CustomerUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BankOne/Util/CustomerUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BankOne/Util/TransferUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BankOne/Util/TransferUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/BankOne/TransferUtilTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BankOne/TransferUtilTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/BankOne/BankUtilTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BankOne/BankUtilTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/BankOne/CustomerUtilTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BankOne/CustomerUtilTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -16,18 +15,18 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageViewManager">
-    <option name="myElementSize" value="153" />
+    <option name="myElementSize" value="51" />
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/BankOne/TransferUtilTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="124" column="39" selection-start-line="124" selection-start-column="39" selection-end-line="124" selection-end-column="39" />
+            <state relative-caret-position="261">
+              <caret line="133" column="7" lean-forward="true" selection-start-line="133" selection-start-column="7" selection-end-line="133" selection-end-column="7" />
               <folding>
                 <element signature="method#createTransactionIfNotValid1#0;class#TransferUtilTest#0" />
                 <element signature="method#createTransactionIfNotValid2#0;class#TransferUtilTest#0" />
@@ -61,6 +60,69 @@
                 <element signature="method#doTransferIfCreditTransferNotCorrect#0;class#TransferUtilTest#0" />
                 <element signature="method#doTransferIFWireTransferNotCorrct#0;class#TransferUtilTest#0" />
                 <element signature="method#doTransferDebitTransfer#0;class#TransferUtilTest#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/BankOne/Util/BankUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="55" column="70" selection-start-line="55" selection-start-column="70" selection-end-line="55" selection-end-column="70" />
+              <folding>
+                <element signature="method#createCustomer#0;class#BankUtil#0" />
+                <element signature="method#genarateCustomerNumber#0;class#BankUtil#0" />
+                <element signature="method#interestRateProcces#0;class#BankUtil#0" />
+                <element signature="method#getInterestRate#0;class#BankUtil#0" />
+                <element signature="method#AddInterestRate#0;class#BankUtil#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/BankOne/BankUtilTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="465">
+              <caret line="176" column="54" selection-start-line="176" selection-start-column="54" selection-end-line="176" selection-end-column="54" />
+              <folding>
+                <element signature="method#setup#0;class#BankUtilTest#0" />
+                <element signature="method#createCustomer#0;class#BankUtilTest#0" />
+                <element signature="method#createCustomerNameNull#0;class#BankUtilTest#0" />
+                <element signature="method#createCustomerSurnameNull#0;class#BankUtilTest#0" />
+                <element signature="method#createCustomerPasswordNull#0;class#BankUtilTest#0" />
+                <element signature="method#createCustomerEmailNull#0;class#BankUtilTest#0" />
+                <element signature="method#createCustomerWhenDateOFBitrhNull#0;class#BankUtilTest#0" />
+                <element signature="method#genarateCustomerNumber#0;class#BankUtilTest#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/BankOne/CustomerUtilTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="259">
+              <caret line="218" column="21" selection-start-line="218" selection-start-column="21" selection-end-line="218" selection-end-column="21" />
+              <folding>
+                <element signature="method#setup#0;class#CustomerUtilTest#0" />
+                <element signature="method#addIbanNumberInternationalAccount#0;class#CustomerUtilTest#0" />
+                <element signature="method#addIbanNumberSavingAccount#0;class#CustomerUtilTest#0" />
+                <element signature="method#sendRequestIfCustomerNull#0;class#CustomerUtilTest#0" />
+                <element signature="method#addIbanNumberRegularAccount#0;class#CustomerUtilTest#0" />
+                <element signature="method#addInterestRateSavingAccount#0;class#CustomerUtilTest#0" />
+                <element signature="method#addInterestRateInternational#0;class#CustomerUtilTest#0" />
+                <element signature="method#addInterestRateRegular#0;class#CustomerUtilTest#0" />
+                <element signature="method#openAccountInternational#0;class#CustomerUtilTest#0" />
+                <element signature="method#openAccountSaving#0;class#CustomerUtilTest#0" />
+                <element signature="method#genarateAccountNumber#0;class#CustomerUtilTest#0" />
+                <element signature="method#genarateCustomerNumber#0;class#CustomerUtilTest#0" />
+                <element signature="method#generateIbanNumber#0;class#CustomerUtilTest#0" />
+                <element signature="method#loginValidCustomer1#0;class#CustomerUtilTest#0" />
+                <element signature="method#loginCustomer2#0;class#CustomerUtilTest#0" />
+                <element signature="method#loginCustomer3#0;class#CustomerUtilTest#0" />
+                <element signature="method#loginCustomer4#0;class#CustomerUtilTest#0" />
               </folding>
             </state>
           </provider>
@@ -146,10 +208,13 @@
         <option value="$PROJECT_DIR$/src/test/java/Shahin_Aliyev/BankUtilTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Shahin_Aliyev/Util/CustomerUtil.java" />
         <option value="$PROJECT_DIR$/src/test/java/Shahin_Aliyev/CustomerUtilTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/BankOne/Util/BankUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/BankOne/Util/CustomerUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/BankOne/Util/TransferUtil.java" />
         <option value="$PROJECT_DIR$/src/test/java/BankOne/TransferUtilTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BankOne/Util/BankUtil.java" />
+        <option value="$PROJECT_DIR$/src/test/java/BankOne/BankUtilTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/BankOne/CustomerUtilTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/BankOne/Util/EmployerUtil.java" />
       </list>
     </option>
   </component>
@@ -295,33 +360,49 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CustomerUtilTest.sendRequestIfCustomerNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BankUtilTest.getInterestRate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BankOneEx" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Shahin_Aliyev.*" />
+          <option name="PATTERN" value="BankOne.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="Shahin_Aliyev" />
-      <option name="MAIN_CLASS_NAME" value="Shahin_Aliyev.CustomerUtilTest" />
-      <option name="METHOD_NAME" value="sendRequestIfCustomerNull" />
+      <option name="PACKAGE_NAME" value="BankOne" />
+      <option name="MAIN_CLASS_NAME" value="BankOne.BankUtilTest" />
+      <option name="METHOD_NAME" value="getInterestRate" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CustomerUtilTest.sendRequestiIfCustomerNotNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CustomerUtilTest.loginCustomerIfPasswordNotvalid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BankOneEx" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Shahin_Aliyev.*" />
+          <option name="PATTERN" value="BankOne.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="Shahin_Aliyev" />
-      <option name="MAIN_CLASS_NAME" value="Shahin_Aliyev.CustomerUtilTest" />
-      <option name="METHOD_NAME" value="sendRequestiIfCustomerNotNull" />
+      <option name="PACKAGE_NAME" value="BankOne" />
+      <option name="MAIN_CLASS_NAME" value="BankOne.CustomerUtilTest" />
+      <option name="METHOD_NAME" value="loginCustomerIfPasswordNotvalid" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CustomerUtilTest.loginCustomerifEmailNotValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BankOneEx" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="BankOne.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="BankOne" />
+      <option name="MAIN_CLASS_NAME" value="BankOne.CustomerUtilTest" />
+      <option name="METHOD_NAME" value="loginCustomerifEmailNotValid" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -337,22 +418,6 @@
       </extension>
       <option name="PACKAGE_NAME" value="Shahin_Aliyev" />
       <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TransferUtilTest.saveDebitTransferIfDebit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="BankOneEx" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="BankOne.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="BankOne" />
-      <option name="MAIN_CLASS_NAME" value="BankOne.TransferUtilTest" />
-      <option name="METHOD_NAME" value="saveDebitTransferIfDebit" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -376,10 +441,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.BankOne in BankOneEx" />
+        <item itemvalue="JUnit.CustomerUtilTest.loginCustomerifEmailNotValid" />
+        <item itemvalue="JUnit.CustomerUtilTest.loginCustomerIfPasswordNotvalid" />
+        <item itemvalue="JUnit.BankUtilTest.getInterestRate" />
         <item itemvalue="JUnit.TransferUtilTest.saveDebitTransferIfNotDebit" />
-        <item itemvalue="JUnit.TransferUtilTest.saveDebitTransferIfDebit" />
-        <item itemvalue="JUnit.CustomerUtilTest.sendRequestiIfCustomerNotNull" />
-        <item itemvalue="JUnit.CustomerUtilTest.sendRequestIfCustomerNull" />
       </list>
     </recent_temporary>
   </component>
@@ -407,50 +472,50 @@
       <workItem from="1559564144621" duration="1870000" />
       <workItem from="1560095192266" duration="17997000" />
       <workItem from="1560113932623" duration="28000" />
-      <workItem from="1560125153720" duration="792000" />
+      <workItem from="1560125153720" duration="1684000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CustomerUtilTest_sendRequestiIfCustomerNotNull - 2019.06.09 at 22h 24m 37s.xml">
-      <configuration name="CustomerUtilTest.sendRequestiIfCustomerNotNull" configurationId="JUnit" />
+    <history-entry file="TransferUtilTest_saveDebitTransferIfDebit - 2019.06.10 at 02h 19m 14s.xml">
+      <configuration name="TransferUtilTest.saveDebitTransferIfDebit" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CustomerUtilTest_sendRequestiIfCustomerNotNull - 2019.06.09 at 22h 25m 18s.xml">
-      <configuration name="CustomerUtilTest.sendRequestiIfCustomerNotNull" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Shahin_Aliyev_in_BankOneEx - 2019.06.09 at 22h 26m 54s.xml">
-      <configuration name="Shahin_Aliyev in BankOneEx" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CustomerUtilTest_sendRequestIfCustomerNull - 2019.06.09 at 22h 27m 39s.xml">
-      <configuration name="CustomerUtilTest.sendRequestIfCustomerNull" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Shahin_Aliyev_in_BankOneEx - 2019.06.09 at 22h 27m 49s.xml">
-      <configuration name="Shahin_Aliyev in BankOneEx" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CustomerUtilTest_sendRequestiIfCustomerNotNull - 2019.06.09 at 22h 28m 20s.xml">
-      <configuration name="CustomerUtilTest.sendRequestiIfCustomerNotNull" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CustomerUtilTest_sendRequestiIfCustomerNotNull - 2019.06.09 at 22h 41m 05s.xml">
-      <configuration name="CustomerUtilTest.sendRequestiIfCustomerNotNull" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CustomerUtilTest_sendRequestiIfCustomerNotNull - 2019.06.09 at 22h 44m 59s.xml">
-      <configuration name="CustomerUtilTest.sendRequestiIfCustomerNotNull" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BankOne_in_BankOneEx - 2019.06.09 at 22h 59m 09s.xml">
+    <history-entry file="BankOne_in_BankOneEx - 2019.06.10 at 02h 19m 29s.xml">
       <configuration name="BankOne in BankOneEx" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BankOne_in_BankOneEx - 2019.06.10 at 02h 14m 09s.xml">
+    <history-entry file="TransferUtilTest_saveDebitTransferIfNotDebit - 2019.06.10 at 02h 20m 05s.xml">
+      <configuration name="TransferUtilTest.saveDebitTransferIfNotDebit" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BankOne_in_BankOneEx - 2019.06.10 at 02h 20m 14s.xml">
+      <configuration name="BankOne in BankOneEx" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BankUtilTest_getInterestRate - 2019.06.10 at 02h 26m 23s.xml">
+      <configuration name="BankUtilTest.getInterestRate" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BankOne_in_BankOneEx - 2019.06.10 at 02h 26m 33s.xml">
+      <configuration name="BankOne in BankOneEx" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CustomerUtilTest_loginCustomerIfPasswordNotvalid - 2019.06.10 at 02h 29m 50s.xml">
+      <configuration name="CustomerUtilTest.loginCustomerIfPasswordNotvalid" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CustomerUtilTest_loginCustomerifEmailNotValid - 2019.06.10 at 02h 30m 51s.xml">
+      <configuration name="CustomerUtilTest.loginCustomerifEmailNotValid" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BankOne_in_BankOneEx - 2019.06.10 at 02h 33m 14s.xml">
+      <configuration name="BankOne in BankOneEx" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BankOne_in_BankOneEx - 2019.06.10 at 02h 33m 57s.xml">
       <configuration name="BankOne in BankOneEx" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112539000" />
+    <option name="totallyTimeSpent" value="113431000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30936995" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.30936995" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -480,7 +545,7 @@
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Database" order="8" />
-      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.3294606" />
+      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.18820679" />
     </layout>
     <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30936995" />
@@ -556,7 +621,7 @@
       <FILTER>Shahin_Aliyev.Util.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/BankOneEx$All_in_BankOneEx.ic" NAME="All in BankOneEx Coverage Results" MODIFIED="1558825845302" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/BankOneEx$BankOne_in_BankOneEx.ic" NAME="BankOne in BankOneEx Coverage Results" MODIFIED="1560126009452" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/BankOneEx$BankOne_in_BankOneEx.ic" NAME="BankOne in BankOneEx Coverage Results" MODIFIED="1560126832694" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>BankOne.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/BankOneEx$CustomerImplDaoTest.ic" NAME="CustomerImplDaoTest Coverage Results" MODIFIED="1559529640049" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -564,13 +629,6 @@
     </SUITE>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/src.zip!/java/lang/reflect/InvocationTargetException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="71" selection-start-line="71" selection-end-line="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/src.zip!/java/lang/ReflectiveOperationException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="265">
@@ -707,65 +765,10 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/BankOne/beans/Account.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/Shahin_Aliyev/CustomerUtilTest.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/Shahin_Aliyev/BankUtilTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/BankOne/Util/BankUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
-          <folding>
-            <element signature="method#createCustomer#0;class#BankUtil#0" />
-            <element signature="method#genarateCustomerNumber#0;class#BankUtil#0" />
-            <element signature="method#interestRateProcces#0;class#BankUtil#0" />
-            <element signature="method#getInterestRate#0;class#BankUtil#0" />
-            <element signature="method#AddInterestRate#0;class#BankUtil#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BankOne/Util/CustomerUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="14" column="100" selection-start-line="14" selection-start-column="100" selection-end-line="14" selection-end-column="100" />
-          <folding>
-            <element signature="method#sendRequest#0;class#CustomerUtil#0" />
-            <element signature="method#addIbanNumber#0;class#CustomerUtil#0" />
-            <element signature="method#addInterestRate#0;class#CustomerUtil#0" />
-            <element signature="method#openAccount#0;class#CustomerUtil#0" />
-            <element signature="method#genarateCustomerAccountNumber#0;class#CustomerUtil#0" />
-            <element signature="method#genarateAccountNumber#0;class#CustomerUtil#0" />
-            <element signature="method#generateIbanNumber#0;class#CustomerUtil#0" />
-            <element signature="method#loginCustomer#0;class#CustomerUtil#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/BankOne/Util/EmployerUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="method#accecptNewAccount#0;class#EmployerUtil#0" />
-            <element signature="method#checkAccount#0;class#EmployerUtil#0" />
-            <element signature="method#checkAccountBType#0;class#EmployerUtil#0" />
-            <element signature="method#checkSavingAndInternatinolAccount#0;class#EmployerUtil#0" />
-            <element signature="method#checkSavingAccount#0;class#EmployerUtil#0" />
-            <element signature="method#checkInternationalAccount#0;class#EmployerUtil#0" />
-            <element signature="method#checkIbanNumber#0;class#EmployerUtil#0" />
-            <element signature="method#lookPersonelDateOfCustomer#0;class#EmployerUtil#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/BankOne/PercentageImplDaoTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="14">
           <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/BankOne/BankUtilTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-216">
-          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -789,10 +792,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BankOne/Util/BankUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="55" column="70" selection-start-line="55" selection-start-column="70" selection-end-line="55" selection-end-column="70" />
+          <folding>
+            <element signature="method#createCustomer#0;class#BankUtil#0" />
+            <element signature="method#genarateCustomerNumber#0;class#BankUtil#0" />
+            <element signature="method#interestRateProcces#0;class#BankUtil#0" />
+            <element signature="method#getInterestRate#0;class#BankUtil#0" />
+            <element signature="method#AddInterestRate#0;class#BankUtil#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/BankOne/TransferUtilTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="124" column="39" selection-start-line="124" selection-start-column="39" selection-end-line="124" selection-end-column="39" />
+        <state relative-caret-position="261">
+          <caret line="133" column="7" lean-forward="true" selection-start-line="133" selection-start-column="7" selection-end-line="133" selection-end-column="7" />
           <folding>
             <element signature="method#createTransactionIfNotValid1#0;class#TransferUtilTest#0" />
             <element signature="method#createTransactionIfNotValid2#0;class#TransferUtilTest#0" />
@@ -826,6 +843,82 @@
             <element signature="method#doTransferIfCreditTransferNotCorrect#0;class#TransferUtilTest#0" />
             <element signature="method#doTransferIFWireTransferNotCorrct#0;class#TransferUtilTest#0" />
             <element signature="method#doTransferDebitTransfer#0;class#TransferUtilTest#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/BankOne/CustomerUtilTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="218" column="21" selection-start-line="218" selection-start-column="21" selection-end-line="218" selection-end-column="21" />
+          <folding>
+            <element signature="method#setup#0;class#CustomerUtilTest#0" />
+            <element signature="method#addIbanNumberInternationalAccount#0;class#CustomerUtilTest#0" />
+            <element signature="method#addIbanNumberSavingAccount#0;class#CustomerUtilTest#0" />
+            <element signature="method#sendRequestIfCustomerNull#0;class#CustomerUtilTest#0" />
+            <element signature="method#addIbanNumberRegularAccount#0;class#CustomerUtilTest#0" />
+            <element signature="method#addInterestRateSavingAccount#0;class#CustomerUtilTest#0" />
+            <element signature="method#addInterestRateInternational#0;class#CustomerUtilTest#0" />
+            <element signature="method#addInterestRateRegular#0;class#CustomerUtilTest#0" />
+            <element signature="method#openAccountInternational#0;class#CustomerUtilTest#0" />
+            <element signature="method#openAccountSaving#0;class#CustomerUtilTest#0" />
+            <element signature="method#genarateAccountNumber#0;class#CustomerUtilTest#0" />
+            <element signature="method#genarateCustomerNumber#0;class#CustomerUtilTest#0" />
+            <element signature="method#generateIbanNumber#0;class#CustomerUtilTest#0" />
+            <element signature="method#loginValidCustomer1#0;class#CustomerUtilTest#0" />
+            <element signature="method#loginCustomer2#0;class#CustomerUtilTest#0" />
+            <element signature="method#loginCustomer3#0;class#CustomerUtilTest#0" />
+            <element signature="method#loginCustomer4#0;class#CustomerUtilTest#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BankOne/Util/EmployerUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="118" column="5" lean-forward="true" selection-start-line="107" selection-start-column="3" selection-end-line="118" selection-end-column="5" />
+          <folding>
+            <element signature="method#accecptNewAccount#0;class#EmployerUtil#0" />
+            <element signature="method#checkAccount#0;class#EmployerUtil#0" />
+            <element signature="method#checkAccountBType#0;class#EmployerUtil#0" />
+            <element signature="method#checkSavingAndInternatinolAccount#0;class#EmployerUtil#0" />
+            <element signature="method#checkSavingAccount#0;class#EmployerUtil#0" />
+            <element signature="method#checkInternationalAccount#0;class#EmployerUtil#0" />
+            <element signature="method#checkIbanNumber#0;class#EmployerUtil#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/BankOne/Util/CustomerUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="116" column="23" lean-forward="true" selection-start-line="116" selection-start-column="23" selection-end-line="116" selection-end-column="23" />
+          <folding>
+            <element signature="method#sendRequest#0;class#CustomerUtil#0" />
+            <element signature="method#addIbanNumber#0;class#CustomerUtil#0" />
+            <element signature="method#addInterestRate#0;class#CustomerUtil#0" />
+            <element signature="method#openAccount#0;class#CustomerUtil#0" />
+            <element signature="method#genarateCustomerAccountNumber#0;class#CustomerUtil#0" />
+            <element signature="method#genarateAccountNumber#0;class#CustomerUtil#0" />
+            <element signature="method#generateIbanNumber#0;class#CustomerUtil#0" />
+            <element signature="method#loginCustomer#0;class#CustomerUtil#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/BankOne/BankUtilTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="176" column="54" selection-start-line="176" selection-start-column="54" selection-end-line="176" selection-end-column="54" />
+          <folding>
+            <element signature="method#setup#0;class#BankUtilTest#0" />
+            <element signature="method#createCustomer#0;class#BankUtilTest#0" />
+            <element signature="method#createCustomerNameNull#0;class#BankUtilTest#0" />
+            <element signature="method#createCustomerSurnameNull#0;class#BankUtilTest#0" />
+            <element signature="method#createCustomerPasswordNull#0;class#BankUtilTest#0" />
+            <element signature="method#createCustomerEmailNull#0;class#BankUtilTest#0" />
+            <element signature="method#createCustomerWhenDateOFBitrhNull#0;class#BankUtilTest#0" />
+            <element signature="method#genarateCustomerNumber#0;class#BankUtilTest#0" />
           </folding>
         </state>
       </provider>

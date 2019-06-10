@@ -174,7 +174,7 @@ private static BankUtil bankUtilMock;
         account.setTypeOfAccount(TypeOfAccount.Saving);
 
 
-        double result=bankUtil.getInterestRate(account,percentageImplDao);
+        double result=bankUtil.getInterestRate(account);
         Assert.assertEquals(result, 0.01, 0.001);
       Mockito.verify(percentageImplDao,Mockito.atLeastOnce()).getInterestByAccount(account);
 

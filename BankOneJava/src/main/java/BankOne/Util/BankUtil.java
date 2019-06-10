@@ -16,6 +16,8 @@ import java.util.concurrent.TimeUnit;
 
 public class BankUtil {
     CustomerImplDao customerImplDao;
+    AccountImplDao accountImplDao;
+    PercentageImplDao percentageImplDao;
 public boolean createCustomer(String name, String surname, String email, String password, String dateOfBirht, ZonedDateTime dateOfJoinBank, int amountOfInternationTransfer){
     Customer customer=Customer.getInstance();
     if(name.trim().isEmpty() ||surname.trim().isEmpty() || email.trim().isEmpty() || password.trim().isEmpty()
@@ -51,30 +53,30 @@ public  String genarateCustomerNumber() {
     return number;
 
 }
-public  Runnable interestRateProcces(List<Account>listOfSavingAccount, PercentageImplDao percentageImplDao){
+public  Runnable interestRateProcces(List<Account>listOfSavingAccount){
 
     Runnable r=new Runnable() {
         @Override
         public void run() {
             for (Account savingAccount:listOfSavingAccount) {
-                savingAccount.setAmount(savingAccount.getAmount()+savingAccount.getAmount()*getInterestRate(savingAccount,percentageImplDao));
+                savingAccount.setAmount(savingAccount.getAmount()+savingAccount.getAmount()*getInterestRate(savingAccount));
 
             }
         }
     };
   return r;
 }
-public  double getInterestRate(Account account,PercentageImplDao percentageImplDao) {
+public  double getInterestRate(Account account) {
 
         return percentageImplDao.getInterestByAccount(account);
 
 
     }
-private  boolean AddInterestRate(PercentageImplDao percentageImplDao){
+private  boolean AddInterestRate(){
 
 
    try {
-       Runnable r=interestRateProcces(new AccountImplDao().getAllByType(TypeOfAccount.Saving),percentageImplDao );
+       Runnable r=interestRateProcces(accountImplDao.getAllByType(TypeOfAccount.Saving));
        ScheduledExecutorService executor = Executors.newScheduledThreadPool ( 1 );
        executor.scheduleAtFixedRate(r,0L,1L, TimeUnit.MINUTES);
    }
