@@ -16,7 +16,7 @@ public class TrasactionImplDao implements TransactionInterDao {
     public List<Transaction> getAll() {
         return config.getSetsOfTransactions();
     }
-
+   //  Trans sd=new sad
     @Override
     public List<Transaction> getAllByCustomer(Customer customer) {
        List<Transaction> SetOfTransaction=getAll();

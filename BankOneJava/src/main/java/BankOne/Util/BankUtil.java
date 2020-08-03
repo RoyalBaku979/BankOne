@@ -22,67 +22,66 @@ public class BankUtil {
     CustomerImplDao customerImplDao;
     AccountImplDao accountImplDao;
     PercentageImplDao percentageImplDao;
-public boolean createCustomer(String name, String surname, String email, String password, String dateOfBirht, ZonedDateTime dateOfJoinBank, int amountOfInternationTransfer){
-    Customer customer=Customer.getInstance();
-    if(name.trim().isEmpty() ||surname.trim().isEmpty() || email.trim().isEmpty() || password.trim().isEmpty()
-   || dateOfBirht.trim().isEmpty())
-    {
 
-        return false;
+    public boolean createCustomer(String name, String surname, String email, String password, String dateOfBirht, ZonedDateTime dateOfJoinBank, int amountOfInternationTransfer) {
+        Customer customer = Customer.getInstance();
+        if (name.trim().isEmpty() || surname.trim().isEmpty() || email.trim().isEmpty() || password.trim().isEmpty()
+                || dateOfBirht.trim().isEmpty()) {
+
+            return false;
+        } else {
+
+            customer.setDateOfBirth(dateOfBirht);
+            customer.setDateOfJoinedBank(ZonedDateTime.now());
+            customer.setEmail(email);
+            customer.setName(name);
+            customer.setSurname(surname);
+            customer.setPassword(password);
+            customer.setAmountOfInternationalTransfer(0);
+            customer.setCustomerNumber(genarateCustomerNumber());
+            return true;
+        }
+
     }
-    else {
 
-        customer.setDateOfBirth(dateOfBirht);
-        customer.setDateOfJoinedBank(ZonedDateTime.now());
-        customer.setEmail(email);
-        customer.setName(name);
-        customer.setSurname(surname);
-        customer.setPassword(password);
-        customer.setAmountOfInternationalTransfer(0);
-        customer.setCustomerNumber(genarateCustomerNumber());
-        return true;
-       }
+    public String genarateCustomerNumber() {
+        Set<Customer> listofCustomer = customerImplDao.getAll();
+        String number = listofCustomer.size() + "";
+        int size = number.length();
+        while (size < 5) {
+            number = "0" + number;
+            size = number.length();
+        }
 
-}
-public  String genarateCustomerNumber() {
-      Set<Customer>listofCustomer=customerImplDao.getAll();
-      String number=listofCustomer.size()+"";
-       int size= number.length();
-       while(size<5)
-       {
-           number="0"+number;
-           size= number.length();
-       }
+        return number;
 
-    return number;
+    }
 
-}
-
-public Percentage getInterestRate(Account account) {
+    public Percentage getInterestRate(Account account) {
 
         return percentageImplDao.getInterestByAccount(account);
 
 
     }
-public boolean addInterestRate(){
-      double minuteInterestPaid ;
-      double totalAmount;
-    List<Account>listOfSavingAccount=accountImplDao.getAllByType(TypeOfAccount.Saving);
 
-    ZonedDateTime now=ZonedDateTime.now();
-      for (Account account:listOfSavingAccount) {
-          totalAmount=account.getAmount();
-          long minute=ChronoUnit.MINUTES.between(getInterestRate(account).getInterestRateTime(),now);
-        for(int i=0;i<=minute;i++)
-        {
-            minuteInterestPaid = totalAmount * getInterestRate(account).getPercentage();
-            totalAmount += minuteInterestPaid;
+    public boolean addInterestRate() {
+        double minuteInterestPaid;
+        double totalAmount;
+        List<Account> listOfSavingAccount = accountImplDao.getAllByType(TypeOfAccount.Saving);
+
+        ZonedDateTime now = ZonedDateTime.now();
+        for (Account account : listOfSavingAccount) {
+            totalAmount = account.getAmount();
+            long minute = ChronoUnit.MINUTES.between(getInterestRate(account).getInterestRateTime(), now);
+            for (int i = 0; i <= minute; i++) {
+                minuteInterestPaid = totalAmount * getInterestRate(account).getPercentage();
+                totalAmount += minuteInterestPaid;
+            }
+            account.setAmount(totalAmount);
+            getInterestRate(account).setInterestRateTime(now);
         }
-          account.setAmount(totalAmount);
-          getInterestRate(account).setInterestRateTime(now);
-      }
-  return true;
-  }
+        return true;
+    }
 
     //public  Runnable interestRateProcces(List<Account>listOfSavingAccount){
 //
